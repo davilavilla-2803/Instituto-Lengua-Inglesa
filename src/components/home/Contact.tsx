@@ -20,7 +20,7 @@ export default function Contact() {
                         <div className="p-12 lg:p-16 bg-linear-to-br from-brandPrimary to-rose-400 text-white flex flex-col justify-center">
                             <h3 className="text-4xl font-bold mb-6">¿Damos el primer paso?</h3>
                             <p className="text-lg opacity-90 mb-10 text-balance">
-                                Comienza tu viaje con el idioma inglés hoy mismo. Escríbenos para consultar horarios, aranceles o agendar una entrevista de nivelación sin cargo.
+                                Comenzá tu viaje con el idioma inglés hoy mismo. Escribinos para consultar horarios, aranceles o agendar una entrevista de nivelación sin cargo.
                             </p>
 
                             <div className="space-y-6">
@@ -67,7 +67,7 @@ export default function Contact() {
                                         id="message"
                                         rows={4}
                                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brandPrimary focus:border-brandPrimary transition-colors resize-none"
-                                        placeholder="Cuéntanos cuáles son tus objetivos..."
+                                        placeholder="Contanos cuáles son tus objetivos..."
                                     ></textarea>
                                 </div>
 

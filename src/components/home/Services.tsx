@@ -14,7 +14,7 @@ const courses = [
         icon: <Mic2 size={32} className="text-brandPrimary" />,
         title: "Cursos de Speaking",
         target: "Jóvenes y adultos",
-        description: "Pierde el miedo a hablar. Encuentros conversacionales dinámicos centrados 100% en la fluidez, la pronunciación correcta y la confianza al expresarte.",
+        description: "Perdé el miedo a hablar. Encuentros conversacionales dinámicos centrados 100% en la fluidez, la pronunciación correcta y la confianza al expresarte.",
     },
     {
         icon: <GraduationCap size={32} className="text-brandPrimary" />,
@@ -37,7 +37,7 @@ export default function Services() {
 
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <h2 className="text-sm font-bold tracking-wider text-brandPrimary uppercase mb-3">Nuestra Oferta</h2>
-                    <h3 className="text-4xl md:text-5xl font-bold text-brandSecondary mb-6">Elige cómo quieres aprender</h3>
+                    <h3 className="text-4xl md:text-5xl font-bold text-brandSecondary mb-6">Elegí cómo querés aprender</h3>
                     <p className="text-lg text-gray-600">
                         Cada estudiante es un mundo. Por eso, ofrecemos distintas capacitaciones adaptadas a tu nivel, edad y objetivo principal.
                     </p>

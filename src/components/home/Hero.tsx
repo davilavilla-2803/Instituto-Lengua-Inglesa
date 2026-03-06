@@ -25,7 +25,7 @@ export default function Hero() {
                             Domina el inglés con <span className="text-brandPrimary">confianza</span> y de forma dinámica
                         </h1>
                         <p className="text-lg lg:text-xl text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0 text-balance">
-                            Cursos diseñados para ti, desde niveles básicos hasta certificaciones internacionales. Aprende a comunicarte sin barreras con una metodología moderna.
+                            Cursos diseñados para vos, desde niveles básicos hasta certificaciones internacionales. Aprendé a comunicarte sin barreras con una metodología moderna.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

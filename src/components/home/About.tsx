@@ -45,7 +45,7 @@ export default function About() {
                                 Soy <strong className="text-brandSecondary">Profesora y Licenciada en Lengua Inglesa</strong>, apasionada por los viajes, la música, la comida y la naturaleza.
                             </p>
                             <p>
-                                Desde <strong>Buenos Aires, Argentina al mundo</strong>, mi misión es transformar la forma en la que aprendes inglés. Creo en un aprendizaje dinámico que no solo te prepare para un examen, sino para la vida real, para viajar y para conectar con personas de todo el planeta.
+                                Desde <strong>Buenos Aires, Argentina al mundo</strong>, mi misión es transformar la forma en la que aprendés inglés. Creo en un aprendizaje dinámico que no solo te prepare para un examen, sino para la vida real, para viajar y para conectar con personas de todo el planeta.
                             </p>
                             <p>
                                 Mi metodología se basa en la comunicación activa, materiales auténticos y un ambiente libre de presiones donde equivocarse es parte del proceso hacia el éxito.
