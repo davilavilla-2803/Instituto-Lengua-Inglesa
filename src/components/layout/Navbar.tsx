@@ -48,6 +48,8 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-600 hover:text-brandPrimary focus:outline-none"
+              aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -58,7 +60,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white border-b border-gray-100 shadow-xl absolute w-full left-0">
-          <div className="px-4 pt-2 pb-6 space-y-2">
+          <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -69,6 +71,13 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+            <a
+              href="#contacto"
+              onClick={() => setIsOpen(false)}
+              className="block mt-2 px-3 py-3 text-base font-medium text-white bg-brandSecondary hover:bg-brandSecondary/90 rounded-md text-center"
+            >
+              Comenzar
+            </a>
           </div>
         </div>
       )}

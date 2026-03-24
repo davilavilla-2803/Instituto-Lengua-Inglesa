@@ -9,7 +9,14 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Instituto Lengua Inglesa | Prof. Lic. Sofi Davila Villa',
-  description: 'Cursos de inglés interactivos, dinámicos y adaptados a tus objetivos. Cursos para todas las edades, preparación FCE y speaking.',
+  description: 'Cursos de inglés interactivos, dinámicos y adaptados a tus objetivos. Cursos regulares, speaking, preparación FCE y coaching de profesorado en San Miguel, Buenos Aires.',
+  keywords: ['inglés', 'cursos de inglés', 'FCE', 'Cambridge', 'speaking', 'San Miguel', 'Buenos Aires', 'profesora de inglés', 'Sofi Davila Villa'],
+  openGraph: {
+    title: 'Instituto Lengua Inglesa | Prof. Lic. Sofi Davila Villa',
+    description: 'Cursos de inglés interactivos y personalizados. Aprendé con una metodología moderna.',
+    locale: 'es_AR',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
