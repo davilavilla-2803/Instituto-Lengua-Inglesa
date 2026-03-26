@@ -16,8 +16,8 @@ export default function Footer() {
 
           {/* About / Brand */}
           <div className="space-y-8">
-            <Link href="/" className="flex items-center gap-4 group">
-              <div className="relative w-16 h-16 bg-white rounded-2xl p-2 group-hover:scale-105 transition-transform duration-500">
+            <Link href="/" className="flex items-start gap-5 group">
+              <div className="relative w-18 h-18 bg-white rounded-full p-1 overflow-hidden group-hover:scale-105 transition-transform duration-500 shadow-xl border-4 border-white/10 shrink-0">
                 <Image
                   src="/images/logo_transparente.png"
                   alt="ILI Logo"
@@ -25,9 +25,9 @@ export default function Footer() {
                   className="object-contain mix-blend-multiply"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold text-white leading-tight uppercase tracking-widest font-display">ILI</span>
-                <span className="text-[10px] font-black text-brandAccent uppercase tracking-[0.3em]">Quality English</span>
+              <div className="flex flex-col pt-1">
+                <span className="text-2xl font-black text-white leading-none uppercase tracking-widest font-display">ILI</span>
+                <span className="text-[9px] font-black text-brandAccent uppercase tracking-[0.4em] mt-1 whitespace-nowrap">Quality English</span>
               </div>
             </Link>
             <p className="text-sm font-light leading-relaxed max-w-xs text-brandPrimary/60">
@@ -71,7 +71,7 @@ export default function Footer() {
                     href={`/cursos/${course.slug}`}
                     className="group flex items-center gap-2 text-sm font-medium hover:text-white transition-colors"
                   >
-                    <span className="text-xs opacity-50 group-hover:opacity-100 transition-opacity">{course.icon}</span>
+                    <ChevronRight size={12} className="text-brandAccent group-hover:translate-x-1 transition-transform" />
                     {course.shortTitle}
                   </Link>
                 </li>

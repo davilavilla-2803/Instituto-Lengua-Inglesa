@@ -5,30 +5,39 @@ import Services from '@/components/home/Services';
 import Testimonials from '@/components/home/Testimonials';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import Certification from '@/components/home/Certification';
 import { courses } from '@/lib/config';
 import { ArrowRight, Trophy, Globe, Heart } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Instituto Lengua Inglesa | Prof. Lic. Sofi Davila Villa',
   description: 'Cursos de inglés interactivos, dinámicos y personalizados para todas las edades. Certificación internacional, experiencias culturales y viajes bilingües. San Miguel, Buenos Aires.',
+  openGraph: {
+    title: 'Instituto Lengua Inglesa | Prof. Lic. Sofi Davila Villa',
+    description: 'Cursos de inglés interactivos, dinámicos y personalizados para todas las edades. Aprendé con una metodología moderna.',
+    images: ['/images/logo.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/logo.png'],
+  },
 };
 
 /* ─── Datos de Secciones ─────────────────────────────────────────────────── */
 
 const highlights = [
   {
-    icon: <Trophy className="text-brandAccent" size={24} />,
+    icon: <Trophy size={24} />,
     title: 'Excelencia Académica',
     desc: 'Buscamos que cada estudiante descubra su valor personal poniendo el inglés en práctica.',
   },
   {
-    icon: <Globe className="text-brandAccent" size={24} />,
+    icon: <Globe size={24} />,
     title: 'Comunidad Global',
     desc: 'Más de 100 alumnos de todo el mundo conectando a través del idioma.',
   },
   {
-    icon: <Heart className="text-brandAccent" size={24} />,
+    icon: <Heart size={24} />,
     title: 'Calidez Humana',
     desc: 'Un espacio diseñado para inspirarte y acompañarte en cada paso de tu aprendizaje.',
   },
@@ -51,7 +60,7 @@ export default function Home() {
                 key={i} 
                 className="group p-10 rounded-3xl bg-brandPrimary/30 border border-brandSecondary/10 hover:bg-white hover:shadow-premium transition-all duration-500"
               >
-                <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 group-hover:bg-brandAccent group-hover:text-white transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-sm text-brandAccent group-hover:scale-110 group-hover:bg-brandAccent group-hover:text-white transition-all">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-bold text-typographyMain mb-4 uppercase tracking-widest">{item.title}</h3>
@@ -126,49 +135,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. CERTIFICACIÓN (Modernizado) */}
-      <section className="py-24 bg-brandAccentDark text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-brandAccent/20 rounded-full blur-[120px]" />
-        
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8 block">Certificación Internacional</span>
-          <h2 className="text-4xl md:text-6xl font-bold mb-8 font-display tracking-tight">Validá tu inglés ante <span className="text-brandPrimary">el mundo</span></h2>
-          <p className="text-brandPrimary/70 text-lg font-light max-w-3xl mx-auto mb-16 leading-relaxed">
-            Preparate para los exámenes más prestigiosos. Somos centro de preparación oficial para certificaciones internacionales.
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-6 mb-16">
-            {['Trinity College London', 'Cambridge — FCE / CAE', 'IELTS & TOEFL'].map((cert) => (
-              <div key={cert} className="px-8 py-4 rounded-2xl glass border-white/10 text-xs font-black uppercase tracking-widest">
-                {cert}
-              </div>
-            ))}
-          </div>
-
-          <Link
-            href="/certificacion"
-            className="inline-flex h-14 px-10 items-center justify-center bg-white text-brandAccentDark rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-brandAccent hover:text-white transition-all shadow-2xl"
-          >
-            Más Información
-          </Link>
-        </div>
-      </section>
+      {/* 6. CERTIFICACIÓN (Premium Re-design) */}
+      <Certification />
 
       {/* 7. CTA FINAL (Modernizado) */}
       <section className="py-32 bg-white relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="relative inline-block mb-12">
-            <Image
-              src="/images/logo.png"
-              alt="ILI Logo"
-              width={100}
-              height={100}
-              className="rounded-3xl shadow-premium border border-brandSecondary/10"
-            />
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-brandAccent rounded-full flex items-center justify-center text-white shadow-lg">
-              <Heart size={14} fill="currentColor" />
-            </div>
-          </div>
+          {/* Contenido sin logo para un look más limpio */}
           
           <h2 className="text-4xl md:text-5xl font-bold text-typographyMain mb-8 tracking-tight font-display">
             ¿Listo para dar el <span className="text-gradient">primer paso</span>?

@@ -1,42 +1,31 @@
+'use client';
+
 import type { Metadata } from 'next';
 import PageHero from '@/components/ui/PageHero';
 import Contact from '@/components/home/Contact';
 import { siteConfig } from '@/lib/config';
+import { motion } from 'framer-motion';
+import { MessageCircle, Mail, Instagram, ArrowRight, Zap, Target, Sparkles } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Contacto | Instituto Lengua Inglesa',
-  description: 'Contactate con el Instituto Lengua Inglesa. WhatsApp, email e Instagram. Hacé el test de nivel gratuito y comenzá tu camino en el inglés.',
-};
+/* ─── Datos ──────────────────────────────────────────────────────────────── */
 
 const channels = [
   {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-      </svg>
-    ),
+    icon: <MessageCircle size={28} />,
     label: 'WhatsApp',
     value: '+54 11 5952-1125',
     href: `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`,
     external: true,
   },
   {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-      </svg>
-    ),
+    icon: <Mail size={28} />,
     label: 'Email',
     value: siteConfig.email,
     href: `mailto:${siteConfig.email}`,
     external: false,
   },
   {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-      </svg>
-    ),
+    icon: <Instagram size={28} />,
     label: 'Instagram',
     value: `@${siteConfig.instagramHandle}`,
     href: siteConfig.instagramUrl,
@@ -44,65 +33,88 @@ const channels = [
   },
 ];
 
+/* ─── Page ───────────────────────────────────────────────────────────────── */
+
 export default function ContactoPage() {
   return (
-    <div className="pt-20">
+    <div className="flex flex-col bg-white">
       <PageHero
         label="Contacto"
-        title="Hablemos"
-        phrase="Cada gran historia comienza con un primer paso. El tuyo puede ser hoy. Escribinos y descubrí cómo el inglés puede transformar tu vida."
+        title="Hablemos <span class='text-gradient'>Hoy</span>"
+        phrase="Cada gran historia comienza con un primer paso. El tuyo puede ser hoy. Escribinos y descubrí cómo el inglés puede transformar tu vida profesional y personal."
       />
 
-      {/* ── Canales de contacto ──────────────────────────────────────────── */}
-      <section className="bg-background py-16 px-4">
-        <div className="max-w-3xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {channels.map((ch) => (
-              <a
+      {/* 1. CANALES DE CONTACTO (Bento Style) */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {channels.map((ch, i) => (
+              <motion.a
                 key={ch.label}
                 href={ch.href}
                 target={ch.external ? '_blank' : undefined}
                 rel={ch.external ? 'noopener noreferrer' : undefined}
-                className="bg-white border border-brandSecondary/20 p-8 flex flex-col items-center text-center gap-4 hover:border-brandAccent hover:shadow-md transition-all group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative p-10 bg-brandPrimary/30 rounded-[2.5rem] border border-brandSecondary/5 hover:border-brandAccent transition-all overflow-hidden text-center flex flex-col items-center gap-6"
               >
-                <div className="text-brandAccent group-hover:scale-110 transition-transform">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brandAccent/5 rounded-full blur-3xl group-hover:bg-brandAccent/10 transition-colors" />
+                
+                <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center text-brandAccent shadow-sm group-hover:scale-110 transition-transform relative z-10">
                   {ch.icon}
                 </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-brandAccent mb-1">{ch.label}</p>
-                  <p className="text-sm font-medium text-typographyMain">{ch.value}</p>
+                
+                <div className="relative z-10">
+                  <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-2 block">{ch.label}</span>
+                  <p className="text-xl font-bold text-typographyMain group-hover:text-brandAccent transition-colors">{ch.value}</p>
                 </div>
-              </a>
+                
+                <div className="mt-4 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brandAccent opacity-0 group-hover:opacity-100 transition-all group-hover:translate-y-0 translate-y-2">
+                  Contactar <ArrowRight size={14} />
+                </div>
+              </motion.a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Test de nivel ────────────────────────────────────────────────── */}
-      <section className="bg-white py-12 px-4">
-        <div className="max-w-2xl mx-auto text-center border border-brandSecondary/30 p-10">
-          <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brandAccent mb-3 block">
-            ¿No sabés tu nivel?
-          </span>
-          <h3 className="text-2xl font-bold text-typographyMain mb-4">
-            Conocé tu nivel de inglés — gratis
-          </h3>
-          <p className="text-sm text-gray-500 mb-8 leading-relaxed">
-            Escribinos, hacé el test, conocé tu nivel y comenzá a disfrutar tu versión bilingüe. Sin compromiso, sin costo.
-          </p>
-          <a
-            href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent('Hola Sofi! Quiero hacer el test de nivel gratuito.')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-brandAccent text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-brandAccent/90 transition-colors"
-          >
-            HACER EL TEST GRATUITO
-          </a>
+      {/* 2. TEST DE NIVEL (Premium Banner) */}
+      <section className="py-12 bg-white px-4">
+        <div className="max-w-5xl mx-auto relative overflow-hidden rounded-[3.5rem] bg-typographyMain text-white p-12 md:p-20 shadow-2xl">
+          <div className="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-brandAccent rounded-full blur-[150px]" />
+          </div>
+
+          <div className="relative z-10 flex flex-col md:flex-row items-center gap-12 text-center md:text-left">
+            <div className="space-y-6 flex-1">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-brandAccent/20 border border-brandAccent/30 text-brandAccent text-[10px] font-black uppercase tracking-widest">
+                <Sparkles size={14} /> Servicio Gratuito
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold font-display tracking-tight leading-tight">
+                Conocé tu nivel de <span className="text-brandPrimary">inglés gratis</span>
+              </h2>
+              <p className="text-white/60 text-lg font-light leading-relaxed max-w-2xl">
+                Escribinos hoy mismo, hacé nuestro test de nivelación personalizado y comenzá tu camino sin compromiso.
+              </p>
+            </div>
+            
+            <a
+              href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent('Hola Sofi! Quiero hacer el test de nivel gratuito.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-16 px-10 items-center justify-center bg-brandAccent text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-2xl hover:bg-white hover:text-brandAccentDark transition-all scale-100 hover:scale-105 shrink-0"
+            >
+              Hacer el Test Ahora <ArrowRight className="ml-3" size={16} />
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* ── Formulario ───────────────────────────────────────────────────── */}
+      {/* 3. FORMULARIO */}
       <Contact />
     </div>
   );
 }
+

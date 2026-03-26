@@ -48,49 +48,35 @@ export default function QuienesSomosPage() {
       />
 
       {/* 1. NUESTRO PROYECTO (Editorial Style) */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-32 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="lg:w-1/2"
-            >
-              <div className="relative aspect-square rounded-3xl overflow-hidden shadow-premium group">
-                <Image
-                  src="/images/AFTERNOON TEA.jpeg"
-                  alt="Aprendizaje significativo"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-brandAccentDark/40 to-transparent" />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="lg:w-1/2 space-y-8"
-            >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center space-y-12"
+          >
+            <div className="space-y-6">
               <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent block">El Comienzo</span>
-              <h2 className="text-3xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
+              <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-display tracking-tight leading-tight">
                 Un proyecto que nace del deseo de enseñar <span className="text-gradient">diferente</span>
               </h2>
-              <div className="space-y-6 text-gray-500 text-lg font-light leading-relaxed">
-                <p>
-                  El <span className="font-bold text-typographyMain">11 de agosto de 2023</span> dimos inicio a este camino en San Miguel, Buenos Aires. Hoy, contamos con <span className="font-bold text-typographyMain">más de 100 alumnos</span> de todo el mundo.
-                </p>
-                <p>
-                  Creemos en un aprendizaje significativo, donde el idioma no solo se estudia, sino que <span className="italic">se vive, se siente y se conecta</span> con los intereses reales de cada persona.
-                </p>
-                <p className="bg-brandPrimary/30 p-8 rounded-3xl border-l-4 border-brandAccent">
-                  Todas nuestras clases se dictan de manera <span className="font-bold text-typographyMain">100% online y sincrónicas vía Zoom</span>, brindando calidad desde cualquier lugar.
+            </div>
+
+            <div className="space-y-8 text-gray-500 text-xl font-light leading-relaxed max-w-3xl mx-auto">
+              <p>
+                El <span className="font-bold text-typographyMain">11 de agosto de 2023</span> dimos inicio a este camino en San Miguel, Buenos Aires. Hoy, contamos con <span className="font-bold text-typographyMain">más de 100 alumnos</span> de todo el mundo.
+              </p>
+              <p>
+                Creemos en un aprendizaje significativo, donde el idioma no solo se estudia, sino que <span className="italic text-typographyMain">se vive, se siente y se conecta</span> con los intereses reales de cada persona.
+              </p>
+              <div className="pt-8">
+                <p className="bg-brandPrimary/30 p-10 rounded-[2.5rem] border-l-4 border-brandAccent text-lg italic text-typographyMain/80">
+                  Todas nuestras clases se dictan de manera <span className="font-bold text-typographyMain">100% online y sincrónicas vía Zoom</span>, brindando calidad desde cualquier lugar del mundo.
                 </p>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -182,43 +168,46 @@ export default function QuienesSomosPage() {
         </div>
       </section>
 
-      {/* 4. MISIÓN / VISIÓN (Glassmorphism) */}
-      <section className="py-32 bg-brandAccentDark text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brandAccent/10 rounded-full blur-[150px]" />
+      {/* 4. MISIÓN / VISIÓN (Bento Style) */}
+      <section className="py-32 bg-brandPrimary/40 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brandAccent/5 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {[
               {
                 title: 'Misión',
-                icon: <Target className="text-brandAccent" />,
+                icon: <Target />,
                 text: 'Brindar una experiencia significativa, dinámica y personalizada, donde cada estudiante desarrolle sus habilidades en un entorno motivador y culturalmente enriquecedor.'
               },
               {
                 title: 'Visión',
-                icon: <Eye className="text-brandAccent" />,
+                icon: <Eye />,
                 text: 'Ser el referente en enseñanza innovadora y humana, acompañando a una comunidad global hacia la fluidez y la confianza total en el idioma.'
               },
               {
                 title: 'Valores',
-                icon: <Heart className="text-brandAccent" />,
+                icon: <Heart />,
                 text: 'Creemos en el aprendizaje como un proceso compartido. El sentido de comunidad es nuestro pilar: acompañamos y celebramos cada logro juntos.'
               },
             ].map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="glass p-12 rounded-[2rem] border-white/5 space-y-6"
+                transition={{ delay: i * 0.1 }}
+                className="bg-white p-12 rounded-[2.5rem] border border-brandSecondary/10 space-y-8 shadow-premium group hover:-translate-y-1 transition-all duration-500"
               >
-                <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-2xl">
+                <div className="w-16 h-16 rounded-2xl bg-brandPrimary/50 flex items-center justify-center text-3xl text-brandAccent group-hover:bg-brandAccent group-hover:text-white transition-all transform group-hover:rotate-6">
                   {item.icon}
                 </div>
-                <h3 className="text-2xl font-bold font-display">{item.title}</h3>
-                <p className="text-white/60 font-light leading-relaxed">
-                  {item.text}
-                </p>
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold font-display text-typographyMain">{item.title}</h3>
+                  <p className="text-gray-500 font-light leading-relaxed">
+                    {item.text}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>

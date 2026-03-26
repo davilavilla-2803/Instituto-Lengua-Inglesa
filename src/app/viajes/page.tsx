@@ -207,22 +207,24 @@ export default function ViajesPage() {
       </section>
 
       {/* 4. CTA (Modern) */}
-      <section className="py-32 bg-brandAccentDark text-white relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
+      <section className="py-32 bg-brandPrimary/40 text-typographyMain relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brandAccent rounded-full blur-[200px]" />
         </div>
         
         <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
-          <Plane className="mx-auto mb-10 text-brandAccent w-12 h-12" />
-          <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-8 text-white">
-            Transformá tu forma <span className="text-brandPrimary">de ver el mundo</span>
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brandAccent/10 text-brandAccent mb-10 shadow-sm">
+            <Plane size={32} />
+          </div>
+          <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-8">
+            Transformá tu forma <span className="text-gradient">de ver el mundo</span>
           </h2>
-          <p className="text-white/60 text-lg font-light mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-500 text-lg font-light mb-12 max-w-2xl mx-auto leading-relaxed">
             Sumate a nuestra próxima English & Travel Experience y viví el inglés en destinos únicos junto a una comunidad apasionada.
           </p>
           <Link
             href="/contacto"
-            className="inline-flex h-16 px-12 items-center justify-center bg-white text-brandAccentDark rounded-full font-black uppercase tracking-[0.2em] text-[10px] shadow-2xl hover:bg-brandAccent hover:text-white transition-all scale-100 hover:scale-105"
+            className="inline-flex h-16 px-12 items-center justify-center bg-brandAccent text-white rounded-full font-black uppercase tracking-[0.2em] text-[10px] shadow-xl hover:bg-brandAccentDark transition-all scale-100 hover:scale-105"
           >
             Quiero saber más <ArrowRight className="ml-3" size={16} />
           </Link>

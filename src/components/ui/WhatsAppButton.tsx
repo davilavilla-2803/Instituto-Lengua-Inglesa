@@ -21,7 +21,7 @@ export default function WhatsAppButton() {
       }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-8 right-8 z-50 flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-2xl shadow-premium hover:shadow-[0_20px_40px_rgba(37,211,102,0.4)] transition-all group overflow-hidden"
+      className="fixed bottom-8 right-8 z-50 flex items-center justify-center w-16 h-16 bg-brandAccent text-white rounded-full shadow-premium hover:shadow-[0_20px_40px_rgba(139,94,60,0.4)] transition-all group overflow-hidden"
       aria-label="Contactar por WhatsApp"
     >
 

@@ -1,9 +1,18 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/useIsMobile';
 import { Quote, Star } from 'lucide-react';
 
-const testimonials = [
+interface Testimonial {
+  text: string;
+  name: string;
+  date: string;
+  stars: number;
+  role?: string;
+}
+
+const testimonials: Testimonial[] = [
   {
     text: 'Sofi! Hermosa experiencia la clase de speaking. Me sentí súper cómoda y siento que de a poco estoy avanzando. Muchísimas gracias!',
     name: 'Lara Giordan Fernández',
@@ -57,10 +66,12 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const isMobile = useIsMobile();
+
   return (
     <section className="py-32 bg-brandPrimary/30 relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+      {/* Background Decor - Hidden on mobile */}
+      <div className="hidden sm:block absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brandAccent/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brandSecondary/10 rounded-full blur-[120px]" />
       </div>
@@ -68,18 +79,19 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.span 
-            initial={{ opacity: 0, y: 10 }}
+            initial={isMobile ? false : { opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={isMobile ? { duration: 0 } : {}}
             className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block"
           >
             Nuestra Comunidad
           </motion.span>
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={isMobile ? false : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={isMobile ? { duration: 0 } : { delay: 0.1 }}
             className="text-4xl md:text-6xl font-bold text-typographyMain mb-8 font-display tracking-tight"
           >
             Lo que dicen <span className="text-gradient">nuestros alumnos</span>
@@ -90,10 +102,10 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={isMobile ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
+              transition={isMobile ? { duration: 0 } : { delay: i * 0.05 }}
               className="break-inside-avoid"
             >
               <div className="bg-white p-8 rounded-[2.5rem] border border-brandSecondary/10 hover:shadow-premium transition-all duration-500 group relative overflow-hidden">

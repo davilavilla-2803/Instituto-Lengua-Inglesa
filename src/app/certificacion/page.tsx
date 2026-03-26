@@ -160,16 +160,16 @@ export default function CertificacionPage() {
       </section>
 
       {/* 4. BENEFICIOS (Bento Grid) */}
-      <section className="py-32 bg-brandAccentDark text-white relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-brandAccent/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-brandAccent/10 rounded-full blur-[120px]" />
+      <section className="py-32 bg-brandPrimary/40 text-typographyMain relative overflow-hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-brandAccent/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-brandAccent/5 rounded-full blur-[120px]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">¿Por qué certificar?</span>
-            <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight text-white">Beneficios <span className="text-brandPrimary">reales</span></h2>
+            <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight">Beneficios <span className="text-gradient">reales</span></h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -180,12 +180,12 @@ export default function CertificacionPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass p-10 rounded-[2rem] border-white/5 space-y-6 group hover:bg-white/10 transition-colors"
+                className="bg-white p-10 rounded-[2.5rem] border border-brandSecondary/10 space-y-6 group hover:shadow-premium transition-all duration-500"
               >
-                <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-brandAccent">
+                <div className="w-12 h-12 rounded-2xl bg-brandAccent/10 flex items-center justify-center text-brandAccent group-hover:scale-110 transition-transform">
                   {item.icon}
                 </div>
-                <p className="text-lg font-light text-white/80 leading-relaxed">
+                <p className="text-lg font-light text-gray-500 leading-relaxed group-hover:text-typographyMain transition-colors">
                   {item.text}
                 </p>
               </motion.div>
@@ -195,7 +195,7 @@ export default function CertificacionPage() {
           <div className="mt-20 text-center">
             <Link
               href="/contacto"
-              className="inline-flex h-16 px-12 items-center justify-center bg-white text-brandAccentDark rounded-full font-black uppercase tracking-[0.2em] text-[10px] shadow-2xl hover:bg-brandAccent hover:text-white transition-all scale-100 hover:scale-105"
+              className="inline-flex h-16 px-12 items-center justify-center bg-brandAccent text-white rounded-full font-black uppercase tracking-[0.2em] text-[10px] shadow-xl hover:bg-brandAccentDark transition-all scale-100 hover:scale-105"
             >
               Consultá tu preparación <ArrowRight className="ml-3" size={16} />
             </Link>

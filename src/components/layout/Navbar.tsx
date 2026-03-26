@@ -4,9 +4,23 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { 
+  Menu, X, ChevronDown, 
+  Baby, Backpack, User, Briefcase, MessageSquare, GraduationCap, Sparkles,
+  ArrowRight
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { courses } from '@/lib/config';
+
+const iconMap: Record<string, any> = {
+  Baby: Baby,
+  Backpack: Backpack,
+  User: User,
+  Briefcase: Briefcase,
+  MessageSquare: MessageSquare,
+  GraduationCap: GraduationCap,
+  Sparkles: Sparkles,
+};
 
 const mainLinks = [
   { name: 'Inicio', href: '/' },
@@ -68,16 +82,17 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="shrink-0 flex items-center gap-4 group">
-            <div className="relative w-14 h-14 transition-transform group-hover:scale-105">
+            <div className="relative w-16 h-16 bg-white rounded-full overflow-hidden border border-gray-100 p-1 transition-transform group-hover:scale-105 shadow-sm">
               <Image
                 src="/images/logo_transparente.png"
                 alt="Instituto Lengua Inglesa"
                 fill
                 className="object-contain mix-blend-multiply"
                 priority
+                sizes="64px"
               />
             </div>
-            <span className="hidden sm:block text-[11px] font-bold text-typographyMain leading-tight uppercase tracking-widest">
+            <span className="hidden sm:block text-[11px] font-black text-typographyMain leading-tight uppercase tracking-[0.2em]">
               Instituto<br />Lengua Inglesa
             </span>
           </Link>
@@ -109,28 +124,38 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-white/90 backdrop-blur-xl rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/40 py-3 z-50 overflow-hidden"
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-72 bg-white/95 backdrop-blur-2xl rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/40 py-3 z-50 overflow-hidden"
                   >
-                    <Link
-                      href="/cursos"
-                      className="block px-6 py-3 text-[10px] font-black text-typographyMain uppercase tracking-widest hover:bg-brandAccent/5 transition-colors border-b border-gray-100/50 mb-2"
-                    >
-                      Explorar Todos
-                    </Link>
-                    {courses.map((course) => (
+                    <div className="max-h-[70vh] overflow-y-auto custom-scrollbar">
+                      {courses.map((course) => {
+                        const Icon = iconMap[course.icon];
+                        return (
+                          <Link
+                            key={course.slug}
+                            href={`/cursos/${course.slug}`}
+                            className={`flex items-center gap-4 px-6 py-4 text-[10px] uppercase tracking-widest transition-all hover:bg-brandAccent/5 hover:pl-8 group/item ${
+                              pathname === `/cursos/${course.slug}`
+                                ? 'text-brandAccent font-bold'
+                                : 'text-typographyMain/60 hover:text-brandAccent'
+                            }`}
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-brandPrimary/50 flex items-center justify-center text-brandAccent group-hover/item:scale-110 group-hover/item:bg-brandAccent group-hover/item:text-white transition-all">
+                              {Icon && <Icon size={14} />}
+                            </div>
+                            <span>{course.shortTitle}</span>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                    
+                    <div className="mt-2 p-2 px-4 border-t border-gray-100/50">
                       <Link
-                        key={course.slug}
-                        href={`/cursos/${course.slug}`}
-                        className={`flex items-center gap-4 px-6 py-3 text-[10px] uppercase tracking-widest transition-all hover:bg-brandAccent/5 hover:pl-8 ${
-                          pathname === `/cursos/${course.slug}`
-                            ? 'text-brandAccent font-bold'
-                            : 'text-typographyMain/60 hover:text-brandAccent'
-                        }`}
+                        href="/cursos"
+                        className="flex items-center justify-between w-full px-4 py-4 bg-brandPrimary/50 text-[10px] font-black text-brandAccent uppercase tracking-widest hover:bg-brandAccent hover:text-white transition-all rounded-xl"
                       >
-                        <span className="text-base">{course.icon}</span>
-                        <span>{course.shortTitle}</span>
+                        Explorar Todos <ArrowRight size={12} />
                       </Link>
-                    ))}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -216,16 +241,21 @@ export default function Navbar() {
                         <Link href="/cursos" className="block py-4 text-sm font-black uppercase tracking-widest text-brandAccent">
                           Ver Todos
                         </Link>
-                        {courses.map((course) => (
-                          <Link
-                            key={course.slug}
-                            href={`/cursos/${course.slug}`}
-                            className="flex items-center gap-4 py-4 border-t border-brandAccent/10"
-                          >
-                            <span className="text-2xl">{course.icon}</span>
-                            <span className="text-sm font-bold uppercase tracking-widest">{course.shortTitle}</span>
-                          </Link>
-                        ))}
+                        {courses.map((course) => {
+                          const Icon = iconMap[course.icon];
+                          return (
+                            <Link
+                              key={course.slug}
+                              href={`/cursos/${course.slug}`}
+                              className="flex items-center gap-4 py-4 border-t border-brandAccent/10 group/item"
+                            >
+                              <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brandAccent group-hover/item:bg-brandAccent group-hover/item:text-white transition-all shadow-sm">
+                                {Icon && <Icon size={20} />}
+                              </div>
+                              <span className="text-sm font-bold uppercase tracking-widest text-typographyMain">{course.shortTitle}</span>
+                            </Link>
+                          );
+                        })}
                       </motion.div>
                     )}
                   </AnimatePresence>

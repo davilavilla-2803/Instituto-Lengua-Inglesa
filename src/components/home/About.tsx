@@ -1,14 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { GraduationCap, Plane, Lightbulb, ExternalLink } from 'lucide-react';
+import { useIsMobile } from '@/hooks/useIsMobile';
+import { GraduationCap, Plane, Lightbulb, ExternalLink, ImageIcon } from 'lucide-react';
 
 export default function About() {
+  const isMobile = useIsMobile();
+
   return (
     <section id="nosotros" className="py-32 bg-brandPrimary relative overflow-hidden">
-      {/* Decorative background text */}
-      <div className="absolute top-20 -right-20 text-[15rem] font-bold text-brandSecondary/5 select-none font-display pointer-events-none">
+      {/* Decorative background text - Hidden on mobile */}
+      <div className="hidden sm:block absolute top-20 -right-20 text-[15rem] font-bold text-brandSecondary/5 select-none font-display pointer-events-none">
         EDUCATOR
       </div>
 
@@ -17,32 +19,29 @@ export default function About() {
 
           {/* Image Column */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={isMobile ? false : { opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            transition={isMobile ? { duration: 0 } : { duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-premium transform -rotate-2 hover:rotate-0 transition-all duration-700 max-w-md mx-auto relative group">
-              <Image
-                src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1974&auto=format&fit=crop"
-                alt="Sofi Davila Villa"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 448px"
-              />
-              <div className="absolute inset-0 bg-linear-to-tr from-brandAccentDark/30 to-transparent" />
+            <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-premium transform -rotate-2 hover:rotate-0 transition-all duration-700 max-w-md mx-auto relative group flex flex-col items-center justify-center bg-white/40 p-12 text-center space-y-4 border-white/50 border">
+              <div className="w-16 h-16 rounded-full bg-brandAccent/5 flex items-center justify-center text-brandAccent/20">
+                <ImageIcon size={40} />
+              </div>
+              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-brandAccent/40 leading-relaxed max-w-[200px]">
+                Próximamente agregaremos una foto aquí
+              </p>
+              <div className="absolute inset-0 bg-linear-to-tr from-brandAccentDark/10 to-transparent pointer-events-none" />
             </div>
-
-
           </motion.div>
 
           {/* Text Column */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={isMobile ? false : { opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.8 }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandAccent/5 text-brandAccent text-[10px] font-black uppercase tracking-widest mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-brandAccent" />
@@ -50,7 +49,7 @@ export default function About() {
             </div>
             
             <h3 className="text-4xl lg:text-5xl font-bold text-typographyMain mb-8 leading-tight">
-              Hello! Soy <span className="text-gradient">Sofi Davila Villa</span> 👋
+              Hello! Soy <span className="text-gradient">Sofi Davila Villa</span>
             </h3>
 
             <div className="space-y-6 text-lg text-gray-600 font-light mb-12">

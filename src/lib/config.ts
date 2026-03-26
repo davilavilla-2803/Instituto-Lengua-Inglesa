@@ -16,7 +16,7 @@ export const courses = [
     shortTitle: 'Niños',
     description: 'Aprendizaje lúdico y dinámico para los más pequeños. Metodología basada en el juego, canciones y actividades creativas.',
     ages: '6 a 11 años',
-    icon: '🧒',
+    icon: 'Baby',
   },
   {
     slug: 'adolescentes',
@@ -24,7 +24,7 @@ export const courses = [
     shortTitle: 'Adolescentes',
     description: 'Clases diseñadas para teenagers con contenido relevante, tecnología y preparación para exámenes internacionales.',
     ages: '12 a 17 años',
-    icon: '🎒',
+    icon: 'Backpack',
   },
   {
     slug: 'adultos',
@@ -32,7 +32,7 @@ export const courses = [
     shortTitle: 'Adultos',
     description: 'Cursos flexibles y enfocados en tus objetivos reales. Desarrollá fluidez en comunicación oral y escrita.',
     ages: '18 años en adelante',
-    icon: '👩‍💼',
+    icon: 'User',
   },
   {
     slug: 'business-english',
@@ -40,7 +40,7 @@ export const courses = [
     shortTitle: 'Business English',
     description: 'Inglés profesional para el mundo corporativo. Reuniones, presentaciones, emails y negociaciones en inglés.',
     ages: 'Profesionales y ejecutivos',
-    icon: '💼',
+    icon: 'Briefcase',
   },
   {
     slug: 'speaking',
@@ -48,7 +48,7 @@ export const courses = [
     shortTitle: 'Speaking',
     description: 'Cursos intensivos de conversación para ganar confianza y fluidez oral. Grupos reducidos con dinámica participativa.',
     ages: 'Nivel intermedio en adelante',
-    icon: '🗣️',
+    icon: 'MessageSquare',
   },
   {
     slug: 'coaching',
@@ -56,7 +56,7 @@ export const courses = [
     shortTitle: 'Coaching Docente',
     description: 'Formación y acompañamiento para profesores de inglés. Metodología, recursos y práctica reflexiva.',
     ages: 'Docentes y estudiantes de profesorado',
-    icon: '🎓',
+    icon: 'GraduationCap',
   },
   {
     slug: 'personalizadas',
@@ -64,7 +64,7 @@ export const courses = [
     shortTitle: 'Clases Personalizadas',
     description: 'Clases individuales adaptadas 100% a tus necesidades, ritmo y objetivos específicos.',
     ages: 'Todas las edades',
-    icon: '✨',
+    icon: 'Sparkles',
   },
 ] as const;
 

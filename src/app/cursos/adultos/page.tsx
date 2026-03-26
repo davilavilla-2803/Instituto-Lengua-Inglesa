@@ -116,20 +116,20 @@ export default function CursoAdultosPage() {
       </section>
 
       {/* 3. CTA */}
-      <section className="py-32 bg-brandAccentDark text-white text-center relative overflow-hidden">
+      <section className="py-32 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-20">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-brandAccent rounded-full blur-[150px]" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-brandAccent/10 rounded-full blur-[150px]" />
         </div>
         
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <p className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8 block">¿Llegó tu momento?</p>
-          <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-12">Redescubrí tu <span className="text-brandPrimary">voz</span></h2>
-          <p className="text-white/60 text-lg font-light mb-16 leading-relaxed">
+          <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-12">Redescubrí tu <span className="text-gradient">voz</span></h2>
+          <p className="text-gray-500 text-lg font-light mb-16 leading-relaxed">
             Coordinamos una entrevista de nivelación sin cargo para encontrar el curso que mejor se adapte a tus objetivos y horarios.
           </p>
           <Link
             href="/contacto"
-            className="inline-flex h-16 px-12 items-center justify-center bg-white text-brandAccentDark rounded-full font-black uppercase tracking-[0.2em] text-[10px] shadow-2xl hover:bg-brandAccent hover:text-white transition-all scale-100 hover:scale-105"
+            className="inline-flex h-16 px-12 items-center justify-center bg-brandAccent text-white rounded-full font-black uppercase tracking-[0.2em] text-[10px] shadow-xl hover:bg-brandAccentDark transition-all scale-100 hover:scale-105"
           >
             Consultar Inscripción <ArrowRight className="ml-3" size={16} />
           </Link>
