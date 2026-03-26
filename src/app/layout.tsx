@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://institutolenguainglesa.vercel.app'),
   title: 'Instituto Lengua Inglesa | Prof. Lic. Sofi Davila Villa',
   description: 'Cursos de inglés interactivos, dinámicos y adaptados a tus objetivos. Cursos regulares, speaking, preparación FCE y coaching de profesorado en San Miguel, Buenos Aires.',
+  icons: {
+    icon: '/images/logo_transparente.png',
+    apple: '/images/logo_transparente.png',
+  },
   keywords: ['inglés', 'cursos de inglés', 'FCE', 'Cambridge', 'speaking', 'San Miguel', 'Buenos Aires', 'profesora de inglés', 'Sofi Davila Villa'],
   openGraph: {
     title: 'Instituto Lengua Inglesa | Prof. Lic. Sofi Davila Villa',
