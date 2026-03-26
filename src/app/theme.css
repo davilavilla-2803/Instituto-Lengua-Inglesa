@@ -1,0 +1,23 @@
+@theme {
+  /* Colores Elevados */
+  --color-brandPrimary:   #fdfaf6;   /* Blanco roto cálido (mejor que el crema anterior) */
+  --color-brandSecondary: #7c90a0;   /* Azul grisáceo con más carácter */
+  --color-brandAccent:    #8b5a3c;   /* Marrón tierra cálido (más sofisticado) */
+  --color-brandAccentDark: #5d3d28;  /* Tono para contrastes profundos */
+  --color-background:     #fdfaf6;
+  --color-typographyMain: #1a1c1e;   /* Casi negro, mayor legibilidad */
+
+  /* Fuentes */
+  --font-sans:    'Gotham', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Armada', ui-serif, Georgia, serif;
+
+  /* Sombras Modernas (Soft Shadows) */
+  --shadow-premium:  0 10px 40px -10px rgba(0, 0, 0, 0.08), 0 5px 20px -10px rgba(0, 0, 0, 0.04);
+  --shadow-glass:    0 8px 32px 0 rgba(139, 90, 60, 0.1);
+
+  /* Bordes Suaves 2026 */
+  --radius-xl:      1.5rem;
+  --radius-2xl:     2rem;
+  --radius-3xl:     3rem;
+  --radius-btn:     9999px; /* Pill design by default for CTA */
+}

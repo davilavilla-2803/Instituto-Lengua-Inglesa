@@ -1,78 +1,87 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Users, Mic2, GraduationCap, Briefcase } from 'lucide-react';
-
-const courses = [
-  {
-    icon: <Users size={32} className="text-brandPrimary" />,
-    title: "Cursos Regulares",
-    target: "Niños, adolescentes y adultos",
-    description: "Clases estructuradas por niveles diseñadas para desarrollar todas las habilidades del idioma (Speaking, Listening, Reading, Writing) de forma integral y amena.",
-  },
-  {
-    icon: <Mic2 size={32} className="text-brandPrimary" />,
-    title: "Cursos de Speaking",
-    target: "Jóvenes y adultos",
-    description: "Perdé el miedo a hablar. Encuentros conversacionales dinámicos centrados 100% en la fluidez, la pronunciación correcta y la confianza al expresarte.",
-  },
-  {
-    icon: <GraduationCap size={32} className="text-brandPrimary" />,
-    title: "Preparación FCE",
-    target: "Estudiantes avanzados",
-    description: "Entrenamiento intensivo y estratégico para aprobar el examen First Certificate in English (B2 First) de Cambridge con simulacros y material oficial.",
-  },
-  {
-    icon: <Briefcase size={32} className="text-brandPrimary" />,
-    title: "Coaching de Profesorado",
-    target: "Profesores y futuros docentes",
-    description: "Mentoría especializada para estudiantes de profesorado o profes noveles que buscan mejorar sus metodologías, planificación y manejo del aula.",
-  },
-];
+import Link from 'next/link';
+import { courses } from '@/lib/config';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function Services() {
   return (
-    <section id="servicios" className="py-24 bg-background relative">
+    <section id="servicios" className="py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-sm font-bold tracking-wider text-brandPrimary uppercase mb-3">Nuestra Oferta</h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-brandSecondary mb-6">Elegí cómo querés aprender</h3>
-          <p className="text-lg text-gray-600">
-            Cada estudiante es un mundo. Por eso, ofrecemos distintas capacitaciones adaptadas a tu nivel, edad y objetivo principal.
-          </p>
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block"
+          >
+            Nuestra Oferta
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-bold text-typographyMain mb-8 font-display tracking-tight"
+          >
+            Elegí cómo querés <span className="text-gradient">aprender</span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-500 text-lg font-light max-w-2xl mx-auto leading-relaxed"
+          >
+            Cursos para todas las edades y objetivos. Grupos reducidos, clases 100% online y metodología comunicativa dinámica.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {courses.map((course, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {courses.map((course, i) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
+              key={course.slug}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-4xl p-8 shadow-sm hover:shadow-xl transition-shadow border border-gray-100 group relative overflow-hidden flex flex-col"
+              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              {/* Decor */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-brandPrimary/5 rounded-bl-full -z-10 group-hover:scale-110 transition-transform" />
-
-              <div className="bg-brandPrimary/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                {course.icon}
-              </div>
-
-              <h4 className="text-xl font-bold text-brandSecondary mb-2">{course.title}</h4>
-              <p className="text-sm font-semibold text-brandPrimary mb-4">{course.target}</p>
-              <p className="text-gray-600 leading-relaxed grow">
-                {course.description}
-              </p>
-
-              <a
-                href="#contacto"
-                className="mt-6 inline-flex items-center gap-1 text-brandPrimary font-medium text-sm hover:gap-2 transition-all"
+              <Link
+                href={`/cursos/${course.slug}`}
+                className="group relative h-full flex flex-col bg-brandPrimary/30 rounded-3xl p-8 border border-brandSecondary/10 hover:bg-white hover:shadow-premium transition-all duration-500 overflow-hidden"
               >
-                Consultar curso
-                <span aria-hidden="true">→</span>
-              </a>
+                {/* Decorative background circle */}
+                <div className="absolute -right-4 -top-4 w-24 h-24 bg-brandAccent/5 rounded-full blur-2xl group-hover:bg-brandAccent/10 transition-colors" />
+
+                <div className="relative z-10 flex-1 flex flex-col">
+                  <span className="text-5xl block mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6 origin-left">
+                    {course.icon}
+                  </span>
+                  
+                  <p className="text-[10px] font-black text-brandAccent uppercase tracking-[0.2em] mb-3">
+                    {course.ages}
+                  </p>
+
+                  <h3 className="text-xl font-bold text-typographyMain mb-4 group-hover:text-brandAccent transition-colors leading-tight">
+                    {course.title}
+                  </h3>
+                  
+                  <p className="text-gray-500 text-sm font-light leading-relaxed mb-8 grow">
+                    {course.description}
+                  </p>
+
+                  <div className="flex items-center justify-between pt-6 border-t border-brandSecondary/10 mt-auto">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-typographyMain/40 group-hover:text-brandAccent transition-colors">
+                      Explorar Curso
+                    </span>
+                    <div className="w-8 h-8 rounded-full bg-brandAccent/10 flex items-center justify-center text-brandAccent group-hover:bg-brandAccent group-hover:text-white transition-all transform group-hover:rotate-45">
+                      <ArrowUpRight size={16} />
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -81,3 +90,4 @@ export default function Services() {
     </section>
   );
 }
+

@@ -1,26 +1,135 @@
 @import "tailwindcss";
 
-@theme {
-  --color-brandPrimary: #f472b6;
-  --color-brandSecondary: #0f172a;
-  --color-brandAccent: #fcd34d;
-  --color-background: #fafaf9;
-  --color-typographyMain: #1f2937;
+/* ─── Fuentes de marca ─────────────────────────────────────────────────────────
+   Colocar los archivos en public/fonts/ o usar fuentes de sistema de alta calidad.
+   Para 2026, la tipografía es crucial.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Tema de marca ILI 2026 ─────────────────────────────────────────────────── */
+@theme {
+  /* Colores Elevados */
+  --color-brandPrimary:   #fdfaf6;   /* Blanco roto cálido (mejor que el crema anterior) */
+  --color-brandSecondary: #7c90a0;   /* Azul grisáceo con más carácter */
+  --color-brandAccent:    #8b5a3c;   /* Marrón tierra cálido (más sofisticado) */
+  --color-brandAccentDark: #5d3d28;  /* Tono para contrastes profundos */
+  --color-background:     #fdfaf6;
+  --color-typographyMain: #1a1c1e;   /* Casi negro, mayor legibilidad */
+
+  /* Fuentes */
+  --font-sans:    'Gotham', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Armada', ui-serif, Georgia, serif;
+
+  /* Sombras Modernas (Soft Shadows) */
+  --shadow-premium:  0 10px 40px -10px rgba(0, 0, 0, 0.08), 0 5px 20px -10px rgba(0, 0, 0, 0.04);
+  --shadow-glass:    0 8px 32px 0 rgba(139, 90, 60, 0.1);
+
+  /* Bordes Suaves 2026 */
+  --radius-xl:      1.5rem;
+  --radius-2xl:     2rem;
+  --radius-3xl:     3rem;
+  --radius-btn:     9999px; /* Pill design by default for CTA */
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-typographyMain);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, .text-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
   }
 }
 
+/* ─── Utilidades Premium ─────────────────────────────────────────────────────── */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-dark {
+    background: rgba(26, 28, 30, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mesh-gradient {
+    background-color: #fdfaf6;
+    background-image:
+      radial-gradient(at 0% 0%, hsla(28,15%,85%,1) 0, transparent 50%),
+      radial-gradient(at 50% 0%, hsla(208,18%,82%,1) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(28,15%,85%,1) 0, transparent 50%);
+  }
+
+  .text-gradient {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, var(--color-brandAccent), var(--color-brandAccentDark));
+  }
+
+  .mask-reveal {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
 }
+
+/* ─── Animaciones Especiales ────────────────────────────────────────────────── */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+

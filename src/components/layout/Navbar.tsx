@@ -1,86 +1,262 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { courses } from '@/lib/config';
+
+const mainLinks = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Quiénes Somos', href: '/quienes-somos' },
+  { name: 'Certificación', href: '/certificacion' },
+  { name: 'Experiencias', href: '/experiencias' },
+  { name: 'Viajes', href: '/viajes' },
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCoursesOpen, setIsCoursesOpen] = useState(false);
+  const [isMobileCoursesOpen, setIsMobileCoursesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const coursesRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
-  const navLinks = [
-    { name: 'Inicio', href: '/' },
-    { name: 'Nosotros', href: '/#nosotros' },
-    { name: 'Servicios', href: '/#servicios' },
-  ];
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (coursesRef.current && !coursesRef.current.contains(e.target as Node)) {
+        setIsCoursesOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsMobileCoursesOpen(false);
+    setIsCoursesOpen(false);
+  }, [pathname]);
+
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href);
+  const isCoursesActive = pathname.startsWith('/cursos');
+
+  const linkClass = (active: boolean) =>
+    `text-[10px] font-bold uppercase tracking-[0.15em] transition-all duration-300 px-2 py-1 relative group ${
+      active ? 'text-brandAccent' : 'text-typographyMain/60 hover:text-typographyMain'
+    }`;
 
   return (
-    <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <nav className={`fixed w-full z-50 transition-all duration-500 py-4 ${
+      isScrolled ? 'top-2' : 'top-0'
+    }`}>
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${
+        isScrolled ? 'max-w-6xl' : 'max-w-7xl'
+      }`}>
+        <div className={`navbar-container relative flex justify-between items-center h-20 px-6 transition-all duration-500 rounded-3xl ${
+          isScrolled ? 'glass shadow-premium' : 'bg-transparent'
+        }`}>
+
           {/* Logo */}
-          <div className="shrink-0 flex items-center">
-            <Link href="/" className="text-2xl font-bold bg-linear-to-r from-brandPrimary to-rose-400 bg-clip-text text-transparent">
-              Lengua Inglesa
+          <Link href="/" className="shrink-0 flex items-center gap-4 group">
+            <div className="relative w-14 h-14 transition-transform group-hover:scale-105">
+              <Image
+                src="/images/logo_transparente.png"
+                alt="Instituto Lengua Inglesa"
+                fill
+                className="object-contain mix-blend-multiply"
+                priority
+              />
+            </div>
+            <span className="hidden sm:block text-[11px] font-bold text-typographyMain leading-tight uppercase tracking-widest">
+              Instituto<br />Lengua Inglesa
+            </span>
+          </Link>
+
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex items-center gap-4">
+            {mainLinks.slice(0, 2).map((link) => (
+              <Link key={link.href} href={link.href} className={linkClass(isActive(link.href))}>
+                {link.name}
+                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-brandAccent transform origin-right transition-transform duration-300 ${isActive(link.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-hover:origin-left'}`} />
+              </Link>
+            ))}
+
+            {/* Cursos Dropdown */}
+            <div ref={coursesRef} className="relative">
+              <button
+                onClick={() => setIsCoursesOpen((v) => !v)}
+                className={`flex items-center gap-1 ${linkClass(isCoursesActive)}`}
+                aria-expanded={isCoursesOpen}
+              >
+                Cursos
+                <ChevronDown size={12} className={`transition-transform duration-300 ${isCoursesOpen ? 'rotate-180' : ''}`} />
+                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-brandAccent transform origin-right transition-transform duration-300 ${isCoursesActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-hover:origin-left'}`} />
+              </button>
+
+              <AnimatePresence>
+                {isCoursesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-white/90 backdrop-blur-xl rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/40 py-3 z-50 overflow-hidden"
+                  >
+                    <Link
+                      href="/cursos"
+                      className="block px-6 py-3 text-[10px] font-black text-typographyMain uppercase tracking-widest hover:bg-brandAccent/5 transition-colors border-b border-gray-100/50 mb-2"
+                    >
+                      Explorar Todos
+                    </Link>
+                    {courses.map((course) => (
+                      <Link
+                        key={course.slug}
+                        href={`/cursos/${course.slug}`}
+                        className={`flex items-center gap-4 px-6 py-3 text-[10px] uppercase tracking-widest transition-all hover:bg-brandAccent/5 hover:pl-8 ${
+                          pathname === `/cursos/${course.slug}`
+                            ? 'text-brandAccent font-bold'
+                            : 'text-typographyMain/60 hover:text-brandAccent'
+                        }`}
+                      >
+                        <span className="text-base">{course.icon}</span>
+                        <span>{course.shortTitle}</span>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {mainLinks.slice(2).map((link) => (
+              <Link key={link.href} href={link.href} className={linkClass(isActive(link.href))}>
+                {link.name}
+                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-brandAccent transform origin-right transition-transform duration-300 ${isActive(link.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-hover:origin-left'}`} />
+              </Link>
+            ))}
+
+            <Link
+              href="/contacto"
+              className="ml-4 px-8 py-3 bg-brandAccent text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-brandAccentDark hover:scale-105 transition-all rounded-full shadow-lg shadow-brandAccent/20"
+            >
+              Contacto
             </Link>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-gray-600 hover:text-brandPrimary font-medium transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
-            <a
-              href="#contacto"
-              className="bg-brandSecondary text-white px-6 py-2.5 rounded-full font-medium hover:bg-brandSecondary/90 transition-all transform hover:scale-105 shadow-sm"
-            >
-              Comenzar
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          {/* Mobile Button */}
+          <div className="lg:hidden flex items-center gap-4">
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-brandPrimary focus:outline-none"
-              aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
-              aria-expanded={isOpen}
+              onClick={() => setIsMenuOpen((v) => !v)}
+              className="p-3 bg-white/50 backdrop-blur-sm rounded-2xl text-typographyMain hover:text-brandAccent transition-all border border-white/20"
+              aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-b border-gray-100 shadow-xl absolute w-full left-0">
-          <div className="px-4 pt-2 pb-6 space-y-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brandPrimary hover:bg-gray-50 rounded-md"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-50 lg:hidden bg-brandPrimary/95 backdrop-blur-2xl"
+          >
+            <div className="flex flex-col h-full overflow-y-auto px-6 py-24">
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="absolute top-8 right-8 p-4 bg-white rounded-full shadow-xl"
               >
-                {link.name}
-              </Link>
-            ))}
-            <a
-              href="#contacto"
-              onClick={() => setIsOpen(false)}
-              className="block mt-2 px-3 py-3 text-base font-medium text-white bg-brandSecondary hover:bg-brandSecondary/90 rounded-md text-center"
-            >
-              Comenzar
-            </a>
-          </div>
-        </div>
-      )}
+                <X size={24} />
+              </button>
+
+              <div className="space-y-6">
+                {mainLinks.slice(0, 2).map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`block py-2 text-3xl font-bold tracking-tight ${
+                      isActive(link.href) ? 'text-brandAccent' : 'text-typographyMain'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+
+                <div className="py-4">
+                  <button
+                    onClick={() => setIsMobileCoursesOpen((v) => !v)}
+                    className={`w-full flex items-center justify-between text-3xl font-bold tracking-tight ${
+                      isCoursesActive ? 'text-brandAccent' : 'text-typographyMain'
+                    }`}
+                  >
+                    <span>Cursos</span>
+                    <ChevronDown size={24} className={`transition-transform ${isMobileCoursesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  <AnimatePresence>
+                    {isMobileCoursesOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden bg-white/30 rounded-3xl mt-4 px-6 space-y-4"
+                      >
+                        <Link href="/cursos" className="block py-4 text-sm font-black uppercase tracking-widest text-brandAccent">
+                          Ver Todos
+                        </Link>
+                        {courses.map((course) => (
+                          <Link
+                            key={course.slug}
+                            href={`/cursos/${course.slug}`}
+                            className="flex items-center gap-4 py-4 border-t border-brandAccent/10"
+                          >
+                            <span className="text-2xl">{course.icon}</span>
+                            <span className="text-sm font-bold uppercase tracking-widest">{course.shortTitle}</span>
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {mainLinks.slice(2).map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`block py-2 text-3xl font-bold tracking-tight ${
+                      isActive(link.href) ? 'text-brandAccent' : 'text-typographyMain'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-auto pt-12 pb-6">
+                <Link
+                  href="/contacto"
+                  className="block w-full py-6 bg-brandAccent text-white text-center text-lg font-bold rounded-full shadow-2xl shadow-brandAccent/40"
+                >
+                  Contactar Ahora
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
+

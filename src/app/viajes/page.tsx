@@ -1,0 +1,234 @@
+'use client';
+
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import PageHero from '@/components/ui/PageHero';
+import { motion } from 'framer-motion';
+import { Plane, Compass, Users2, Heart, ShieldCheck, Map, ArrowRight, Calendar, Star, Info } from 'lucide-react';
+
+/* ─── Datos ──────────────────────────────────────────────────────────────── */
+
+const pillars = [
+  { icon: <Compass size={24} />, text: 'Práctica constante del idioma en situaciones reales' },
+  { icon: <Map size={24} />, text: 'Actividades culturales y recreativas en inglés' },
+  { icon: <Users2 size={24} />, text: 'Acompañamiento docente durante toda la experiencia' },
+  { icon: <Heart size={24} />, text: 'Espacios de interacción, conexión y crecimiento personal' },
+];
+
+const madrynGallery = [
+  { src: '/images/MADRYN 2026 DELFINES.jpeg', alt: 'Avistaje de delfines' },
+  { src: '/images/MADRYN 2026 PUNTA TOMBO.jpeg', alt: 'Punta Tombo' },
+  { src: '/images/MADRYN 2026 SNORKELLING.jpeg', alt: 'Snorkelling' },
+];
+
+/* ─── Page ───────────────────────────────────────────────────────────────── */
+
+export default function ViajesPage() {
+  return (
+    <div className="flex flex-col bg-white">
+      <PageHero
+        label="English & Travel"
+        title="El mundo es el aula <span class='text-gradient'>más grande</span>"
+        phrase="Aprender un idioma es animarse a vivirlo. Nuestras experiencias de viaje están diseñadas para que el inglés sea tu brújula en destinos únicos."
+      />
+
+      {/* 1. INTRO & PILARES */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent block">Nuestra Esencia</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
+                Donde el idioma <span className="text-gradient">cobra vida</span>
+              </h2>
+              <p className="text-gray-500 text-lg font-light leading-relaxed">
+                Estamos convencidos de que el inglés se traslada a escenarios reales, convirtiendo el estudio en una conexión absoluta con el mundo.
+              </p>
+              
+              <div className="p-8 rounded-[2.5rem] bg-brandPrimary/30 border border-brandSecondary/10 relative overflow-hidden group">
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <ShieldCheck className="text-brandAccent" size={20} />
+                    <span className="text-[10px] font-black uppercase tracking-widest text-brandAccent">Agencia Oficial</span>
+                  </div>
+                  <p className="text-sm text-gray-600 leading-relaxed font-light">
+                    Trabajamos con <span className="font-bold text-typographyMain">A Preparar las Valijas</span> (LEG: 17.244). Una agencia con larga trayectoria que garantiza seguridad y excelencia en cada destino.
+                  </p>
+                </div>
+                <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-brandAccent/5 rounded-full blur-2xl group-hover:bg-brandAccent/10 transition-colors" />
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 gap-6"
+            >
+              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-typographyMain/40 mb-2">Cada viaje incluye</h3>
+              {pillars.map((p, i) => (
+                <div key={i} className="flex gap-6 p-6 rounded-2xl bg-white border border-brandSecondary/5 hover:border-brandAccent transition-colors group">
+                  <div className="text-brandAccent group-hover:scale-110 transition-transform">{p.icon}</div>
+                  <p className="text-sm text-gray-500 font-light leading-relaxed group-hover:text-typographyMain transition-colors">{p.text}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. EDICIÓN PASADA (Masonry ish) */}
+      <section className="py-24 bg-brandPrimary/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Edición Pasada</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-typographyMain font-display tracking-tight">Puerto Madryn in English</h2>
+            <p className="text-gray-500 text-lg font-light mt-6">Naturaleza y el idioma integrados de forma excepcional.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {madrynGallery.map((img, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="relative aspect-square rounded-[2rem] overflow-hidden shadow-premium group"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/60 to-transparent flex items-end p-8">
+                  <p className="text-white text-[10px] font-black uppercase tracking-[0.2em]">{img.alt}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. PRÓXIMOS DESTINOS (Bento style cards) */}
+      <section className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Preview 2027</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-display tracking-tight leading-tight">Próximas <span className="text-gradient">Expediciones</span></h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Ushuaia */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-col bg-white rounded-3xl overflow-hidden border border-brandSecondary/10 shadow-premium group"
+            >
+              <div className="relative h-80 overflow-hidden">
+                <Image
+                  src="/images/USHUAIA 2027.jpeg"
+                  alt="Ushuaia 2027"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-typographyMain/80 to-transparent" />
+                <div className="absolute bottom-10 left-10">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Calendar size={14} className="text-brandPrimary" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brandPrimary">Enero 2027</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-white font-display">Ushuaia</h3>
+                </div>
+                <div className="absolute top-10 right-10">
+                  <span className="px-4 py-2 rounded-full bg-brandAccent text-white font-black text-[10px] uppercase tracking-widest shadow-xl">Cupos Limitados</span>
+                </div>
+              </div>
+              <div className="p-10 space-y-8 flex-1 flex flex-col justify-between">
+                <p className="text-gray-500 text-lg font-light leading-relaxed">
+                  Inmersión total en el "Fin del Mundo". Una experiencia bilingüe rodeada de los paisajes más sobrecogedores del planeta.
+                </p>
+                <div className="pt-6 border-t border-brandSecondary/5 flex justify-between items-center">
+                  <a
+                    href="https://bit.ly/EnglishandTravel-Ushuaia2027"
+                    target="_blank" rel="noopener noreferrer"
+                    className="inline-flex h-12 px-8 items-center justify-center bg-brandAccent text-white rounded-full font-black uppercase tracking-widest text-[9px] hover:scale-105 transition-all shadow-lg"
+                  >
+                    Ver Detalles <ArrowRight className="ml-2" size={12} />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* UK & Ireland */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="flex flex-col bg-typographyMain rounded-3xl overflow-hidden shadow-premium group relative"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brandAccent/10 rounded-full blur-[100px]" />
+              <div className="relative h-80 overflow-hidden opacity-50 gray-scale group-hover:grayscale-0 transition-all duration-700">
+                <Image
+                  src="/images/REINO UNIDO E IRLANDA 2027.jpeg"
+                  alt="UK & Ireland 2027"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-10 space-y-8 relative z-10 flex flex-col flex-1 justify-between">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Calendar size={14} className="text-brandAccent" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brandAccent">Septiembre 2027</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-white font-display mb-6">UK & Ireland</h3>
+                  <p className="text-white/60 text-lg font-light leading-relaxed">
+                    Un recorrido inolvidable por las Islas Británicas. Cultura, historia y el inglés en su estado más puro.
+                  </p>
+                </div>
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
+                  <Info className="text-brandAccent" />
+                  <p className="text-[10px] text-white/40 uppercase font-black tracking-widest">Lanzamiento oficial: Agosto 2026</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. CTA (Modern) */}
+      <section className="py-32 bg-brandAccentDark text-white relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-20">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brandAccent rounded-full blur-[200px]" />
+        </div>
+        
+        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
+          <Plane className="mx-auto mb-10 text-brandAccent w-12 h-12" />
+          <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-8 text-white">
+            Transformá tu forma <span className="text-brandPrimary">de ver el mundo</span>
+          </h2>
+          <p className="text-white/60 text-lg font-light mb-12 max-w-2xl mx-auto leading-relaxed">
+            Sumate a nuestra próxima English & Travel Experience y viví el inglés en destinos únicos junto a una comunidad apasionada.
+          </p>
+          <Link
+            href="/contacto"
+            className="inline-flex h-16 px-12 items-center justify-center bg-white text-brandAccentDark rounded-full font-black uppercase tracking-[0.2em] text-[10px] shadow-2xl hover:bg-brandAccent hover:text-white transition-all scale-100 hover:scale-105"
+          >
+            Quiero saber más <ArrowRight className="ml-3" size={16} />
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}
+
