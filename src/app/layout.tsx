@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   title: 'Instituto Lengua Inglesa | Prof. Lic. Sofi Davila Villa',
   description: 'Cursos de inglés interactivos, dinámicos y adaptados a tus objetivos. Cursos regulares, speaking, preparación FCE y coaching de profesorado en San Miguel, Buenos Aires.',
   icons: {
-    icon: '/images/logo_transparente.png',
-    apple: '/images/logo_transparente.png',
+    icon: '/images/logoSinFondo.png',
+    apple: '/images/logoSinFondo.png',
   },
   keywords: ['inglés', 'cursos de inglés', 'FCE', 'Cambridge', 'speaking', 'San Miguel', 'Buenos Aires', 'profesora de inglés', 'Sofi Davila Villa'],
   openGraph: {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/logo.png',
+        url: '/images/logoSinFondo.png',
         width: 1200,
         height: 630,
         alt: 'Instituto Lengua Inglesa Logo',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Instituto Lengua Inglesa | Prof. Lic. Sofi Davila Villa',
     description: 'Cursos de inglés interactivos y personalizados. Aprendé con una metodología moderna.',
-    images: ['/images/logo.png'],
+    images: ['/images/logoSinFondo.png'],
   },
 };
 

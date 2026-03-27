@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Instituto Lengua Inglesa | Prof. Lic. Sofi Davila Villa',
     description: 'Cursos de inglés interactivos, dinámicos y personalizados para todas las edades. Aprendé con una metodología moderna.',
-    images: ['/images/logo.png'],
+    images: ['/images/logoSinFondo.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/images/logo.png'],
+    images: ['/images/logoSinFondo.png'],
   },
 };
 

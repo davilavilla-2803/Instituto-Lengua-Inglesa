@@ -82,14 +82,14 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="shrink-0 flex items-center gap-4 group">
-            <div className="relative w-16 h-16 bg-white rounded-full overflow-hidden border border-gray-100 p-1 transition-transform group-hover:scale-105 shadow-sm">
+            <div className="relative w-20 h-20 transition-transform group-hover:scale-110 shrink-0">
               <Image
-                src="/images/logo_transparente.png"
+                src="/images/logoSinFondo.png"
                 alt="Instituto Lengua Inglesa"
                 fill
-                className="object-contain mix-blend-multiply"
+                className="object-contain"
                 priority
-                sizes="64px"
+                sizes="80px"
               />
             </div>
             <span className="hidden sm:block text-[11px] font-black text-typographyMain leading-tight uppercase tracking-[0.2em]">

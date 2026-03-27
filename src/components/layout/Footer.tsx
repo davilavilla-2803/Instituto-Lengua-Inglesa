@@ -16,18 +16,20 @@ export default function Footer() {
 
           {/* About / Brand */}
           <div className="space-y-8">
-            <Link href="/" className="flex items-start gap-5 group">
-              <div className="relative w-18 h-18 bg-white rounded-full p-1 overflow-hidden group-hover:scale-105 transition-transform duration-500 shadow-xl border-4 border-white/10 shrink-0">
+            <Link href="/" className="flex items-center gap-5 group">
+              <div className="relative w-24 h-24 transition-transform duration-500 group-hover:scale-110 shrink-0">
                 <Image
-                  src="/images/logo_transparente.png"
+                  src="/images/logoSinFondo.png"
                   alt="ILI Logo"
                   fill
-                  className="object-contain mix-blend-multiply"
+                  className="object-contain"
                 />
               </div>
-              <div className="flex flex-col pt-1">
-                <span className="text-2xl font-black text-white leading-none uppercase tracking-widest font-display">ILI</span>
-                <span className="text-[9px] font-black text-brandAccent uppercase tracking-[0.4em] mt-1 whitespace-nowrap">Quality English</span>
+              <div className="flex flex-col uppercase tracking-[0.15em] font-display">
+                <span className="text-xl font-black text-white leading-[1.1]">
+                  Instituto<br />
+                  Lengua Inglesa
+                </span>
               </div>
             </Link>
             <p className="text-sm font-light leading-relaxed max-w-xs text-brandPrimary/60">
@@ -112,11 +114,11 @@ export default function Footer() {
         </div>
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[11px] font-bold text-brandPrimary/30 uppercase tracking-widest">
-            © {new Date().getFullYear()} ILI • English Institute San Miguel
+          <p className="text-[10px] font-bold text-brandPrimary/40 uppercase tracking-[0.2em]">
+            © {new Date().getFullYear()} Instituto Lengua Inglesa. Todos los derechos reservados.
           </p>
-          <div className="text-[11px] font-bold text-brandPrimary/30 uppercase tracking-widest flex items-center gap-2">
-            Desarrollado con ❤️ por 
+          <div className="text-[10px] font-bold text-brandPrimary/40 uppercase tracking-[0.2em] flex items-center gap-2">
+            Powered by 
             <a
               href="https://gen12software.com"
               target="_blank"
