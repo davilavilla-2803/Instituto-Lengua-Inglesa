@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'Instituto Lengua Inglesa',
-  tagline: 'Prof. Lic. Sofi Davila Villa',
+  tagline: 'Prof. Sofi Davila Villa',
   whatsappNumber: '541159521125',
   instagramHandle: 'lenguainglesasm',
   instagramUrl: 'https://www.instagram.com/lenguainglesasm',

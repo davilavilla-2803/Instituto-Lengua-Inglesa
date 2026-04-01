@@ -29,7 +29,7 @@ export default function CursoBusinessEnglishPage() {
       <section className="py-12 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Profesionales y Empresas</span>
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">Profesionales y Empresas</span>
             <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
               Potenciá tu <span className="text-gradient">performance profesional</span>
             </h2>
@@ -118,7 +118,7 @@ export default function CursoBusinessEnglishPage() {
         
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <Briefcase className="mx-auto mb-10 text-brandAccent w-12 h-12" />
-          <p className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8 block">¿Tu empresa busca capacitación?</p>
+          <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8">¿Tu empresa busca capacitación?</span>
           <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-12">Llevá a tu equipo <span className="text-gradient">al siguiente nivel</span></h2>
           <p className="text-gray-500 text-lg font-light mb-16 leading-relaxed">
             También trabajamos con equipos corporativos diseñando planes a medida. Consultanos por programas personalizados para empresas.

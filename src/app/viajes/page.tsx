@@ -42,7 +42,7 @@ export default function ViajesPage() {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent block">Nuestra Esencia</span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-2">Nuestra Esencia</span>
               <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
                 Donde el idioma <span className="text-gradient">cobra vida</span>
               </h2>
@@ -86,7 +86,7 @@ export default function ViajesPage() {
       <section className="py-12 bg-brandPrimary/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Edición 2026</span>
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">Edición 2026</span>
             <h2 className="text-3xl md:text-5xl font-bold text-typographyMain font-display tracking-tight">Puerto Madryn in English</h2>
             <p className="text-gray-500 text-lg font-light mt-6">Naturaleza y el idioma integrados de forma excepcional.</p>
           </div>
@@ -121,86 +121,87 @@ export default function ViajesPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Preview 2027</span>
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">Preview 2027</span>
             <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-display tracking-tight leading-tight">Próximos <span className="text-gradient">English & Travel</span></h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Ushuaia */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex flex-col bg-white rounded-3xl overflow-hidden border border-brandSecondary/10 shadow-premium group"
+              className="group flex flex-col rounded-3xl overflow-hidden border border-brandSecondary/10 shadow-premium bg-white"
             >
-              <div className="relative h-80 overflow-hidden">
+              {/* Imagen limpia sin overlay */}
+              <div className="relative h-72 overflow-hidden shrink-0">
                 <Image
                   src="/images/USHUAIA 2027.jpeg"
                   alt="Ushuaia 2027"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-typographyMain/80 to-transparent" />
-                <div className="absolute bottom-10 left-10">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Calendar size={14} className="text-brandPrimary" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brandPrimary">Enero 2027</span>
-                  </div>
-                  <h3 className="text-3xl font-bold text-white font-display">Ushuaia</h3>
-                </div>
-                <div className="absolute top-10 right-10">
-                  <span className="px-4 py-2 rounded-full bg-brandAccent text-white font-black text-[10px] uppercase tracking-widest shadow-xl">Cupos Limitados</span>
-                </div>
+                <span className="absolute top-5 right-5 px-3 py-1.5 rounded-full bg-brandAccent text-white font-black text-[10px] uppercase tracking-widest shadow-lg">
+                  Cupos Limitados
+                </span>
               </div>
-              <div className="p-10 space-y-8 flex-1 flex flex-col justify-between">
-                <p className="text-gray-500 text-lg font-light leading-relaxed">
+
+              {/* Contenido separado */}
+              <div className="p-8 flex flex-col gap-5 flex-1">
+                <div className="flex items-center gap-2">
+                  <Calendar size={14} className="text-brandAccent" />
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brandAccent">Enero 2027</span>
+                </div>
+                <h3 className="text-3xl font-bold text-typographyMain font-display">Ushuaia</h3>
+                <p className="text-gray-500 text-base font-light leading-relaxed flex-1">
                   Inmersión total en el &ldquo;Fin del Mundo&rdquo;. Una experiencia bilingüe rodeada de los paisajes más sobrecogedores del planeta.
                 </p>
-                <div className="pt-6 border-t border-brandSecondary/5 flex justify-between items-center">
-                  <a
-                    href="https://bit.ly/EnglishandTravel-Ushuaia2027"
-                    target="_blank" rel="noopener noreferrer"
-                    className="inline-flex h-12 px-8 items-center justify-center bg-brandAccent text-white rounded-full font-black uppercase tracking-widest text-[9px] hover:scale-105 transition-all shadow-lg"
-                  >
-                    Ver Detalles <ArrowRight className="ml-2" size={12} />
-                  </a>
-                </div>
+                <a
+                  href="https://bit.ly/EnglishandTravel-Ushuaia2027"
+                  target="_blank" rel="noopener noreferrer"
+                  className="self-start inline-flex h-11 px-8 items-center justify-center bg-brandAccent text-white rounded-full font-black uppercase tracking-widest text-[9px] hover:bg-brandAccentDark hover:scale-105 transition-all shadow-lg"
+                >
+                  Ver Detalles <ArrowRight className="ml-2" size={12} />
+                </a>
               </div>
             </motion.div>
 
             {/* UK & Ireland */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="flex flex-col bg-typographyMain rounded-3xl overflow-hidden shadow-premium group relative"
+              className="group flex flex-col rounded-3xl overflow-hidden border border-brandSecondary/10 shadow-premium bg-white"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brandAccent/10 rounded-full blur-[100px]" />
-              <div className="relative h-80 overflow-hidden opacity-50 gray-scale group-hover:grayscale-0 transition-all duration-700">
+              {/* Imagen en escala de grises hasta hover */}
+              <div className="relative h-72 overflow-hidden shrink-0">
                 <Image
                   src="/images/REINO UNIDO E IRLANDA 2027.jpeg"
                   alt="UK & Ireland 2027"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-all duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
                 />
+                <span className="absolute top-5 right-5 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white font-black text-[10px] uppercase tracking-widest border border-white/30">
+                  Próximamente
+                </span>
               </div>
-              <div className="p-10 space-y-8 relative z-10 flex flex-col flex-1 justify-between">
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Calendar size={14} className="text-brandAccent" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brandAccent">Septiembre 2027</span>
-                  </div>
-                  <h3 className="text-3xl font-bold text-white font-display mb-6">UK & Ireland</h3>
-                  <p className="text-white/60 text-lg font-light leading-relaxed">
-                    Un recorrido inolvidable por las Islas Británicas. Cultura, historia y el inglés en su estado más puro.
-                  </p>
+
+              {/* Contenido separado */}
+              <div className="p-8 flex flex-col gap-5 flex-1">
+                <div className="flex items-center gap-2">
+                  <Calendar size={14} className="text-brandAccent" />
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brandAccent">Septiembre 2027</span>
                 </div>
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
-                  <Info className="text-brandAccent" />
-                  <p className="text-[10px] text-white/40 uppercase font-black tracking-widest">Lanzamiento oficial: Agosto 2026</p>
+                <h3 className="text-3xl font-bold text-typographyMain font-display">UK & Ireland</h3>
+                <p className="text-gray-500 text-base font-light leading-relaxed flex-1">
+                  Un recorrido inolvidable por las Islas Británicas. Cultura, historia y el inglés en su estado más puro.
+                </p>
+                <div className="flex items-center gap-3 p-4 rounded-2xl bg-brandPrimary/30 border border-brandSecondary/10">
+                  <Info size={14} className="text-brandAccent shrink-0" />
+                  <p className="text-[10px] text-typographyMain/60 uppercase font-black tracking-widest">Lanzamiento oficial: Agosto 2026</p>
                 </div>
               </div>
             </motion.div>

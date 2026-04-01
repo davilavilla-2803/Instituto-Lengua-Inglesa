@@ -3,56 +3,106 @@
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/useIsMobile';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Award, Globe } from 'lucide-react';
+
+const exams = [
+  {
+    name: 'Trinity College London',
+    tag: 'Comunicativo',
+    desc: 'Exámenes 100% orales. Demostrá fluidez y confianza real al hablar.',
+  },
+  {
+    name: 'Cambridge — FCE / CAE',
+    tag: 'Académico',
+    desc: 'El estándar internacional. Reconocido por universidades y empresas del mundo.',
+  },
+];
 
 export default function Certification() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="py-16 bg-brandAccent text-white relative overflow-hidden">
-      {/* Decorative effect - Hidden on mobile */}
-      <div className="hidden sm:block absolute top-0 right-0 w-96 h-96 bg-brandAccent/5 rounded-full blur-[120px] pointer-events-none" />
-      
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <motion.div
-          initial={isMobile ? false : { opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={isMobile ? { duration: 0 } : { duration: 0.8 }}
-          className="space-y-8"
-        >
-          <div>
-            <span className="text-3xl font-accent text-white/80 block mb-4">Certificación Internacional</span>
-            <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight text-white line-height-[1.1]">
-              Validá tu inglés ante <span className="text-white/70">el mundo</span>
-            </h2>
-          </div>
+    <section className="py-24 bg-brandAccentDark relative overflow-hidden">
+      {/* Fondo decorativo */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brandAccent/30 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none" />
 
-          <p className="text-white text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed italic">
-            No somos una academia, somos tus <span className="font-bold text-white">entrenadores estratégicos</span>. Te damos la técnica y la confianza para conquistar los exámenes más prestigiosos del mundo. 
-            <span className="block mt-4 font-bold text-white/90">Hacelo realidad. Tu éxito global empieza acá.</span>
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-4 py-8">
-            {['Trinity College London', 'Cambridge — FCE / CAE'].map((exam, i) => (
-              <div 
-                key={i} 
-                className="px-8 py-4 bg-white/10 rounded-2xl shadow-premium border border-white/20 text-xs font-black uppercase tracking-widest text-white hover:bg-white hover:text-brandAccent transition-all cursor-default"
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+          {/* Columna izquierda — texto */}
+          <motion.div
+            initial={isMobile ? false : { opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.7 }}
+            className="space-y-8"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20">
+              <Globe size={14} className="text-brandPrimary" />
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brandPrimary">Certificación Internacional</span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight text-white leading-[1.05]">
+              Validá tu inglés<br />
+              <span className="text-brandPrimary/70">ante el mundo</span>
+            </h2>
+
+            <p className="text-white/70 text-lg font-light leading-relaxed max-w-md italic">
+              No somos una academia, somos tus{' '}
+              <span className="font-bold text-white not-italic">entrenadores estratégicos</span>.
+              Te damos la técnica y la confianza para conquistar los exámenes más prestigiosos del mundo.
+            </p>
+
+            <p className="text-white font-bold text-lg">
+              Hacelo realidad. Tu éxito global empieza acá.
+            </p>
+
+            <Link
+              href="/certificacion"
+              className="inline-flex h-14 px-10 items-center justify-center bg-white text-brandAccentDark rounded-full font-black uppercase tracking-[0.2em] text-[10px] shadow-xl hover:bg-brandPrimary transition-all hover:scale-105 group"
+            >
+              Más información <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" size={14} />
+            </Link>
+          </motion.div>
+
+          {/* Columna derecha — cards de exámenes */}
+          <motion.div
+            initial={isMobile ? false : { opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.7, delay: 0.15 }}
+            className="flex flex-col gap-6"
+          >
+            {exams.map((exam, i) => (
+              <div
+                key={i}
+                className="group p-8 rounded-3xl bg-white/10 border border-white/15 hover:bg-white/15 transition-all duration-300 backdrop-blur-sm"
               >
-                {exam}
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-brandPrimary shrink-0 group-hover:bg-white group-hover:text-brandAccentDark transition-all">
+                    <Award size={20} />
+                  </div>
+                  <div className="space-y-2">
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brandPrimary/60 block">{exam.tag}</span>
+                    <h3 className="text-xl font-bold text-white">{exam.name}</h3>
+                    <p className="text-white/60 text-sm font-light leading-relaxed">{exam.desc}</p>
+                  </div>
+                </div>
               </div>
             ))}
-          </div>
 
-          <Link 
-            href="/certificacion"
-            className="inline-flex h-16 px-12 items-center justify-center bg-brandAccent text-white rounded-full font-black uppercase tracking-[0.2em] text-[10px] shadow-xl shadow-brandAccent/20 hover:scale-105 transition-all"
-          >
-            Más información <ArrowRight className="ml-3" size={16} />
-          </Link>
-        </motion.div>
+            {/* Badge decorativo */}
+            <div className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/5 border border-white/10">
+              <div className="w-2 h-2 rounded-full bg-brandPrimary animate-pulse" />
+              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
+                Preparación personalizada · Grupos reducidos
+              </p>
+            </div>
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );
 }
-

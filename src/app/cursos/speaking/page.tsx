@@ -38,7 +38,7 @@ export default function CursoSpeakingPage() {
               className="space-y-10"
             >
               <div className="space-y-4">
-                <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent block">Desde nivel A2 (pre-intermedio)</span>
+                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-2">Desde nivel A2 (pre-intermedio)</span>
                 <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
                   Enfocados en <span className="text-gradient">listening y speaking</span>
                 </h2>
@@ -107,7 +107,7 @@ export default function CursoSpeakingPage() {
         
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <Mic className="mx-auto mb-10 text-brandAccent w-12 h-12" />
-          <p className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8 block">¿Todo listo para soltarte?</p>
+          <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8">¿Todo listo para soltarte?</span>
           <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-12">Ganá confianza <span className="text-gradient">al hablar</span></h2>
           <p className="text-gray-500 text-lg font-light mb-16 leading-relaxed">
             Escribinos hoy para coordinar una entrevista de nivelación y sumate al espacio ideal para llevar tu fluidez al siguiente nivel.

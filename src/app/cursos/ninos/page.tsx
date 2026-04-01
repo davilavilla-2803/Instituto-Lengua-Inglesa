@@ -44,7 +44,7 @@ export default function CursoNinosPage() {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent block">A partir de los 7 años</span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">A partir de los 7 años</span>
               <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
                 Una experiencia <span className="text-gradient">divertida y para describir el mundo</span>
               </h2>
@@ -79,7 +79,7 @@ export default function CursoNinosPage() {
       <section className="py-16 bg-brandPrimary/20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-24">
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Estructura del Programa</span>
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">Estructura del Programa</span>
             <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-display tracking-tight leading-tight">4 Niveles <span className="text-gradient">de Crecimiento</span></h2>
           </div>
 
@@ -117,7 +117,7 @@ export default function CursoNinosPage() {
         </div>
         
         <div className="max-w-3xl mx-auto px-4 relative z-10">
-          <p className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8 block">¿Tu hijo/a está listo?</p>
+          <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8">¿Tu hijo/a está listo?</span>
           <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-12">Impulsá su futuro <span className="text-gradient">bilingüe</span></h2>
           <p className="text-gray-500 text-lg font-light mb-16 leading-relaxed">
             Escribinos para coordinar una entrevista de nivelación sin cargo y encontrá el lugar ideal para que tu hijo/a empiece a brillar.

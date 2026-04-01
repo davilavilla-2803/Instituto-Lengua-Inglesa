@@ -26,10 +26,9 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <div className="flex flex-col uppercase tracking-[0.15em] font-display">
-                <span className="text-xl font-black text-white leading-[1.1]">
-                  Instituto<br />
-                  Lengua Inglesa
+              <div className="flex flex-col">
+                <span className="text-lg font-bold text-white tracking-tight leading-tight font-brand">
+                  INSTITUTO<br />LENGUA INGLESA
                 </span>
               </div>
             </Link>

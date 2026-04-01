@@ -44,7 +44,7 @@ export default function CursoAdolescentesPage() {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent block">A partir de los 13 años</span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-2">A partir de los 13 años</span>
               <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
                 Un programa para <span className="text-gradient">conectar con ellos</span>
               </h2>
@@ -79,7 +79,7 @@ export default function CursoAdolescentesPage() {
       <section className="py-16 bg-brandPrimary/20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-24">
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Alineado al Marco Europeo</span>
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">Alineado al Marco Europeo</span>
             <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-display tracking-tight leading-tight">4 Años de <span className="text-gradient">Programa</span></h2>
           </div>
 
@@ -121,7 +121,7 @@ export default function CursoAdolescentesPage() {
         </div>
         
         <div className="max-w-3xl mx-auto px-4 relative z-10">
-          <p className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8 block">¿Todo listo para empezar?</p>
+          <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8">¿Todo listo para empezar?</span>
           <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-12">Desafiá su <span className="text-gradient">potencial</span></h2>
           <p className="text-gray-500 text-lg font-light mb-16 leading-relaxed">
             Coordinamos una entrevista de nivelación sin cargo para encontrar el punto de partida ideal para tu adolescente.

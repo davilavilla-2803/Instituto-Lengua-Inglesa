@@ -44,15 +44,15 @@ export default function CursoAdultosPage() {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent block">18 años en adelante</span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-2">18 años en adelante</span>
               <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
                 Desde cero o <span className="text-gradient">desde donde estés</span>
               </h2>
               <p className="text-gray-500 text-lg font-light leading-relaxed">
                 Una propuesta ideal para quienes buscan aprender o perfeccionar su inglés en un entorno dinámico, práctico y altamente motivador.
               </p>
-              <div className="pt-4 border-l-2 border-brandPrimary pl-8">
-                <p className="text-sm text-gray-400 italic font-light leading-relaxed">
+              <div className="pt-4 border-l-4 border-brandAccent/40 pl-8">
+                <p className="text-sm text-gray-500 italic font-light leading-relaxed">
                   &ldquo;Clases enfocadas en la comunicación real, con contenidos aplicables a situaciones cotidianas, académicas y profesionales.&rdquo;
                 </p>
               </div>
@@ -79,7 +79,7 @@ export default function CursoAdultosPage() {
       <section className="py-16 bg-brandPrimary/20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-24">
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Alineado al Marco Europeo</span>
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">Alineado al Marco Europeo</span>
             <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-display tracking-tight leading-tight">4 Años de <span className="text-gradient">Programa</span></h2>
           </div>
 
@@ -121,7 +121,7 @@ export default function CursoAdultosPage() {
         </div>
         
         <div className="max-w-3xl mx-auto px-4 relative z-10">
-          <p className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8 block">¿Llegó tu momento?</p>
+          <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8">¿Llegó tu momento?</span>
           <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-12">Redescubrí tu <span className="text-gradient">voz</span></h2>
           <p className="text-gray-500 text-lg font-light mb-16 leading-relaxed">
             Coordinamos una entrevista de nivelación sin cargo para encontrar el curso que mejor se adapte a tus objetivos y horarios.

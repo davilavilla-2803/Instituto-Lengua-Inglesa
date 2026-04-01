@@ -85,137 +85,147 @@ export default function Contact() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-white rounded-3xl shadow-premium overflow-hidden border border-brandSecondary/10">
+        <div className="rounded-3xl shadow-premium overflow-hidden border border-brandSecondary/10">
           <div className="grid grid-cols-1 lg:grid-cols-5">
 
-            {/* Info Sidebar */}
-            <div className="lg:col-span-2 p-12 lg:p-16 bg-typographyMain text-white relative overflow-hidden flex flex-col justify-between gap-12">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brandAccent/20 rounded-full blur-[80px]" />
-              
-              <div className="relative z-10">
-                <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Comenzá Hoy</span>
-                <h3 className="text-4xl md:text-5xl font-bold font-display tracking-tight leading-tight mb-6">¿Damos el <span className="text-brandPrimary">primer paso</span>?</h3>
-                <p className="text-white/60 text-lg font-light leading-relaxed">
-                  Escribinos para consultar horarios, aranceles o agendar una entrevista de nivelación sin cargo. Estamos para acompañarte.
+            {/* Sidebar */}
+            <div className="lg:col-span-2 p-10 lg:p-14 bg-brandAccent text-white relative overflow-hidden flex flex-col gap-10">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none" />
+
+              <div className="relative z-10 space-y-4">
+                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/15 border border-white/20 text-[10px] font-black tracking-[0.4em] uppercase text-white/80">
+                  Comenzá Hoy
+                </span>
+                <h3 className="text-4xl font-bold font-display tracking-tight leading-tight">
+                  ¿Damos el <span className="text-brandPrimary">primer paso</span>?
+                </h3>
+                <p className="text-white/70 text-base font-light leading-relaxed">
+                  Escribinos para consultar horarios, aranceles o agendar una entrevista de nivelación sin cargo.
                 </p>
               </div>
 
-              <div className="space-y-6 relative z-10">
-                <a
-                  href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
-                  target="_blank" rel="noopener noreferrer"
-                  className="group flex items-center gap-6 p-4 rounded-2xl glass border-white/5 hover:border-brandAccent transition-all"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-brandAccent/20 flex items-center justify-center text-brandAccent shrink-0 shadow-lg group-hover:scale-110 transition-transform">
-                    <MessageCircle size={24} />
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-brandAccent">WhatsApp</p>
-                    <p className="text-sm font-bold text-white/90">+54 11 5952-1125</p>
-                  </div>
-                </a>
-
-                <a href={`mailto:${siteConfig.email}`} className="group flex items-center gap-6 p-4 rounded-2xl glass border-white/5 hover:border-brandPrimary transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-brandPrimary/20 flex items-center justify-center text-brandPrimary shrink-0 shadow-lg group-hover:scale-110 transition-transform">
-                    <Mail size={24} />
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-brandPrimary">Email</p>
-                    <p className="text-sm font-bold text-white/90 truncate max-w-[150px] sm:max-w-none">{siteConfig.email}</p>
-                  </div>
-                </a>
-
-                <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-6 p-4 rounded-2xl glass border-white/5 hover:border-brandAccent transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-brandAccent/20 flex items-center justify-center text-brandAccent shrink-0 shadow-lg group-hover:scale-110 transition-transform">
-                    <Instagram size={24} />
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-brandAccent">Instagram</p>
-                    <p className="text-sm font-bold text-white/90">@{siteConfig.instagramHandle}</p>
-                  </div>
-                </a>
+              <div className="relative z-10 space-y-3">
+                {[
+                  {
+                    icon: <MessageCircle size={20} />,
+                    label: 'WhatsApp',
+                    value: '+54 11 5952-1125',
+                    href: `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`,
+                    external: true,
+                  },
+                  {
+                    icon: <Mail size={20} />,
+                    label: 'Email',
+                    value: siteConfig.email,
+                    href: `mailto:${siteConfig.email}`,
+                    external: false,
+                  },
+                  {
+                    icon: <Instagram size={20} />,
+                    label: 'Instagram',
+                    value: `@${siteConfig.instagramHandle}`,
+                    href: siteConfig.instagramUrl,
+                    external: true,
+                  },
+                ].map((ch) => (
+                  <a
+                    key={ch.label}
+                    href={ch.href}
+                    target={ch.external ? '_blank' : undefined}
+                    rel={ch.external ? 'noopener noreferrer' : undefined}
+                    className="group flex items-center gap-4 p-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/10 transition-all"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform">
+                      {ch.icon}
+                    </div>
+                    <div>
+                      <p className="text-[9px] font-black uppercase tracking-widest text-white/50 mb-0.5">{ch.label}</p>
+                      <p className="text-sm font-bold text-white">{ch.value}</p>
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
 
-            {/* Form Area */}
-            <div className="lg:col-span-3 p-12 lg:p-16 bg-brandPrimary/40 shrink-0">
+            {/* Form */}
+            <div className="lg:col-span-3 p-10 lg:p-14 bg-white">
               {isSuccess ? (
                 <div className="flex flex-col items-center justify-center h-full text-center gap-6 py-12">
                   <div className="w-20 h-20 rounded-full bg-brandAccent/10 flex items-center justify-center text-brandAccent">
                     <CheckCircle2 size={48} />
                   </div>
                   <h4 className="text-3xl font-bold font-display text-typographyMain">¡Mensaje enviado con éxito!</h4>
-                  <p className="text-gray-500 font-light text-lg">Gracias <strong>{formData.name}</strong>, nos comunicaremos con vos a la brevedad para darte toda la información.</p>
+                  <p className="text-gray-500 font-light text-lg">Gracias <strong>{formData.name}</strong>, nos comunicaremos con vos a la brevedad.</p>
                   <button onClick={handleReset} className="mt-4 px-8 py-3 rounded-full border border-brandAccent text-brandAccent text-[10px] font-black uppercase tracking-widest hover:bg-brandAccent hover:text-white transition-all">
                     Enviar otro mensaje
                   </button>
                 </div>
               ) : (
-                <form className="space-y-8" onSubmit={handleSubmit} noValidate>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-3">
-                      <label htmlFor="name" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">
-                        <User size={14} className="text-brandAccent" /> Nombre Completo
+                <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-typographyMain/50">
+                        <User size={12} className="text-brandAccent" /> Nombre Completo
                       </label>
                       <input
                         type="text" id="name" name="name"
                         value={formData.name} onChange={handleChange}
                         placeholder="Tu nombre aquí..."
-                        className={`w-full px-4 py-4 border-b-2 bg-white rounded-t-xl text-sm focus:outline-none transition-all placeholder:text-gray-400 font-medium ${errors.name ? 'border-red-400 bg-red-50/30' : 'border-gray-200 focus:border-brandAccent'}`}
+                        className={`w-full px-4 py-3.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-brandAccent/20 transition-all placeholder:text-gray-300 font-medium text-typographyMain ${errors.name ? 'border-red-300 bg-red-50/30' : 'border-brandSecondary/20 focus:border-brandAccent bg-brandPrimary/10'}`}
                       />
                       {errors.name && <p className="text-[10px] text-red-500 font-bold uppercase tracking-widest">{errors.name}</p>}
                     </div>
 
-                    <div className="space-y-3">
-                      <label htmlFor="email" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">
-                        <AtSign size={14} className="text-brandAccent" /> Email
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-typographyMain/50">
+                        <AtSign size={12} className="text-brandAccent" /> Email
                       </label>
                       <input
                         type="email" id="email" name="email"
                         value={formData.email} onChange={handleChange}
                         placeholder="tu@email.com"
-                        className={`w-full px-4 py-4 border-b-2 bg-white rounded-t-xl text-sm focus:outline-none transition-all placeholder:text-gray-400 font-medium ${errors.email ? 'border-red-400 bg-red-50/30' : 'border-gray-200 focus:border-brandAccent'}`}
+                        className={`w-full px-4 py-3.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-brandAccent/20 transition-all placeholder:text-gray-300 font-medium text-typographyMain ${errors.email ? 'border-red-300 bg-red-50/30' : 'border-brandSecondary/20 focus:border-brandAccent bg-brandPrimary/10'}`}
                       />
                       {errors.email && <p className="text-[10px] text-red-500 font-bold uppercase tracking-widest">{errors.email}</p>}
                     </div>
                   </div>
 
-                  <div className="space-y-3">
-                    <label htmlFor="interest" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
-                      <BookOpen size={14} className="text-brandAccent" /> Me interesa el curso de
+                  <div className="space-y-2">
+                    <label htmlFor="interest" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-typographyMain/50">
+                      <BookOpen size={12} className="text-brandAccent" /> Me interesa el curso de
                     </label>
                     <select
                       id="interest" name="interest"
                       value={formData.interest} onChange={handleChange}
-                      className="w-full px-4 py-4 border-b-2 border-gray-200 bg-white rounded-t-xl text-sm focus:outline-none focus:border-brandAccent transition-all text-gray-700 font-medium appearance-none cursor-pointer"
+                      className="w-full px-4 py-3.5 rounded-xl border border-brandSecondary/20 bg-brandPrimary/10 text-sm focus:outline-none focus:border-brandAccent focus:ring-2 focus:ring-brandAccent/20 transition-all text-typographyMain font-medium cursor-pointer"
                     >
                       {courseOptions.map((c) => <option key={c}>{c}</option>)}
                     </select>
                   </div>
 
-                  <div className="space-y-3">
-                    <label htmlFor="message" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
-                      <MessageSquare size={14} className="text-brandAccent" /> Mensaje
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-typographyMain/50">
+                      <MessageSquare size={12} className="text-brandAccent" /> Mensaje
                     </label>
                     <textarea
-                      id="message" name="message" rows={3}
+                      id="message" name="message" rows={4}
                       value={formData.message} onChange={handleChange}
                       placeholder="Contanos tus objetivos y disponibilidad..."
-                      className="w-full px-4 py-4 border-b-2 border-gray-200 bg-white rounded-t-xl text-sm focus:outline-none focus:border-brandAccent transition-all resize-none placeholder:text-gray-400 font-medium min-h-[100px]"
+                      className="w-full px-4 py-3.5 rounded-xl border border-brandSecondary/20 bg-brandPrimary/10 text-sm focus:outline-none focus:border-brandAccent focus:ring-2 focus:ring-brandAccent/20 transition-all resize-none placeholder:text-gray-300 font-medium text-typographyMain"
                     />
                   </div>
 
                   <button
                     type="submit" disabled={isLoading}
-                    className="w-full h-16 bg-brandAccent text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-2xl flex items-center justify-center gap-4 hover:bg-brandAccentDark hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-brandAccent/20 disabled:opacity-70 disabled:pointer-events-none group"
+                    className="w-full h-14 bg-brandAccent text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-xl flex items-center justify-center gap-3 hover:bg-brandAccentDark hover:scale-[1.01] active:scale-[0.99] transition-all shadow-lg shadow-brandAccent/20 disabled:opacity-70 disabled:pointer-events-none group"
                   >
                     {isLoading ? (
                       <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     ) : (
-                      <>Enviar Consulta <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></>
+                      <>Enviar Consulta <Send size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" /></>
                     )}
                   </button>
-                  <p className="text-center text-[10px] text-gray-400 font-medium uppercase tracking-widest leading-relaxed">
+                  <p className="text-center text-[9px] text-gray-400 font-medium uppercase tracking-widest">
                     Al enviar, aceptás que nos contactemos con vos para brindarte información comercial.
                   </p>
                 </form>

@@ -37,7 +37,7 @@ export default function CursoPersonalizadasPage() {
               className="space-y-10"
             >
               <div className="space-y-4">
-                <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent block">Todos los niveles y edades</span>
+                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-2">Todos los niveles y edades</span>
                 <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
                   100% a <span className="text-gradient">medida tuya</span>
                 </h2>
@@ -109,7 +109,7 @@ export default function CursoPersonalizadasPage() {
         
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <UserCircle className="mx-auto mb-10 text-brandAccent w-12 h-12" />
-          <p className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8 block">¿Tu espacio exclusivo?</p>
+          <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8">¿Tu espacio exclusivo?</span>
           <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-12">Empezá a brillar <span className="text-gradient">a tu ritmo</span></h2>
           <p className="text-gray-500 text-lg font-light mb-16 leading-relaxed">
             Escribinos hoy mismo para coordinar una entrevista de nivelación y encontrá el horario ideal para tus clases personalizadas.

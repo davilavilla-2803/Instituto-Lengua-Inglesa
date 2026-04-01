@@ -190,7 +190,7 @@ export default function ExperienciasPage() {
         
         <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
           <div className="max-w-3xl mx-auto mb-20">
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Cómo Participar</span>
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">Cómo Participar</span>
             <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight">Reglas de la <span className="text-gradient">Comunidad</span></h2>
           </div>
 

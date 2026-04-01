@@ -51,7 +51,7 @@ export default function QuienesSomosPage() {
             className="max-w-4xl mx-auto text-center space-y-12"
           >
             <div className="space-y-6">
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent block">El Comienzo</span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">El Comienzo</span>
               <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-display tracking-tight leading-tight">
                 Un proyecto que nace del deseo de enseñar <span className="text-gradient">diferente</span>
               </h2>
@@ -65,7 +65,7 @@ export default function QuienesSomosPage() {
                 Creemos en un aprendizaje significativo, donde el idioma no solo se estudia, sino que <span className="italic text-typographyMain">se vive, se siente y se conecta</span> con los intereses reales de cada persona.
               </p>
               <div className="pt-8">
-                <p className="bg-brandPrimary/30 p-10 rounded-[2.5rem] border-l-4 border-brandAccent text-lg italic text-typographyMain/80">
+                <p className="bg-brandAccent/10 p-10 rounded-[2.5rem] border-l-4 border-brandAccent text-lg italic text-typographyMain/80">
                   Todas nuestras clases se dictan de manera <span className="font-bold text-typographyMain">100% online y sincrónicas vía Zoom</span>, brindando calidad desde cualquier lugar del mundo.
                 </p>
               </div>
@@ -83,7 +83,7 @@ export default function QuienesSomosPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Nuestra Fundadora</span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">Nuestra Fundadora</span>
               <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-brand mb-8">Sofía Dávila Villa</h2>
               <div className="space-y-6 text-gray-700 font-light leading-relaxed text-lg">
                 <p>
@@ -120,7 +120,11 @@ export default function QuienesSomosPage() {
                   </div>
                 </div>
               </div>
-              
+
+              <p className="text-center text-gray-500 font-light italic leading-relaxed text-sm max-w-sm mx-auto">
+                "El inglés es la llave para habitar el mundo. Mi compromiso es brindarte un espacio donde el aprendizaje sea dinámico, cultural y genuino, transformando el idioma en una experiencia personal que te abra puertas para siempre."
+              </p>
+
             </motion.div>
           </div>
         </div>
@@ -130,7 +134,7 @@ export default function QuienesSomosPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Nuestro Valor Agregado</span>
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">Nuestro Valor Agregado</span>
             <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-display tracking-tight">
               ¿Por qué somos <span className="text-gradient">diferentes</span>?
             </h2>

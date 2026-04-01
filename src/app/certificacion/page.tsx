@@ -177,7 +177,7 @@ export default function CertificacionPage() {
 
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">¿Por qué certificar?</span>
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">¿Por qué certificar?</span>
             <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight">Beneficios <span className="text-gradient">reales</span></h2>
           </div>
 

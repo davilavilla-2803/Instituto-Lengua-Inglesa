@@ -8,10 +8,10 @@ import Certification from '@/components/home/Certification';
 import { ArrowRight, Trophy, Globe, Heart } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Instituto Lengua Inglesa | Prof. Lic. Sofi Davila Villa',
+  title: 'Instituto Lengua Inglesa | Prof. Sofi Davila Villa',
   description: 'Cursos de inglés interactivos, dinámicos y personalizados para todas las edades. Certificación internacional, experiencias culturales y viajes bilingües. San Miguel, Buenos Aires.',
   openGraph: {
-    title: 'Instituto Lengua Inglesa | Prof. Lic. Sofi Davila Villa',
+    title: 'Instituto Lengua Inglesa | Prof. Sofi Davila Villa',
     description: 'Cursos de inglés interactivos, dinámicos y personalizados para todas las edades. Aprendé con una metodología moderna.',
     images: ['/images/logoSinFondo.png'],
   },
@@ -50,13 +50,13 @@ export default function Home() {
       <Hero />
 
       {/* 2. HIGHLIGHTS (Bento Grid Style) - Compacted */}
-      <section className="py-8 bg-white relative">
+      <section className="py-8 bg-brandPrimary/20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {highlights.map((item, i) => (
-              <div 
-                key={i} 
-                className="group p-10 rounded-3xl bg-brandPrimary/30 border border-brandSecondary/10 hover:bg-white hover:shadow-premium transition-all duration-500"
+              <div
+                key={i}
+                className="group p-10 rounded-3xl bg-white border border-brandSecondary/15 shadow-sm hover:shadow-premium hover:bg-brandPrimary/20 transition-all duration-500"
               >
                 <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-sm text-brandAccent group-hover:scale-110 group-hover:bg-brandAccent group-hover:text-white transition-all">
                   {item.icon}

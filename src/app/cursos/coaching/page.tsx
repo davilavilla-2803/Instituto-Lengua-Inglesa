@@ -37,7 +37,7 @@ export default function CursoCoachingPage() {
               className="space-y-10"
             >
               <div className="space-y-4">
-                <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent block">Docentes y Futuros Docentes</span>
+                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-2">Docentes y Futuros Docentes</span>
                 <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
                   Seguir creciendo como <span className="text-gradient">profesional</span>
                 </h2>
@@ -105,7 +105,7 @@ export default function CursoCoachingPage() {
         
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <GraduationCap className="mx-auto mb-10 text-brandAccent w-12 h-12" />
-          <p className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8 block">Inspiración para tu carrera</p>
+          <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-8">Inspiración para tu carrera</span>
           <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-12">Potenciá tu <span className="text-gradient">vocación docente</span></h2>
           <p className="text-gray-500 text-lg font-light mb-16 leading-relaxed">
             Escribinos y coordinamos una entrevista para conocer tus objetivos y diseñar un plan de coaching a tu medida.

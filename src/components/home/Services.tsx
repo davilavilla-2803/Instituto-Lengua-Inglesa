@@ -32,7 +32,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={isMobile ? { duration: 0 } : {}}
-            className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block"
+            className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6"
           >
             Nuestras Propuestas
           </motion.span>
