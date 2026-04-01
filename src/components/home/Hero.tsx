@@ -1,9 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/useIsMobile';
 import { siteConfig } from '@/lib/config';
-import { ArrowRight, ImageIcon } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   const isMobile = useIsMobile();
@@ -24,8 +25,13 @@ export default function Hero() {
             transition={isMobile ? { duration: 0 } : { duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="text-center lg:text-left"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-typographyMain mb-8 leading-[1.1] text-balance font-brand">
-              <span className="text-gradient">Your bilingual version</span> is here
+            <h1 className="flex flex-col mb-10 text-balance text-center lg:text-left relative items-center lg:items-start group">
+              <span className="font-script text-brandAccent text-6xl sm:text-7xl lg:text-8xl normal-case leading-none z-20 -mb-[0.3em] lg:-mb-[0.4em] drop-shadow-sm whitespace-nowrap">
+                Your bilingual
+              </span>
+              <span className="font-display-serif text-3xl sm:text-4xl lg:text-6xl font-normal uppercase tracking-tighter text-typographyMain/70 leading-[0.8] inline-block whitespace-nowrap">
+                version is here
+              </span>
             </h1>
 
             <p className="text-xl lg:text-2xl text-typographyMain/80 mb-10 max-w-3xl mx-auto lg:mx-0 leading-relaxed font-light">
@@ -71,14 +77,16 @@ export default function Hero() {
               transition={isMobile ? { duration: 0 } : { duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
               className="relative w-full max-w-xs sm:max-w-lg aspect-4/5"
             >
-              {/* Main Image Card Placeholder */}
-              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-premium border-4 border-white transform rotate-3 z-20 flex flex-col items-center justify-center bg-brandPrimary/40 p-8 sm:p-12 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-brandAccent/5 flex items-center justify-center text-brandAccent/20">
-                  <ImageIcon size={40} />
-                </div>
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-brandAccent/40 leading-relaxed max-w-[200px]">
-                  Próximamente agregaremos una foto aquí
-                </p>
+              {/* Main Image Card */}
+              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-premium border-4 border-white transform rotate-3 z-20">
+                <Image
+                  src="/images/INSTITUTO LENGUA INGLESA - FOTO PRINCIPAL.jpeg"
+                  alt="Instituto Lengua Inglesa"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-center"
+                  priority
+                />
                 <div className="absolute inset-0 bg-linear-to-tr from-brandAccentDark/10 to-transparent pointer-events-none" />
               </div>
             </motion.div>

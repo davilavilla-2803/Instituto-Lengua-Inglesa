@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
@@ -114,10 +115,13 @@ export default function QuienesSomosPage() {
               <div className="relative aspect-3/4 w-full max-w-md mx-auto">
                 <div className="absolute inset-0 bg-brandAccent/10 rounded-[4rem] rotate-6" />
                 <div className="absolute inset-0 bg-white rounded-[4rem] overflow-hidden border border-brandSecondary/10 shadow-2xl">
-                  {/* Placeholder for Sofia's Photo */}
-                  <div className="w-full h-full bg-brandSecondary/5 flex items-center justify-center">
-                    <span className="text-brandAccent/20 font-black text-4xl uppercase tracking-[0.2em] -rotate-12 select-none">Tu Foto Aquí</span>
-                  </div>
+                  <Image
+                    src="/images/SOFIA DAVILA VILLA.jpeg"
+                    alt="Sofía Dávila Villa"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    className="object-cover object-center"
+                  />
                 </div>
               </div>
 

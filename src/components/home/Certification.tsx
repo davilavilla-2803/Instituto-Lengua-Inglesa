@@ -1,20 +1,25 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/useIsMobile';
 import Link from 'next/link';
-import { ArrowRight, Award, Globe } from 'lucide-react';
+import { ArrowRight, Globe } from 'lucide-react';
 
 const exams = [
   {
     name: 'Trinity College London',
     tag: 'Comunicativo',
     desc: 'Exámenes 100% orales. Demostrá fluidez y confianza real al hablar.',
+    image: '/images/TRINITY LOGO NUEVO.png',
+    bgColor: 'bg-[#50144a]'
   },
   {
     name: 'Cambridge — FCE / CAE',
     tag: 'Académico',
     desc: 'El estándar internacional. Reconocido por universidades y empresas del mundo.',
+    image: '/images/CAMBRIDGE LOGO.png',
+    bgColor: 'bg-white'
   },
 ];
 
@@ -80,8 +85,13 @@ export default function Certification() {
                 className="group p-8 rounded-3xl bg-white/10 border border-white/15 hover:bg-white/15 transition-all duration-300 backdrop-blur-sm"
               >
                 <div className="flex items-start gap-5">
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-brandPrimary shrink-0 group-hover:bg-white group-hover:text-brandAccentDark transition-all">
-                    <Award size={20} />
+                  <div className={`w-14 h-14 rounded-2xl ${exam.bgColor} flex items-center justify-center shrink-0 group-hover:scale-105 transition-all overflow-hidden relative shadow-sm border border-white/10`}>
+                    <Image 
+                      src={exam.image} 
+                      alt={exam.name}
+                      fill
+                      className="object-contain p-2"
+                    />
                   </div>
                   <div className="space-y-2">
                     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brandPrimary/60 block">{exam.tag}</span>

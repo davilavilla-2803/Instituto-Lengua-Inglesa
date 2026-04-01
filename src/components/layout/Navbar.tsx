@@ -96,8 +96,8 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-bold text-typographyMain tracking-tight leading-tight font-brand group-hover:text-brandAccent transition-colors">
-                INSTITUTO<br/>LENGUA INGLESA
+              <span className="text-[1.3rem] font-medium text-typographyMain leading-none font-brand group-hover:text-brandAccent transition-colors italic whitespace-nowrap">
+                Instituto Lengua Inglesa
               </span>
             </div>
           </Link>

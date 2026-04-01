@@ -87,11 +87,13 @@ export default function CertificacionPage() {
               className="relative p-12 glass rounded-3xl border-white shadow-premium text-center overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-brandAccent/10 rounded-full blur-3xl" />
-              <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-sm overflow-hidden p-4 relative border border-brandSecondary/5">
-                <div className="text-brandAccent/20 flex flex-col items-center gap-1">
-                  <Star size={24} />
-                  <span className="text-[8px] font-black uppercase">Logo Trinity</span>
-                </div>
+              <div className="w-32 h-32 bg-[#50144a] rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-sm overflow-hidden relative border border-[#50144a]">
+                <Image 
+                  src="/images/TRINITY LOGO NUEVO.png" 
+                  alt="Trinity College London Logo" 
+                  fill
+                  className="object-contain"
+                />
               </div>
               <h3 className="text-2xl font-bold text-typographyMain mb-4">Trayectoria Global</h3>
               <p className="text-gray-500 font-light leading-relaxed">
@@ -110,16 +112,15 @@ export default function CertificacionPage() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="order-2 lg:order-1 relative p-12 bg-typographyMain rounded-[3.5rem] text-white shadow-2xl overflow-hidden"
+              className="order-2 lg:order-1 relative p-12 bg-typographyMain rounded-[3.5rem] text-white shadow-2xl overflow-hidden text-center"
             >
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-brandAccent/20 rounded-full blur-[100px]" />
-              <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-sm overflow-hidden p-4 relative border border-white/10">
+              <div className="w-32 h-32 bg-white rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm overflow-hidden relative border border-white/10">
                 <Image 
-                  src="/images/cambridge.png" 
+                  src="/images/CAMBRIDGE LOGO.png" 
                   alt="Cambridge English Logo" 
-                  width={150} 
-                  height={80} 
-                  className="object-contain"
+                  fill
+                  className="object-contain p-2"
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4">Reconocimiento Institucional</h3>

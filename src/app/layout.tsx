@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, IM_Fell_English, Sacramento } from 'next/font/google';
+import { Inter, IM_Fell_DW_Pica, Great_Vibes, DM_Serif_Display } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -11,18 +11,26 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const imFell = IM_Fell_English({
+const imFell = IM_Fell_DW_Pica({
   weight: '400',
+  style: ['normal', 'italic'],
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-im-fell',
 });
 
-const sacramento = Sacramento({
+const scriptFont = Great_Vibes({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-sacramento',
+  variable: '--font-script',
+});
+
+const displayFont = DM_Serif_Display({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-display-serif',
 });
 
 export const metadata: Metadata = {
@@ -63,7 +71,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth" data-scroll-behavior="smooth">
-      <body className={`${inter.variable} ${imFell.variable} ${sacramento.variable} antialiased min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} ${imFell.variable} ${scriptFont.variable} ${displayFont.variable} antialiased min-h-screen flex flex-col`}>
         <Navbar />
         <main className="grow">
           {children}

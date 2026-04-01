@@ -12,7 +12,10 @@
 
   /* Fuentes Optimizadas 2026 (Next.js Google Fonts) */
   --font-sans:    var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-outfit), var(--font-inter), serif;
+  --font-brand:   var(--font-im-fell), serif;
+  --font-script:  var(--font-script), cursive;
+  --font-display-serif: var(--font-display-serif), serif;
+  --font-display: var(--font-display-serif), serif;
 
   /* Sombras Modernas (Soft Shadows) */
   --shadow-premium:  0 10px 40px -10px rgba(0, 0, 0, 0.08), 0 5px 20px -10px rgba(0, 0, 0, 0.04);
@@ -39,7 +42,7 @@
   }
 
   h1, h2, h3, h4, .text-display {
-    font-family: var(--font-display);
+    font-family: var(--font-display-serif);
     letter-spacing: -0.02em;
   }
 }

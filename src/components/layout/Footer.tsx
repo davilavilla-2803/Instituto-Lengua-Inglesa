@@ -27,8 +27,8 @@ export default function Footer() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-bold text-white tracking-tight leading-tight font-brand">
-                  INSTITUTO<br />LENGUA INGLESA
+                <span className="text-xl font-medium text-white leading-tight font-brand italic whitespace-nowrap">
+                  Instituto Lengua Inglesa
                 </span>
               </div>
             </Link>
