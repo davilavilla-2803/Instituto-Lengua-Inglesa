@@ -3,13 +3,13 @@
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/useIsMobile';
 import { siteConfig } from '@/lib/config';
-import { Sparkles, Globe2, ArrowRight, ImageIcon } from 'lucide-react';
+import { ArrowRight, ImageIcon } from 'lucide-react';
 
 export default function Hero() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden mesh-gradient">
+    <section className="relative min-h-screen flex items-center justify-center pt-32 pb-12 overflow-hidden mesh-gradient">
       {/* Decorative Blobs - Disabled on mobile for performance */}
       <div className="hidden sm:block absolute top-0 -left-1/4 w-[600px] h-[600px] bg-brandAccent/5 rounded-full blur-[120px] animate-pulse" />
       <div className="hidden sm:block absolute -bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-brandSecondary/10 rounded-full blur-[120px]" />
@@ -24,12 +24,12 @@ export default function Hero() {
             transition={isMobile ? { duration: 0 } : { duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="text-center lg:text-left"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-typographyMain mb-6 leading-[1.1] text-balance font-display">
-              Domina el inglés con <span className="text-gradient">confianza</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-typographyMain mb-8 leading-[1.1] text-balance font-brand">
+              <span className="text-gradient">Your bilingual version</span> is here
             </h1>
 
-            <p className="text-lg lg:text-xl text-gray-600/90 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-              Cursos diseñados para vos, desde niveles básicos hasta certificaciones internacionales. Aprendé a comunicarte sin barreras con una metodología <span className="font-medium text-typographyMain">dinámica y real</span>.
+            <p className="text-xl lg:text-2xl text-typographyMain/80 mb-10 max-w-3xl mx-auto lg:mx-0 leading-relaxed font-light">
+              Desde tus primeros pasos hasta alcanzar altos niveles internacionales, diseñamos cursos que fusionan la <span className="font-medium text-brandAccent">estrategia con la cultura real</span>. Aprendé a comunicarte con fluidez y empezá a abrir tus propios horizontes.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start items-center">
@@ -50,20 +50,15 @@ export default function Hero() {
                 whileTap={isMobile ? {} : { scale: 0.98 }}
                 className="w-full sm:w-auto px-10 py-5 glass text-typographyMain rounded-full font-bold border-brandSecondary/20 hover:bg-white/60 transition-all shadow-sm text-center"
               >
-                Hablar con Sofi
+                ¡Conversemos!
               </motion.a>
             </div>
 
             {/* Trust Badges */}
-            <div className="mt-12 flex items-center justify-center lg:justify-start gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
+            <div className="mt-12 flex items-center justify-center lg:justify-start gap-8 opacity-80 transition-all">
               <div className="flex flex-col">
-                <span className="text-2xl font-bold text-typographyMain">+100</span>
-                <span className="text-[10px] uppercase tracking-widest font-bold">Alumnos</span>
-              </div>
-              <div className="w-px h-8 bg-brandSecondary/30" />
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-typographyMain">10+</span>
-                <span className="text-[10px] uppercase tracking-widest font-bold">Años Exp.</span>
+                <span className="text-3xl font-bold text-typographyMain">+100</span>
+                <span className="text-[10px] uppercase tracking-widest font-black text-brandAccent">Alumnos de todo el mundo</span>
               </div>
             </div>
           </motion.div>
@@ -93,3 +88,4 @@ export default function Hero() {
     </section>
   );
 }
+

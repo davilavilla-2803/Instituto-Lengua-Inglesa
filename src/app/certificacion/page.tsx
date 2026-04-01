@@ -1,10 +1,10 @@
 'use client';
 
-import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
-import { Award, Globe, BookOpen, CheckCircle2, Star, Zap, GraduationCap, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Award, Globe, CheckCircle2, Star, Zap, GraduationCap, ArrowRight, ShieldCheck } from 'lucide-react';
 
 /* ─── Datos ──────────────────────────────────────────────────────────────── */
 
@@ -23,12 +23,12 @@ export default function CertificacionPage() {
     <div className="flex flex-col bg-white">
       <PageHero
         label="Certificación Internacional"
-        title="Validá tu inglés ante <span class='text-gradient'>el mundo</span>"
+        title={<>Validá tu inglés ante <span className="text-gradient">el mundo</span></>}
         phrase="Tu nivel de inglés profesional, reconocido globalmente. Certificá con las instituciones más prestigiosas y abrí las puertas de tu futuro bilingüe."
       />
 
       {/* 1. INTRO (Clean) */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.p 
             initial={{ opacity: 0 }}
@@ -42,7 +42,7 @@ export default function CertificacionPage() {
       </section>
 
       {/* 2. TRINITY COLLEGE (Editorial Card) */}
-      <section className="py-24 bg-brandPrimary/30 relative overflow-hidden">
+      <section className="py-12 bg-brandPrimary/30 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div 
@@ -87,8 +87,11 @@ export default function CertificacionPage() {
               className="relative p-12 glass rounded-3xl border-white shadow-premium text-center overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-brandAccent/10 rounded-full blur-3xl" />
-              <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-4xl mx-auto mb-8 shadow-sm">
-                🎓
+              <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-sm overflow-hidden p-4 relative border border-brandSecondary/5">
+                <div className="text-brandAccent/20 flex flex-col items-center gap-1">
+                  <Star size={24} />
+                  <span className="text-[8px] font-black uppercase">Logo Trinity</span>
+                </div>
               </div>
               <h3 className="text-2xl font-bold text-typographyMain mb-4">Trayectoria Global</h3>
               <p className="text-gray-500 font-light leading-relaxed">
@@ -100,7 +103,7 @@ export default function CertificacionPage() {
       </section>
 
       {/* 3. CAMBRIDGE (Modern Split) */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div 
@@ -110,8 +113,14 @@ export default function CertificacionPage() {
               className="order-2 lg:order-1 relative p-12 bg-typographyMain rounded-[3.5rem] text-white shadow-2xl overflow-hidden"
             >
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-brandAccent/20 rounded-full blur-[100px]" />
-              <div className="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center text-4xl mb-8 border border-white/10">
-                🏛️
+              <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-sm overflow-hidden p-4 relative border border-white/10">
+                <Image 
+                  src="/images/cambridge.png" 
+                  alt="Cambridge English Logo" 
+                  width={150} 
+                  height={80} 
+                  className="object-contain"
+                />
               </div>
               <h3 className="text-2xl font-bold mb-4">Reconocimiento Institucional</h3>
               <p className="text-white/60 font-light leading-relaxed">
@@ -137,7 +146,7 @@ export default function CertificacionPage() {
 
               <div className="space-y-4">
                 {[
-                  { level: 'FCE — B2 First', desc: 'First Certificate in English. Nivel intermedio-avanzado, llave dorada internacional.' },
+                  { level: 'FCE — B2 First', desc: 'First Certificate in English. Nivel intermedio-avanzado, tu primer gran salto global.' },
                   { level: 'CAE — C1 Advanced', desc: 'Certificate in Advanced English. Para dominar el idioma en contextos profesionales y académicos.' },
                 ].map((item, i) => (
                   <div key={i} className="p-6 rounded-2xl bg-brandPrimary/30 border border-brandSecondary/10 group hover:bg-white hover:shadow-premium transition-all duration-500">
@@ -160,7 +169,7 @@ export default function CertificacionPage() {
       </section>
 
       {/* 4. BENEFICIOS (Bento Grid) */}
-      <section className="py-32 bg-brandPrimary/40 text-typographyMain relative overflow-hidden">
+      <section className="py-16 bg-brandPrimary/40 text-typographyMain relative overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
           <div className="absolute top-0 left-0 w-96 h-96 bg-brandAccent/5 rounded-full blur-[120px]" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-brandAccent/5 rounded-full blur-[120px]" />
@@ -192,7 +201,7 @@ export default function CertificacionPage() {
             ))}
           </div>
 
-          <div className="mt-20 text-center">
+          <div className="mt-8 text-center">
             <Link
               href="/contacto"
               className="inline-flex h-16 px-12 items-center justify-center bg-brandAccent text-white rounded-full font-black uppercase tracking-[0.2em] text-[10px] shadow-xl hover:bg-brandAccentDark transition-all scale-100 hover:scale-105"
@@ -205,4 +214,5 @@ export default function CertificacionPage() {
     </div>
   );
 }
+
 

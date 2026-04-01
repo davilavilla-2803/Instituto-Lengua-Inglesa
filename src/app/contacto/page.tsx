@@ -1,11 +1,10 @@
 'use client';
 
-import type { Metadata } from 'next';
 import PageHero from '@/components/ui/PageHero';
 import Contact from '@/components/home/Contact';
 import { siteConfig } from '@/lib/config';
 import { motion } from 'framer-motion';
-import { MessageCircle, Mail, Instagram, ArrowRight, Zap, Target, Sparkles } from 'lucide-react';
+import { MessageCircle, Mail, Instagram, ArrowRight, Sparkles } from 'lucide-react';
 
 /* ─── Datos ──────────────────────────────────────────────────────────────── */
 
@@ -40,12 +39,12 @@ export default function ContactoPage() {
     <div className="flex flex-col bg-white">
       <PageHero
         label="Contacto"
-        title="Hablemos <span class='text-gradient'>Hoy</span>"
+        title={<>Hablemos <span className="text-gradient">Hoy</span></>}
         phrase="Cada gran historia comienza con un primer paso. El tuyo puede ser hoy. Escribinos y descubrí cómo el inglés puede transformar tu vida profesional y personal."
       />
 
       {/* 1. CANALES DE CONTACTO (Bento Style) */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {channels.map((ch, i) => (
@@ -117,4 +116,5 @@ export default function ContactoPage() {
     </div>
   );
 }
+
 

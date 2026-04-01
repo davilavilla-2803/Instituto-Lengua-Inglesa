@@ -9,7 +9,7 @@ import {
   MessageSquare, GraduationCap, Sparkles 
 } from 'lucide-react';
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Baby: Baby,
   Backpack: Backpack,
   User: User,
@@ -23,7 +23,7 @@ export default function Services() {
   const isMobile = useIsMobile();
 
   return (
-    <section id="servicios" className="py-32 bg-white relative">
+    <section id="servicios" className="py-16 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center max-w-3xl mx-auto mb-20">
@@ -34,7 +34,7 @@ export default function Services() {
             transition={isMobile ? { duration: 0 } : {}}
             className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block"
           >
-            Nuestra Oferta
+            Nuestras Propuestas
           </motion.span>
           <motion.h2 
             initial={isMobile ? false : { opacity: 0, y: 20 }}
@@ -65,49 +65,51 @@ export default function Services() {
                 initial={isMobile ? false : { opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={isMobile ? { duration: 0 } : { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                transition={isMobile ? { duration: 0 } : { duration: 0.6, delay: i * 0.1 }}
               >
                 <Link
                   href={`/cursos/${course.slug}`}
-                  className="group relative h-full flex flex-col bg-brandPrimary/30 rounded-3xl p-8 border border-brandSecondary/10 hover:bg-white hover:shadow-premium transition-all duration-500 overflow-hidden"
+                  className="group flex flex-col bg-white rounded-[2.5rem] border border-brandSecondary/10 hover:shadow-premium transition-all duration-500 p-8 h-full"
                 >
-                  {/* Decorative background circle */}
-                  <div className="absolute -right-4 -top-4 w-24 h-24 bg-brandAccent/5 rounded-full blur-2xl group-hover:bg-brandAccent/10 transition-colors" />
-
-                  <div className="relative z-10 flex-1 flex flex-col">
-                    <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-brandAccent mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6 origin-left shadow-sm">
-                      {Icon && <Icon size={28} />}
+                  {/* Content Area */}
+                  <div className="flex flex-col flex-1">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-12 h-12 rounded-2xl bg-brandPrimary/50 flex items-center justify-center text-brandAccent group-hover:bg-brandAccent group-hover:text-white transition-all transform group-hover:-rotate-6 shadow-sm">
+                        {Icon && <Icon size={24} />}
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[10px] font-black text-brandAccent uppercase tracking-[0.2em]">
+                          {course.shortTitle}
+                        </span>
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                          {course.ages}
+                        </p>
+                      </div>
                     </div>
-                  
-                  <p className="text-[10px] font-black text-brandAccent uppercase tracking-[0.2em] mb-3">
-                    {course.ages}
-                  </p>
 
-                  <h3 className="text-xl font-bold text-typographyMain mb-4 group-hover:text-brandAccent transition-colors leading-tight">
-                    {course.title}
-                  </h3>
-                  
-                  <p className="text-gray-500 text-sm font-light leading-relaxed mb-8 grow">
-                    {course.description}
-                  </p>
+                    <h3 className="text-xl font-bold text-typographyMain mb-4 group-hover:text-brandAccent transition-colors">
+                      {course.title}
+                    </h3>
+                    
+                    <p className="text-gray-500 text-sm font-light leading-relaxed mb-8 grow">
+                      {course.description}
+                    </p>
 
-                  <div className="flex items-center justify-between pt-6 border-t border-brandSecondary/10 mt-auto">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-typographyMain/40 group-hover:text-brandAccent transition-colors">
-                      Explorar Curso
-                    </span>
-                    <div className="w-8 h-8 rounded-full bg-brandAccent/10 flex items-center justify-center text-brandAccent group-hover:bg-brandAccent group-hover:text-white transition-all transform group-hover:rotate-45">
-                      <ArrowUpRight size={16} />
+                    <div className="flex items-center justify-between pt-6 border-t border-brandSecondary/5 mt-auto">
+                      <span className="text-[10px] font-black uppercase tracking-widest text-typographyMain/40 group-hover:text-brandAccent">
+                        Explorar Propuesta
+                      </span>
+                      <div className="w-10 h-10 rounded-full bg-brandAccent/5 flex items-center justify-center text-brandAccent group-hover:bg-brandAccent group-hover:text-white transition-all shadow-sm">
+                        <ArrowUpRight size={18} />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            </motion.div>
-          );
-        })}
-      </div>
-
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 }
-

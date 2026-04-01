@@ -1,12 +1,10 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/home/Hero';
-import About from '@/components/home/About';
 import Services from '@/components/home/Services';
 import Testimonials from '@/components/home/Testimonials';
 import Link from 'next/link';
 import Image from 'next/image';
 import Certification from '@/components/home/Certification';
-import { courses } from '@/lib/config';
 import { ArrowRight, Trophy, Globe, Heart } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -51,8 +49,8 @@ export default function Home() {
       {/* 1. HERO (Modernizado) */}
       <Hero />
 
-      {/* 2. HIGHLIGHTS (Bento Grid Style) */}
-      <section className="py-24 bg-white relative">
+      {/* 2. HIGHLIGHTS (Bento Grid Style) - Compacted */}
+      <section className="py-8 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {highlights.map((item, i) => (
@@ -71,21 +69,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. SOBRE MÍ (Modernizado) */}
-      <About />
-
-      {/* 4. CURSOS (Modernizado) */}
+      {/* 3. CURSOS (Modernizado) */}
       <Services />
 
       {/* 5. TESTIMONIOS (Nuevo) */}
       <Testimonials />
 
       {/* 6. EXPERIENCIAS & VIAJES (Modernizado) */}
-      <section className="py-24 bg-brandPrimary overflow-hidden">
+      <section className="py-8 bg-brandPrimary overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-12 items-center mb-16">
             <div className="lg:w-1/2">
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-4 block">Expandí tus horizontes</span>
+              <span className="text-3xl font-accent text-brandAccent mb-4 block">Vivir el inglés</span>
               <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight">
                 El mundo es el aula más <span className="text-gradient">grande</span> que existe
               </h2>
@@ -100,9 +95,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Link href="/experiencias" className="group relative aspect-video rounded-3xl overflow-hidden shadow-premium">
               <Image 
-                src="/images/ENGLISH%20AND%20COFFEE.jpeg" 
-                alt="Experiencias Culturales" 
-                fill 
+                src="/images/ENGLISH%20AND%20COFFEE.jpeg"
+                alt="Experiencias Culturales"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
@@ -117,9 +113,10 @@ export default function Home() {
 
             <Link href="/viajes" className="group relative aspect-video rounded-3xl overflow-hidden shadow-premium">
               <Image 
-                src="/images/MADRYN%202026%20DELFINES.jpeg" 
-                alt="Viajes Bilingües" 
-                fill 
+                src="/images/MADRYN%202026%20DELFINES.jpeg"
+                alt="Viajes Bilingües"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
@@ -139,7 +136,7 @@ export default function Home() {
       <Certification />
 
       {/* 7. CTA FINAL (Modernizado) */}
-      <section className="py-32 bg-white relative">
+      <section className="py-16 bg-white relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Contenido sin logo para un look más limpio */}
           
@@ -161,7 +158,7 @@ export default function Home() {
               href="/cursos"
               className="px-12 py-5 glass text-typographyMain text-[10px] font-black uppercase tracking-[0.2em] rounded-full hover:bg-brandPrimary transition-all border-brandSecondary/20"
             >
-              Ver Propuesta Educativa
+              Ver Propuesta Académica
             </Link>
           </div>
         </div>
@@ -169,4 +166,5 @@ export default function Home() {
     </div>
   );
 }
+
 

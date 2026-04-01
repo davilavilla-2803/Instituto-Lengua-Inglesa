@@ -1,10 +1,9 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
-import { Target, BookOpen, BarChart3, Clock, RefreshCcw, Calendar, Laptop, ArrowRight, UserCircle, Star } from 'lucide-react';
+import { Target, BookOpen, BarChart3, Clock, RefreshCcw, Calendar, Laptop, ArrowRight, UserCircle } from 'lucide-react';
 
 /* ─── Datos ──────────────────────────────────────────────────────────────── */
 
@@ -23,12 +22,12 @@ export default function CursoPersonalizadasPage() {
     <div className="flex flex-col bg-white">
       <PageHero
         label="Cursos — 1:1"
-        title="Clases <span class='text-gradient'>Personalizadas</span>"
+        title={<>Clases <span className="text-gradient">Personalizadas</span></>}
         phrase="Tu aprendizaje, a tu ritmo, hacia tu objetivo. Un espacio exclusivo entre docente y estudiante para resultados concretos."
       />
 
       {/* 1. SECCIÓN INTRO */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <motion.div 
@@ -74,18 +73,24 @@ export default function CursoPersonalizadasPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative p-12 bg-typographyMain rounded-3xl text-white shadow-2xl overflow-hidden"
+              className="relative p-12 bg-white rounded-3xl border border-brandSecondary/10 shadow-premium overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brandAccent/10 rounded-full blur-[100px]" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brandAccent/5 rounded-full blur-[100px]" />
               
-              <h3 className="text-xs font-black uppercase tracking-[0.4em] text-brandAccent mb-10 block">¿Cómo Funcionan?</h3>
+              <div className="flex justify-between items-start mb-10 relative z-10">
+                <h3 className="text-xs font-black uppercase tracking-[0.4em] text-brandAccent block">¿Cómo Funcionan?</h3>
+                <span className="px-3 py-1 rounded-full bg-brandAccent/10 text-brandAccent text-[9px] font-black uppercase tracking-widest border border-brandAccent/20">
+                  Certificación opcional
+                </span>
+              </div>
+
               <div className="space-y-8 relative z-10">
                 {features.map((item, i) => (
                   <div key={i} className="flex items-start gap-6 group">
-                    <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-brandAccent group-hover:bg-brandAccent/20 transition-all shrink-0">
+                    <div className="w-12 h-12 rounded-2xl bg-brandPrimary flex items-center justify-center text-brandAccent group-hover:scale-110 transition-all shrink-0 shadow-sm border border-brandSecondary/5">
                       {item.icon}
                     </div>
-                    <p className="text-white/70 font-light group-hover:text-white transition-colors pt-2 leading-relaxed">
+                    <p className="text-gray-500 font-light group-hover:text-typographyMain transition-colors pt-2 leading-relaxed">
                       {item.text}
                     </p>
                   </div>
@@ -97,7 +102,7 @@ export default function CursoPersonalizadasPage() {
       </section>
 
       {/* 2. CTA */}
-      <section className="py-32 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-20">
+      <section className="py-16 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-8">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 bg-brandAccent/10 rounded-full blur-[150px]" />
         </div>
@@ -120,4 +125,5 @@ export default function CursoPersonalizadasPage() {
     </div>
   );
 }
+
 

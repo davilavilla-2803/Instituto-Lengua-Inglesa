@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { Send, CheckCircle2, MessageCircle, Mail, Instagram, User, AtSign, BookOpen, MessageSquare } from 'lucide-react';
 import { siteConfig, courses } from '@/lib/config';
-import { motion } from 'framer-motion';
 
 interface FormData {
   name: string;
@@ -54,10 +53,23 @@ export default function Contact() {
     e.preventDefault();
     if (!validate()) return;
     setIsLoading(true);
-    // Simulación de envío
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsLoading(false);
-    setIsSuccess(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        setErrors({ name: data.error ?? 'Error al enviar. Intentá de nuevo.' });
+        return;
+      }
+      setIsSuccess(true);
+    } catch {
+      setErrors({ name: 'Error de red. Verificá tu conexión.' });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleReset = () => {
@@ -66,7 +78,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="py-32 bg-white relative overflow-hidden">
+    <section id="contacto" className="py-16 bg-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-40 pointer-events-none">
         <div className="absolute -top-48 -left-48 w-160 h-160 bg-brandPrimary/30 rounded-full blur-[120px]" />
         <div className="absolute -bottom-48 -right-48 w-160 h-160 bg-brandAccent/10 rounded-full blur-[120px]" />
@@ -216,4 +228,5 @@ export default function Contact() {
     </section>
   );
 }
+
 

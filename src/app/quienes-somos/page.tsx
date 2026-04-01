@@ -1,8 +1,6 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
 import {
@@ -14,10 +12,6 @@ import {
   Video,
   BookOpen,
   Heart,
-  Star,
-  CheckCircle2,
-  Calendar,
-  Zap,
   Target,
   Eye,
   ArrowRight
@@ -27,9 +21,9 @@ import {
 
 const benefits = [
   { icon: <Globe size={24} />, title: 'Cultura & Idioma', text: 'Primer instituto que fomenta nuestra cultura a través del inglés con propuestas originales.' },
-  { icon: <Coffee size={24} />, title: 'Experiencias Únicas', text: 'English & Coffee, Tours en BA, Gourmet Bilingual y English & Travel.' },
+  { icon: <Coffee size={24} />, title: 'Experiencias Únicas', text: 'English & Coffee, Tours en BA, Bilingual Gourmet Experience y English & Travel.' },
   { icon: <Users size={24} />, title: 'Grupos Reducidos', text: 'Clases verdaderamente personalizadas con atención constante a cada alumno.' },
-  { icon: <Award size={24} />, title: 'Certificación', text: 'Centro de preparación oficial para Cambridge y Trinity College London.' },
+  { icon: <Award size={24} />, title: 'Certificación', text: 'Centro de preparación para Cambridge y Trinity College London.' },
   { icon: <GraduationCap size={24} />, title: 'Staff Calificado', text: 'Docentes apasionados, comprometidos con la excelencia y la innovación.' },
   { icon: <Video size={24} />, title: 'Clases Grabadas', text: 'Todas las sesiones se graban para que puedas repasar cuando lo necesites.' },
   { icon: <BookOpen size={24} />, title: 'Material Incluido', text: 'Bibliografía del curso bonificada al 100% para todos los alumnos.' },
@@ -48,7 +42,7 @@ export default function QuienesSomosPage() {
       />
 
       {/* 1. NUESTRO PROYECTO (Editorial Style) */}
-      <section className="py-32 bg-white relative overflow-hidden">
+      <section className="py-16 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -81,7 +75,7 @@ export default function QuienesSomosPage() {
       </section>
 
       {/* 2. SOFÍA (Modern Profile) */}
-      <section className="py-24 bg-brandPrimary relative overflow-hidden">
+      <section className="py-12 bg-brandPrimary relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <motion.div
@@ -90,17 +84,17 @@ export default function QuienesSomosPage() {
               viewport={{ once: true }}
             >
               <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Nuestra Fundadora</span>
-              <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-display mb-8">Sofía Dávila Villa</h2>
-              <div className="space-y-6 text-gray-600 font-light leading-relaxed text-lg">
+              <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-brand mb-8">Sofía Dávila Villa</h2>
+              <div className="space-y-6 text-gray-700 font-light leading-relaxed text-lg">
                 <p>
-                  Profesora y Licenciada en <span className="font-medium text-typographyMain">Enseñanza del Idioma Inglés (UCAECE)</span>. Su enfoque combina rigor académico, innovación pedagógica y una fuerte impronta cultural.
+                  <span className="font-bold text-typographyMain">Profesora de Inglés</span>. Apasionada por la innovación pedagógica y el intercambio cultural, diseña procesos de enseñanza dinámicos que van más allá del aula.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12">
                   {[
-                    { label: 'Formación', val: 'University of California' },
-                    { label: 'Especialidad', val: 'Grammar & Punctuation' },
+                    { label: 'Formación', val: 'Instituto Superior Cultural Británico, University of California, y UCAECE' },
+                    { label: 'Especialidad', val: 'Phonology, grammar & academic writing' },
                     { label: 'Ex-Ayudante', val: 'Fonética, ISFDyT N° 42' },
-                    { label: 'Experiencia', val: 'Corporativa y Online' },
+                    { label: 'Experiencia', val: 'Escolar, universitaria, corporativa y online' },
                   ].map((item, i) => (
                     <div key={i} className="flex flex-col p-4 rounded-2xl bg-white border border-brandSecondary/10">
                       <span className="text-[10px] font-bold text-brandAccent uppercase tracking-widest mb-1">{item.label}</span>
@@ -112,28 +106,28 @@ export default function QuienesSomosPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative aspect-square"
+              className="flex flex-col gap-12"
             >
-              <div className="absolute inset-0 bg-brandAccent/10 rounded-[4rem] rotate-6" />
-              <div className="absolute inset-0 bg-white rounded-[4rem] -rotate-3 border border-brandSecondary/10 shadow-premium flex items-center justify-center p-12 text-center">
-                <div className="space-y-6">
-                  <Star className="text-brandAccent w-12 h-12 mx-auto mb-4" fill="currentColor" />
-                  <p className="text-2xl font-light italic text-typographyMain leading-relaxed text-balance">
-                    "El inglés trasciende lo tradicional; buscamos acompañar cada proceso con dedicación, creatividad y compromiso constante."
-                  </p>
-                  <p className="font-bold text-brandAccent tracking-widest uppercase text-xs">— Sofi Dávila Villa</p>
+              <div className="relative aspect-3/4 w-full max-w-md mx-auto">
+                <div className="absolute inset-0 bg-brandAccent/10 rounded-[4rem] rotate-6" />
+                <div className="absolute inset-0 bg-white rounded-[4rem] overflow-hidden border border-brandSecondary/10 shadow-2xl">
+                  {/* Placeholder for Sofia's Photo */}
+                  <div className="w-full h-full bg-brandSecondary/5 flex items-center justify-center">
+                    <span className="text-brandAccent/20 font-black text-4xl uppercase tracking-[0.2em] -rotate-12 select-none">Tu Foto Aquí</span>
+                  </div>
                 </div>
               </div>
+              
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* 3. DIFERENCIALES (Premium Grid) */}
-      <section className="py-32 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Nuestro Valor Agregado</span>
@@ -169,7 +163,7 @@ export default function QuienesSomosPage() {
       </section>
 
       {/* 4. MISIÓN / VISIÓN (Bento Style) */}
-      <section className="py-32 bg-brandPrimary/40 relative overflow-hidden">
+      <section className="py-16 bg-brandPrimary/40 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brandAccent/5 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -183,7 +177,7 @@ export default function QuienesSomosPage() {
               {
                 title: 'Visión',
                 icon: <Eye />,
-                text: 'Ser el referente en enseñanza innovadora y humana, acompañando a una comunidad global hacia la fluidez y la confianza total en el idioma.'
+                text: 'Ser un instituto líder en enseñanza, innovadora, humana y cultural, acompañando a una comunidad global hacia la fluidez y la confianza total en el idioma.'
               },
               {
                 title: 'Valores',
@@ -215,7 +209,7 @@ export default function QuienesSomosPage() {
       </section>
 
       {/* 5. CTA (Modern) */}
-      <section className="py-32 bg-white text-center">
+      <section className="py-16 bg-white text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="w-20 h-20 bg-brandAccent/10 rounded-3xl flex items-center justify-center text-brandAccent mx-auto mb-10">
             <Users size={32} />
@@ -237,4 +231,5 @@ export default function QuienesSomosPage() {
     </div>
   );
 }
+
 

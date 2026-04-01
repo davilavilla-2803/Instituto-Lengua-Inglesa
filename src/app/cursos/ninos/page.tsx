@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
@@ -31,12 +30,12 @@ export default function CursoNinosPage() {
     <div className="flex flex-col bg-white">
       <PageHero
         label="Cursos — Niños"
-        title="Inglés para <span class='text-gradient'>los más chicos</span>"
+        title={<>Inglés para <span className="text-gradient">los más chicos</span></>}
         phrase="Los más chicos también tienen voz. Un espacio seguro, lúdico y divertido para descubrir el inglés desde pequeños."
       />
 
       {/* 1. INTRO & HIGHLIGHTS */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <motion.div 
@@ -47,14 +46,14 @@ export default function CursoNinosPage() {
             >
               <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent block">A partir de los 7 años</span>
               <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
-                Una experiencia <span className="text-gradient">divertida y estimulante</span>
+                Una experiencia <span className="text-gradient">divertida y para describir el mundo</span>
               </h2>
               <p className="text-gray-500 text-lg font-light leading-relaxed">
                 Ofrecemos cursos diseñados para que aprender desde casa sea un viaje de descubrimiento. Nuestras clases son interactivas, dinámicas y naturales.
               </p>
-              <div className="pt-4 border-l-2 border-brandPrimary pl-8">
-                <p className="text-sm text-gray-400 italic font-light leading-relaxed">
-                  "Combinamos juegos, recursos audiovisuales y una bibliográfica premium para garantizar fluidez y confianza."
+              <div className="pt-6 border-l-4 border-brandAccent/30 pl-8">
+                <p className="text-xl md:text-2xl text-brandAccent italic font-medium leading-relaxed">
+                  Combinamos juegos, recursos audiovisuales y una bibliográfica premium para garantizar fluidez y confianza.
                 </p>
               </div>
             </motion.div>
@@ -77,7 +76,7 @@ export default function CursoNinosPage() {
       </section>
 
       {/* 2. PROGRAMA (Levels) */}
-      <section className="py-32 bg-brandPrimary/20 relative">
+      <section className="py-16 bg-brandPrimary/20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-24">
             <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Estructura del Programa</span>
@@ -112,7 +111,7 @@ export default function CursoNinosPage() {
       </section>
 
       {/* 3. CTA */}
-      <section className="py-32 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-20">
+      <section className="py-16 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-8">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 left-0 w-96 h-96 bg-brandAccent/10 rounded-full blur-[150px]" />
         </div>
@@ -134,4 +133,5 @@ export default function CursoNinosPage() {
     </div>
   );
 }
+
 

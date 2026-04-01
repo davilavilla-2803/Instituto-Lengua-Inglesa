@@ -1,12 +1,11 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { siteConfig } from '@/lib/config';
 import { motion } from 'framer-motion';
-import { Coffee, Palette, MapPin, Utensils, Info, Instagram, Calendar, Users, Star, ArrowRight, Globe, Image as ImageIcon } from 'lucide-react';
+import { Coffee, Palette, MapPin, Utensils, Instagram, Users, Star, ArrowRight, Globe, Image as ImageIcon } from 'lucide-react';
 
 /* ─── Datos ──────────────────────────────────────────────────────────────── */
 
@@ -16,6 +15,7 @@ const experiences = [
     title: 'English & Coffee Experience',
     target: 'Adolescentes y adultos',
     image: '/images/ENGLISH AND COFFEE.jpeg',
+    imagePosition: 'object-center',
     description: 'Una experiencia distinta, relajada y creativa abierta a toda la comunidad. Practicamos speaking y listening sobre temas de interés general en un entorno cálido.',
     detail: 'Grupo reducido para garantizar una producción oral personalizada y fluida.',
   },
@@ -32,7 +32,7 @@ const experiences = [
     title: 'The Grand BA Circuit',
     target: 'Adolescentes y adultos',
     image: '',
-    description: 'Recorrido bilingüe por el Palacio Barolo y Confitería La Ideal. Historia, arquitectura y nuestra clásica English & Coffee.',
+    description: 'Recorrido bilingüe por el Palacio Barolo y Confitería La Ideal. Historia, arquitectura y nuestra Bilingual Gourmet Experience.',
     detail: 'Un circuito sofisticado para conectar con los iconos de la ciudad.',
   },
   {
@@ -45,9 +45,11 @@ const experiences = [
   },
   {
     icon: <Utensils size={32} />,
-    title: 'Bilingual Gastronomic Experience',
+    title: 'Bilingual Gourmet Experience',
     target: 'Adolescentes y adultos',
-    image: '/images/AFTERNOON TEA.jpeg',
+    images: ['/images/AFTERNOON TEA.jpeg', '/images/BRITISH PUB.jpeg'], // Dos imágenes lado a lado
+    imagePosition: 'object-center',
+    objectFit: 'object-cover',
     description: 'Colaboración con Foodie Estudio. Exploramos la cocina británica desde el Afternoon Tea hasta el British Pub en un ambiente gourmet.',
     detail: 'Una oportunidad para viajar con los sentidos en un entorno conversacional.',
   },
@@ -60,12 +62,12 @@ export default function ExperienciasPage() {
     <div className="flex flex-col bg-white">
       <PageHero
         label="Cultura & Encuentro"
-        title="Donde el inglés se convierte en <span class='text-gradient'>experiencia</span>"
+        title={<>Donde el inglés se convierte en <span className="text-gradient">experiencia</span></>}
         phrase="Nuestras propuestas culturales son el espacio donde el aprendizaje trasciende la pantalla y se transforma en momentos auténticos y compartidos."
       />
 
       {/* 1. INTRO / MANIFIESTO */}
-      <section className="py-24 bg-white px-4">
+      <section className="py-12 bg-white px-4">
         <div className="max-w-5xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -111,16 +113,32 @@ export default function ExperienciasPage() {
               viewport={{ once: true, margin: "-100px" }}
               className={`flex flex-col lg:flex-row gap-16 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
             >
-              <div className="w-full lg:w-1/2 relative aspect-4/3 rounded-3xl overflow-hidden shadow-premium group">
-                {exp.image ? (
+              <div className="w-full lg:w-1/2 relative aspect-4/3 rounded-3xl overflow-hidden shadow-premium group bg-brandPrimary/30">
+                {exp.images ? (
+                  <div className="flex h-full w-full">
+                    {exp.images.map((img, idx) => (
+                      <div key={idx} className="relative flex-1 h-full border-r last:border-r-0 border-white/10">
+                        <Image
+                          src={img}
+                          alt={`${exp.title} ${idx + 1}`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
+                    ))}
+                    <div className="absolute inset-0 bg-linear-to-t from-brandAccentDark/30 to-transparent z-20 pointer-events-none" />
+                  </div>
+                ) : exp.image ? (
                   <>
-                    <Image 
-                      src={exp.image} 
-                      alt={exp.title} 
-                      fill 
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    <Image
+                      src={exp.image}
+                      alt={exp.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className={`relative z-10 ${exp.objectFit || 'object-cover'} ${exp.imagePosition || 'object-center'} transition-transform duration-700 group-hover:scale-105`}
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-brandAccentDark/30 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-brandAccentDark/30 to-transparent z-20" />
                   </>
                 ) : (
                   <div className="absolute inset-0 bg-brandPrimary/40 flex flex-col items-center justify-center p-12 text-center space-y-4">
@@ -132,7 +150,7 @@ export default function ExperienciasPage() {
                     </p>
                   </div>
                 )}
-                <div className="absolute top-8 left-8">
+                <div className="absolute top-8 left-8 z-30">
                   <span className="px-4 py-2 rounded-full bg-white/90 backdrop-blur-sm text-[10px] font-black uppercase tracking-widest text-brandAccent shadow-sm">
                     {exp.target}
                   </span>
@@ -167,7 +185,7 @@ export default function ExperienciasPage() {
       </section>
 
       {/* 3. INFO IMPORTANTE */}
-      <section className="py-32 bg-brandPrimary/40 text-typographyMain relative overflow-hidden mt-32">
+      <section className="py-16 bg-brandPrimary/40 text-typographyMain relative overflow-hidden mt-12">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brandAccent/5 rounded-full blur-[150px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
@@ -219,3 +237,4 @@ export default function ExperienciasPage() {
     </div>
   );
 }
+

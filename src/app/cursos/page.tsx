@@ -1,12 +1,10 @@
 'use client';
 
-import type { Metadata } from 'next';
-import Link from 'next/link';
 import Services from '@/components/home/Services';
 import { siteConfig } from '@/lib/config';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
-import { CheckCircle2, MessageSquare, ArrowRight, Zap } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Zap } from 'lucide-react';
 
 /* ─── Page ───────────────────────────────────────────────────────────────── */
 
@@ -17,7 +15,7 @@ export default function CursosPage() {
     <div className="flex flex-col bg-white">
       <PageHero
         label="Nuestros Cursos"
-        title="Experiencias que atraviesan <span class='text-gradient'>la pantalla</span>"
+        title={<>Clases que atraviesan <span className="text-gradient">la pantalla</span></>}
         phrase="Aprendé inglés de una manera viva, cercana y memorable. Más que clases, te ofrecemos el puente hacia tu futuro bilingüe."
       />
 
@@ -26,7 +24,7 @@ export default function CursosPage() {
       </section>
 
       {/* ── TEST DE NIVEL (Premium Card) ─────────────────────────────────── */}
-      <section className="py-32 bg-brandPrimary/40 relative overflow-hidden">
+      <section className="py-16 bg-brandPrimary/40 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brandAccent/10 rounded-full blur-[150px]" />
         </div>
@@ -95,5 +93,6 @@ export default function CursosPage() {
     </div>
   );
 }
+
 
 

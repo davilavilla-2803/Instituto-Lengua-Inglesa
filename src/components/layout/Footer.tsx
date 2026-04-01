@@ -22,6 +22,7 @@ export default function Footer() {
                   src="/images/logoSinFondo.png"
                   alt="ILI Logo"
                   fill
+                  sizes="96px"
                   className="object-contain"
                 />
               </div>
@@ -133,3 +134,4 @@ export default function Footer() {
     </footer>
   );
 }
+

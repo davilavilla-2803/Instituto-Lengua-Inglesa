@@ -1,11 +1,10 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
-import { Plane, Compass, Users2, Heart, ShieldCheck, Map, ArrowRight, Calendar, Star, Info } from 'lucide-react';
+import { Plane, Compass, Users2, Heart, ShieldCheck, Map, ArrowRight, Calendar, Info } from 'lucide-react';
 
 /* ─── Datos ──────────────────────────────────────────────────────────────── */
 
@@ -17,7 +16,7 @@ const pillars = [
 ];
 
 const madrynGallery = [
-  { src: '/images/MADRYN 2026 DELFINES.jpeg', alt: 'Avistaje de delfines' },
+  { src: '/images/MADRYN 2026 DELFINES.jpeg', alt: 'Dolphin Watching' },
   { src: '/images/MADRYN 2026 PUNTA TOMBO.jpeg', alt: 'Punta Tombo' },
   { src: '/images/MADRYN 2026 SNORKELLING.jpeg', alt: 'Snorkelling' },
 ];
@@ -29,12 +28,12 @@ export default function ViajesPage() {
     <div className="flex flex-col bg-white">
       <PageHero
         label="English & Travel"
-        title="El mundo es el aula <span class='text-gradient'>más grande</span>"
+        title={<>El mundo es el aula <span className="text-gradient">más grande</span></>}
         phrase="Aprender un idioma es animarse a vivirlo. Nuestras experiencias de viaje están diseñadas para que el inglés sea tu brújula en destinos únicos."
       />
 
       {/* 1. INTRO & PILARES */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-12 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
             <motion.div 
@@ -84,10 +83,10 @@ export default function ViajesPage() {
       </section>
 
       {/* 2. EDICIÓN PASADA (Masonry ish) */}
-      <section className="py-24 bg-brandPrimary/20">
+      <section className="py-12 bg-brandPrimary/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Edición Pasada</span>
+            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Edición 2026</span>
             <h2 className="text-3xl md:text-5xl font-bold text-typographyMain font-display tracking-tight">Puerto Madryn in English</h2>
             <p className="text-gray-500 text-lg font-light mt-6">Naturaleza y el idioma integrados de forma excepcional.</p>
           </div>
@@ -106,6 +105,7 @@ export default function ViajesPage() {
                   src={img.src}
                   alt={img.alt}
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/60 to-transparent flex items-end p-8">
@@ -118,11 +118,11 @@ export default function ViajesPage() {
       </section>
 
       {/* 3. PRÓXIMOS DESTINOS (Bento style cards) */}
-      <section className="py-32 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Preview 2027</span>
-            <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-display tracking-tight leading-tight">Próximas <span className="text-gradient">Expediciones</span></h2>
+            <h2 className="text-4xl md:text-6xl font-bold text-typographyMain font-display tracking-tight leading-tight">Próximos <span className="text-gradient">English & Travel</span></h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -138,6 +138,7 @@ export default function ViajesPage() {
                   src="/images/USHUAIA 2027.jpeg"
                   alt="Ushuaia 2027"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-typographyMain/80 to-transparent" />
@@ -154,7 +155,7 @@ export default function ViajesPage() {
               </div>
               <div className="p-10 space-y-8 flex-1 flex flex-col justify-between">
                 <p className="text-gray-500 text-lg font-light leading-relaxed">
-                  Inmersión total en el "Fin del Mundo". Una experiencia bilingüe rodeada de los paisajes más sobrecogedores del planeta.
+                  Inmersión total en el &ldquo;Fin del Mundo&rdquo;. Una experiencia bilingüe rodeada de los paisajes más sobrecogedores del planeta.
                 </p>
                 <div className="pt-6 border-t border-brandSecondary/5 flex justify-between items-center">
                   <a
@@ -182,6 +183,7 @@ export default function ViajesPage() {
                   src="/images/REINO UNIDO E IRLANDA 2027.jpeg"
                   alt="UK & Ireland 2027"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
@@ -207,7 +209,7 @@ export default function ViajesPage() {
       </section>
 
       {/* 4. CTA (Modern) */}
-      <section className="py-32 bg-brandPrimary/40 text-typographyMain relative overflow-hidden">
+      <section className="py-16 bg-brandPrimary/40 text-typographyMain relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brandAccent rounded-full blur-[200px]" />
         </div>
@@ -233,4 +235,5 @@ export default function ViajesPage() {
     </div>
   );
 }
+
 

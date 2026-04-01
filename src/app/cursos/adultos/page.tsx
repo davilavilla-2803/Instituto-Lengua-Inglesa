@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
@@ -31,12 +30,12 @@ export default function CursoAdultosPage() {
     <div className="flex flex-col bg-white">
       <PageHero
         label="Cursos — Adultos"
-        title="Inglés para <span class='text-gradient'>Adultos</span>"
+        title={<>Inglés para <span className="text-gradient">Adultos</span></>}
         phrase="Nunca es tarde para encontrar tu voz en otro idioma. Un programa flexible, motivador y diseñado para tu realidad."
       />
 
       {/* 1. INTRO & HIGHLIGHTS */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <motion.div 
@@ -54,7 +53,7 @@ export default function CursoAdultosPage() {
               </p>
               <div className="pt-4 border-l-2 border-brandPrimary pl-8">
                 <p className="text-sm text-gray-400 italic font-light leading-relaxed">
-                  "Clases enfocadas en la comunicación real, con contenidos aplicables a situaciones cotidianas, académicas y profesionales."
+                  &ldquo;Clases enfocadas en la comunicación real, con contenidos aplicables a situaciones cotidianas, académicas y profesionales.&rdquo;
                 </p>
               </div>
             </motion.div>
@@ -77,7 +76,7 @@ export default function CursoAdultosPage() {
       </section>
 
       {/* 2. PROGRAMA (Levels) */}
-      <section className="py-32 bg-brandPrimary/20 relative">
+      <section className="py-16 bg-brandPrimary/20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-24">
             <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Alineado al Marco Europeo</span>
@@ -116,7 +115,7 @@ export default function CursoAdultosPage() {
       </section>
 
       {/* 3. CTA */}
-      <section className="py-32 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-20">
+      <section className="py-16 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-8">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 bg-brandAccent/10 rounded-full blur-[150px]" />
         </div>
@@ -138,4 +137,5 @@ export default function CursoAdultosPage() {
     </div>
   );
 }
+
 

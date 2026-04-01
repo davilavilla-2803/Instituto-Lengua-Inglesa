@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
@@ -23,12 +22,12 @@ export default function CursoCoachingPage() {
     <div className="flex flex-col bg-white">
       <PageHero
         label="Cursos — Coaching Docente"
-        title="Coaching para <span class='text-gradient'>Profesorado de Inglés</span>"
+        title={<>Coaching para <span className="text-gradient">Profesorado de Inglés</span></>}
         phrase="Enseñar inglés también es un arte que se perfecciona con dedicación y método. Un espacio de acompañamiento para docentes que quieren seguir creciendo."
       />
 
       {/* 1. SECCIÓN PRINCIPAL */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <motion.div 
@@ -78,18 +77,18 @@ export default function CursoCoachingPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative p-12 bg-typographyMain rounded-3xl text-white shadow-2xl overflow-hidden"
+              className="relative p-12 bg-white rounded-3xl border border-brandSecondary/10 shadow-premium overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brandAccent/10 rounded-full blur-[100px]" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brandAccent/5 rounded-full blur-[100px]" />
               
               <h3 className="text-xs font-black uppercase tracking-[0.4em] text-brandAccent mb-10 block">¿Qué Incluye?</h3>
               <div className="space-y-8 relative z-10">
                 {benefits.map((item, i) => (
                   <div key={i} className="flex items-center gap-6 group">
-                    <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-brandAccent group-hover:bg-brandAccent/20 transition-all">
+                    <div className="w-12 h-12 rounded-2xl bg-brandPrimary flex items-center justify-center text-brandAccent group-hover:scale-110 transition-all border border-brandSecondary/5 shadow-sm">
                       {item.icon}
                     </div>
-                    <p className="text-white/70 font-light group-hover:text-white transition-colors">{item.text}</p>
+                    <p className="text-gray-500 font-light group-hover:text-typographyMain transition-colors">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -99,7 +98,7 @@ export default function CursoCoachingPage() {
       </section>
 
       {/* 2. CTA */}
-      <section className="py-32 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-20">
+      <section className="py-16 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-8">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 left-0 w-96 h-96 bg-brandAccent/10 rounded-full blur-[150px]" />
         </div>
@@ -122,4 +121,5 @@ export default function CursoCoachingPage() {
     </div>
   );
 }
+
 

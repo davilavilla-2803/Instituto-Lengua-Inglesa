@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Outfit } from 'next/font/google';
+import { Inter, IM_Fell_English, Sacramento } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -11,14 +11,22 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const outfit = Outfit({
+const imFell = IM_Fell_English({
+  weight: '400',
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-outfit',
+  variable: '--font-im-fell',
+});
+
+const sacramento = Sacramento({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sacramento',
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://institutolenguainglesa.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://institutolenguainglesa.vercel.app'),
   title: 'Instituto Lengua Inglesa | Prof. Lic. Sofi Davila Villa',
   description: 'Cursos de inglés interactivos, dinámicos y adaptados a tus objetivos. Cursos regulares, speaking, preparación FCE y coaching de profesorado en San Miguel, Buenos Aires.',
   icons: {
@@ -55,7 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth" data-scroll-behavior="smooth">
-      <body className={`${inter.variable} ${outfit.variable} antialiased min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} ${imFell.variable} ${sacramento.variable} antialiased min-h-screen flex flex-col`}>
         <Navbar />
         <main className="grow">
           {children}
@@ -66,3 +74,4 @@ export default function RootLayout({
     </html>
   );
 }
+

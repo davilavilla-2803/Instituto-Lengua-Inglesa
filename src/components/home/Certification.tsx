@@ -9,7 +9,7 @@ export default function Certification() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="py-32 bg-brandPrimary/40 text-typographyMain relative overflow-hidden">
+    <section className="py-16 bg-brandAccent text-white relative overflow-hidden">
       {/* Decorative effect - Hidden on mobile */}
       <div className="hidden sm:block absolute top-0 right-0 w-96 h-96 bg-brandAccent/5 rounded-full blur-[120px] pointer-events-none" />
       
@@ -22,21 +22,22 @@ export default function Certification() {
           className="space-y-8"
         >
           <div>
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent block mb-4">Certificación Internacional</span>
-            <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight text-typographyMain">
-              Validá tu inglés ante <span className="text-gradient">el mundo</span>
+            <span className="text-3xl font-accent text-white/80 block mb-4">Certificación Internacional</span>
+            <h2 className="text-4xl md:text-6xl font-bold font-display tracking-tight text-white line-height-[1.1]">
+              Validá tu inglés ante <span className="text-white/70">el mundo</span>
             </h2>
           </div>
 
-          <p className="text-gray-500 text-xl font-light max-w-2xl mx-auto leading-relaxed">
-            Preparate para los exámenes más prestigiosos. Somos centro de preparación oficial para <span className="font-bold text-typographyMain">certificaciones internacionales de excelencia</span>.
+          <p className="text-white text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed italic">
+            No somos una academia, somos tus <span className="font-bold text-white">entrenadores estratégicos</span>. Te damos la técnica y la confianza para conquistar los exámenes más prestigiosos del mundo. 
+            <span className="block mt-4 font-bold text-white/90">Hacelo realidad. Tu éxito global empieza acá.</span>
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 py-8">
-            {['Trinity College London', 'Cambridge — FCE / CAE', 'IELTS & TOEFL'].map((exam, i) => (
+            {['Trinity College London', 'Cambridge — FCE / CAE'].map((exam, i) => (
               <div 
                 key={i} 
-                className="px-8 py-4 bg-white rounded-2xl shadow-premium border border-brandSecondary/10 text-xs font-black uppercase tracking-widest text-typographyMain hover:scale-105 transition-all cursor-default"
+                className="px-8 py-4 bg-white/10 rounded-2xl shadow-premium border border-white/20 text-xs font-black uppercase tracking-widest text-white hover:bg-white hover:text-brandAccent transition-all cursor-default"
               >
                 {exam}
               </div>
@@ -54,3 +55,4 @@ export default function Certification() {
     </section>
   );
 }
+

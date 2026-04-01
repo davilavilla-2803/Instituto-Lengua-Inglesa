@@ -8,7 +8,7 @@ export default function About() {
   const isMobile = useIsMobile();
 
   return (
-    <section id="nosotros" className="py-32 bg-brandPrimary relative overflow-hidden">
+    <section id="nosotros" className="py-16 bg-brandPrimary relative overflow-hidden">
       {/* Decorative background text - Hidden on mobile */}
       <div className="hidden sm:block absolute top-20 -right-20 text-[15rem] font-bold text-brandSecondary/5 select-none font-display pointer-events-none">
         EDUCATOR
@@ -43,7 +43,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={isMobile ? { duration: 0 } : { duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandAccent/5 text-brandAccent text-[10px] font-black uppercase tracking-widest mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandAccent/5 text-brandAccent text-[10px] font-accent uppercase tracking-widest mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-brandAccent" />
               Sobre Mí
             </div>
@@ -52,7 +52,7 @@ export default function About() {
               Hello! Soy <span className="text-gradient">Sofi Davila Villa</span>
             </h3>
 
-            <div className="space-y-6 text-lg text-gray-600 font-light mb-12">
+            <div className="space-y-6 text-lg text-gray-700 font-light mb-12">
               <p>
                 Soy <strong className="text-typographyMain font-medium">Profesora y Licenciada en Lengua Inglesa</strong>, apasionada por los viajes, la música y la conexión intercultural.
               </p>
@@ -86,4 +86,5 @@ export default function About() {
     </section>
   );
 }
+
 

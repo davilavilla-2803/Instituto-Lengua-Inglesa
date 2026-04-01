@@ -1,10 +1,9 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
-import { Handshake, Mic2, Mail, Globe, Calendar, Laptop, ArrowRight, Zap, Target, Briefcase } from 'lucide-react';
+import { Handshake, Mic2, Mail, Globe, Calendar, Laptop, ArrowRight, Target, Briefcase } from 'lucide-react';
 
 /* ─── Datos ──────────────────────────────────────────────────────────────── */
 
@@ -22,12 +21,12 @@ export default function CursoBusinessEnglishPage() {
     <div className="flex flex-col bg-white">
       <PageHero
         label="Cursos — Business English"
-        title="Business <span class='text-gradient'>English</span>"
+        title={<>Business <span className="text-gradient">English</span></>}
         phrase="El inglés que abre puertas en el mundo corporativo global. Comunicá con precisión, proyectá profesionalismo y destacate en tu campo."
       />
 
       {/* 1. INTRO & SKILLS */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <span className="text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6 block">Profesionales y Empresas</span>
@@ -67,7 +66,7 @@ export default function CursoBusinessEnglishPage() {
       </section>
 
       {/* 2. MODALIDAD */}
-      <section className="py-24 bg-brandPrimary/10 relative overflow-hidden">
+      <section className="py-12 bg-brandPrimary/10 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute -top-24 -left-24 w-96 h-96 bg-brandAccent/10 rounded-full blur-[150px]" />
           <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-brandAccent/10 rounded-full blur-[150px]" />
@@ -112,7 +111,7 @@ export default function CursoBusinessEnglishPage() {
       </section>
 
       {/* 3. CTA */}
-      <section className="py-32 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-20">
+      <section className="py-16 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-8">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 left-0 w-96 h-96 bg-brandAccent/10 rounded-full blur-[150px]" />
         </div>
@@ -135,4 +134,5 @@ export default function CursoBusinessEnglishPage() {
     </div>
   );
 }
+
 

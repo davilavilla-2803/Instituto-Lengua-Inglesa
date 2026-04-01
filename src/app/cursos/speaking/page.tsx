@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
@@ -24,12 +23,12 @@ export default function CursoSpeakingPage() {
     <div className="flex flex-col bg-white">
       <PageHero
         label="Cursos — Speaking"
-        title="Speaking <span class='text-gradient'>Courses</span>"
+        title={<>Speaking <span className="text-gradient">Courses</span></>}
         phrase="Hablar con confianza es el mayor logro que puede darte un idioma. Un espacio para perder el miedo y ganar fluidez de verdad."
       />
 
       {/* 1. SECCIÓN INTRO */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <motion.div 
@@ -63,29 +62,35 @@ export default function CursoSpeakingPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative p-12 bg-typographyMain rounded-3xl text-white shadow-2xl overflow-hidden"
+              className="relative p-12 bg-white rounded-3xl border border-brandSecondary/10 shadow-premium overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brandAccent/10 rounded-full blur-[100px]" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brandAccent/5 rounded-full blur-[100px]" />
               
-              <h3 className="text-xs font-black uppercase tracking-[0.4em] text-brandAccent mb-10 block">¿Qué Trabajamos?</h3>
+              <div className="flex justify-between items-start mb-10 relative z-10">
+                <h3 className="text-xs font-black uppercase tracking-[0.4em] text-brandAccent block">¿Qué Trabajamos?</h3>
+                <span className="px-3 py-1 rounded-full bg-brandAccent/10 text-brandAccent text-[9px] font-black uppercase tracking-widest border border-brandAccent/20">
+                  Certificación opcional
+                </span>
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
                 {topics.map((item, i) => (
                   <div key={i} className="flex flex-col gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-brandAccent group-hover:bg-brandAccent/20 transition-all shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-brandPrimary flex items-center justify-center text-brandAccent group-hover:scale-110 transition-all shrink-0 shadow-sm border border-brandSecondary/5">
                       {item.icon}
                     </div>
-                    <p className="text-white/70 font-light group-hover:text-white transition-colors text-xs leading-relaxed">
+                    <p className="text-gray-500 font-light group-hover:text-typographyMain transition-colors text-xs leading-relaxed">
                       {item.text}
                     </p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-12 pt-8 border-t border-white/10 flex gap-6 items-center">
-                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brandAccent">
+              <div className="mt-12 pt-8 border-t border-brandSecondary/10 flex gap-6 items-center relative z-10">
+                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brandAccent/60">
                   <Calendar size={14} /> Anual
                 </div>
-                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brandAccent">
+                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brandAccent/60">
                   <Laptop size={14} /> 100% Online
                 </div>
               </div>
@@ -95,7 +100,7 @@ export default function CursoSpeakingPage() {
       </section>
 
       {/* 2. CTA */}
-      <section className="py-32 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-20">
+      <section className="py-16 bg-brandPrimary/40 text-typographyMain text-center relative overflow-hidden mt-8">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 bg-brandAccent/10 rounded-full blur-[150px]" />
         </div>
@@ -118,4 +123,5 @@ export default function CursoSpeakingPage() {
     </div>
   );
 }
+
 

@@ -15,7 +15,7 @@ export const courses = [
     title: 'Inglés para Niños',
     shortTitle: 'Niños',
     description: 'Aprendizaje lúdico y dinámico para los más pequeños. Metodología basada en el juego, canciones y actividades creativas.',
-    ages: '6 a 11 años',
+    ages: '7 a 12 años',
     icon: 'Baby',
   },
   {

@@ -12,7 +12,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { courses } from '@/lib/config';
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Baby: Baby,
   Backpack: Backpack,
   User: User,
@@ -54,11 +54,13 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     setIsMenuOpen(false);
     setIsMobileCoursesOpen(false);
     setIsCoursesOpen(false);
   }, [pathname]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
@@ -81,20 +83,23 @@ export default function Navbar() {
         }`}>
 
           {/* Logo */}
-          <Link href="/" className="shrink-0 flex items-center gap-4 group">
-            <div className="relative w-20 h-20 transition-transform group-hover:scale-110 shrink-0">
-              <Image
+          <Link href="/" className="flex items-center gap-4 group">
+            <div className="relative w-14 h-14 shrink-0 overflow-visible group-hover:scale-105 transition-all">
+              <Image 
                 src="/images/logoSinFondo.png"
-                alt="Instituto Lengua Inglesa"
+                alt="Logo"
                 fill
+                sizes="56px"
                 className="object-contain"
+                style={{ imageRendering: 'crisp-edges' }}
                 priority
-                sizes="80px"
               />
             </div>
-            <span className="hidden sm:block text-[11px] font-black text-typographyMain leading-tight uppercase tracking-[0.2em]">
-              Instituto<br />Lengua Inglesa
-            </span>
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-typographyMain tracking-tight leading-tight font-brand group-hover:text-brandAccent transition-colors">
+                INSTITUTO<br/>LENGUA INGLESA
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Menu */}
@@ -199,7 +204,7 @@ export default function Navbar() {
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             className="fixed inset-0 z-50 lg:hidden bg-brandPrimary/95 backdrop-blur-2xl"
           >
-            <div className="flex flex-col h-full overflow-y-auto px-6 py-24">
+            <div className="flex flex-col h-full overflow-y-auto px-6 py-12">
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="absolute top-8 right-8 p-4 bg-white rounded-full shadow-xl"
@@ -289,4 +294,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
 

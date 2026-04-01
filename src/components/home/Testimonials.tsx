@@ -69,7 +69,7 @@ export default function Testimonials() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="py-32 bg-brandPrimary/30 relative overflow-hidden">
+    <section className="py-16 bg-brandPrimary/30 relative overflow-hidden">
       {/* Background Decor - Hidden on mobile */}
       <div className="hidden sm:block absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brandAccent/5 rounded-full blur-[120px]" />
@@ -108,33 +108,33 @@ export default function Testimonials() {
               transition={isMobile ? { duration: 0 } : { delay: i * 0.05 }}
               className="break-inside-avoid"
             >
-              <div className="bg-white p-8 rounded-[2.5rem] border border-brandSecondary/10 hover:shadow-premium transition-all duration-500 group relative overflow-hidden">
+              <div className="bg-brandAccent p-8 rounded-[2.5rem] border border-brandAccent/20 shadow-xl group relative overflow-hidden">
                 <Quote 
-                  className="absolute -right-4 -top-4 w-24 h-24 text-brandAccent/5 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-12" 
+                  className="absolute -right-4 -top-4 w-24 h-24 text-white/10 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-12" 
                 />
                 
                 <div className="flex gap-1 mb-6">
                   {[...Array(t.stars || 5)].map((_, i) => (
-                    <Star key={i} size={14} className="fill-brandAccent text-brandAccent" />
+                    <Star key={i} size={14} className="fill-white text-white" />
                   ))}
                 </div>
 
-                <p className="text-gray-600 font-light leading-relaxed mb-8 relative z-10 italic">
-                  "{t.text}"
+                <p className="text-white font-light leading-relaxed mb-8 relative z-10 italic">
+                  &ldquo;{t.text}&rdquo;
                 </p>
 
-                <div className="flex items-center gap-4 pt-6 border-t border-brandSecondary/5">
-                  <div className="w-10 h-10 rounded-full bg-brandAccent/10 flex items-center justify-center text-brandAccent font-bold text-xs">
+                <div className="flex items-center gap-4 pt-6 border-t border-white/20">
+                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white font-accent text-xs">
                     {t.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-typographyMain">{t.name}</h4>
+                    <h4 className="text-sm font-bold text-white">{t.name}</h4>
                     {t.role && (
-                      <p className="text-[10px] font-medium text-brandAccent uppercase tracking-widest mt-0.5">
+                      <p className="text-[10px] font-accent text-white/70 uppercase tracking-widest mt-0.5">
                         {t.role}
                       </p>
                     )}
-                    <p className="text-[10px] text-gray-400 mt-0.5">
+                    <p className="text-[10px] text-white/50 mt-0.5">
                       {t.date}
                     </p>
                   </div>
@@ -147,3 +147,4 @@ export default function Testimonials() {
     </section>
   );
 }
+
