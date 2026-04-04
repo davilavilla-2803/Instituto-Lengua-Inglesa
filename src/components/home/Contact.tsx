@@ -26,6 +26,7 @@ export default function Contact() {
     message: '',
   });
   const [errors, setErrors] = useState<FormErrors>({});
+  const [serverError, setServerError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -53,6 +54,7 @@ export default function Contact() {
     e.preventDefault();
     if (!validate()) return;
     setIsLoading(true);
+    setServerError(null);
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -61,12 +63,12 @@ export default function Contact() {
       });
       if (!res.ok) {
         const data = await res.json();
-        setErrors({ name: data.error ?? 'Error al enviar. Intentá de nuevo.' });
+        setServerError(data.error ?? 'No se pudo enviar el mensaje. Intentá de nuevo.');
         return;
       }
       setIsSuccess(true);
     } catch {
-      setErrors({ name: 'Error de red. Verificá tu conexión.' });
+      setServerError('Error de red. Verificá tu conexión e intentá de nuevo.');
     } finally {
       setIsLoading(false);
     }
@@ -225,6 +227,14 @@ export default function Contact() {
                       <>Enviar Consulta <Send size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" /></>
                     )}
                   </button>
+
+                  {serverError && (
+                    <div className="flex items-center gap-3 p-4 rounded-xl bg-red-50 border border-red-200">
+                      <div className="w-2 h-2 rounded-full bg-red-400 shrink-0" />
+                      <p className="text-xs text-red-600 font-medium">{serverError}</p>
+                    </div>
+                  )}
+
                   <p className="text-center text-[9px] text-gray-400 font-medium uppercase tracking-widest">
                     Al enviar, aceptás que nos contactemos con vos para brindarte información comercial.
                   </p>

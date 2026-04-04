@@ -6,14 +6,15 @@ interface PageHeroProps {
   label: string;
   title: React.ReactNode;
   phrase: string;
+  backgroundWord?: string;
 }
 
-export default function PageHero({ label, title, phrase }: PageHeroProps) {
+export default function PageHero({ label, title, phrase, backgroundWord }: PageHeroProps) {
   return (
     <div className="bg-brandPrimary border-b border-brandSecondary/10 pt-32 pb-16 px-4 relative overflow-hidden">
       {/* Decorative text background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-brandSecondary/12 select-none pointer-events-none uppercase">
-        {label.split(' ')[0]}
+        {backgroundWord ?? label.split(' ')[0]}
       </div>
 
       <motion.div 

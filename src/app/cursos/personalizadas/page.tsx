@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
-import { Target, BookOpen, BarChart3, Clock, RefreshCcw, Calendar, Laptop, ArrowRight, UserCircle } from 'lucide-react';
+import { Target, BookOpen, BarChart3, Clock, RefreshCcw, Calendar, Laptop, ArrowRight, UserCircle, GraduationCap } from 'lucide-react';
 
 /* ─── Datos ──────────────────────────────────────────────────────────────── */
 
@@ -13,6 +13,7 @@ const features = [
   { icon: <BarChart3 size={20} />, text: 'Disponibles para todos los niveles: desde principiante a avanzado' },
   { icon: <Clock size={20} />, text: 'Días y horarios flexibles, adaptados a tu agenda personal' },
   { icon: <RefreshCcw size={20} />, text: 'Inicio inmediato: podés empezar en cualquier momento del año' },
+  { icon: <GraduationCap size={20} />, text: 'Certificación internacional opcional' },
 ];
 
 /* ─── Page ───────────────────────────────────────────────────────────────── */
@@ -39,10 +40,10 @@ export default function CursoPersonalizadasPage() {
               <div className="space-y-4">
                 <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-2">Todos los niveles y edades</span>
                 <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
-                  100% a <span className="text-gradient">medida tuya</span>
+                  100% a <span className="text-gradient">tu medida</span>
                 </h2>
                 <p className="text-gray-500 text-lg font-light leading-relaxed">
-                  Diseñamos cada encuentro según tus objetivos, nivel y estilo. Al ser un espacio exclusivo, el aprendizaje es altamente enfocado y eficiente.
+                  Diseñamos cada encuentro según tus objetivos, nivel y estilo. Al ser un espacio exclusivo, el aprendizaje es altamente enfocado y personalizado.
                 </p>
               </div>
 

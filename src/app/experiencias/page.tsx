@@ -32,6 +32,8 @@ const experiences = [
     title: 'The Grand BA Circuit',
     target: 'Adolescentes y adultos',
     image: '/images/THE GRAND CIRCUIT OF BA.jpeg',
+    imagePosition: '[object-position:center_35%]',
+    badgeBottom: true,
     description: 'Recorrido bilingüe por el Palacio Barolo y Confitería La Ideal. Historia, arquitectura y nuestra Bilingual Gourmet Experience.',
     detail: 'Un circuito sofisticado para conectar con los iconos de la ciudad.',
   },
@@ -40,7 +42,7 @@ const experiences = [
     title: 'English Tours in Buenos Aires',
     target: 'Adolescentes y adultos',
     image: '/images/ENGLISH TOURS IN BA.jpeg',
-    description: 'Inmersión cultural en movimiento. Recorridos guiados por Puerto Madero, San Telmo, La Boca y museos emblemáticos.',
+    description: 'Inmersión cultural en movimiento. Recorridos guiados por Puerto Madero, San Telmo, La Boca, el Jardín Botánico y museos emblemáticos.',
     detail: 'Cada edición propone una inmersión cultural distinta, donde el idioma se practica en movimiento.',
   },
   {
@@ -150,7 +152,7 @@ export default function ExperienciasPage() {
                     </p>
                   </div>
                 )}
-                <div className="absolute top-8 left-8 z-30">
+                <div className={`absolute ${exp.badgeBottom ? 'bottom-8' : 'top-8'} left-8 z-30`}>
                   <span className="px-4 py-2 rounded-full bg-white/90 backdrop-blur-sm text-[10px] font-black uppercase tracking-widest text-brandAccent shadow-sm">
                     {exp.target}
                   </span>

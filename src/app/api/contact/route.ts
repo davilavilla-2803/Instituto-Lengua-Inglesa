@@ -64,6 +64,7 @@ export async function POST(req: NextRequest) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const toEmail = process.env.CONTACT_TO_EMAIL;
+  const fromEmail = process.env.CONTACT_FROM_EMAIL ?? 'onboarding@resend.dev';
 
   if (!apiKey || !toEmail) {
     console.error('Faltan variables de entorno RESEND_API_KEY / CONTACT_TO_EMAIL');
@@ -76,7 +77,7 @@ export async function POST(req: NextRequest) {
   const resend = new Resend(apiKey);
 
   const { error } = await resend.emails.send({
-    from: 'Instituto Lengua Inglesa <onboarding@resend.dev>',
+    from: `Instituto Lengua Inglesa <${fromEmail}>`,
     to: toEmail,
     replyTo: email,
     subject: `Nueva consulta de ${name} — ${interest}`,

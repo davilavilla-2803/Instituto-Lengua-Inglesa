@@ -70,7 +70,7 @@ export default function ViajesPage() {
               viewport={{ once: true }}
               className="grid grid-cols-1 gap-6"
             >
-              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-typographyMain/40 mb-2">Cada viaje incluye</h3>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-typographyMain/40 mb-2">En cada viaje brindamos</h3>
               {pillars.map((p, i) => (
                 <div key={i} className="flex gap-6 p-6 rounded-2xl bg-white border border-brandSecondary/5 hover:border-brandAccent transition-colors group">
                   <div className="text-brandAccent group-hover:scale-110 transition-transform">{p.icon}</div>
@@ -140,7 +140,8 @@ export default function ViajesPage() {
                   alt="Ushuaia 2027"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority
+                  className="object-cover object-[center_45%] transition-transform duration-700 group-hover:scale-105"
                 />
                 <span className="absolute top-5 right-5 px-3 py-1.5 rounded-full bg-brandAccent text-white font-black text-[10px] uppercase tracking-widest shadow-lg">
                   Cupos Limitados
@@ -155,7 +156,7 @@ export default function ViajesPage() {
                 </div>
                 <h3 className="text-3xl font-bold text-typographyMain font-display">Ushuaia</h3>
                 <p className="text-gray-500 text-base font-light leading-relaxed flex-1">
-                  Inmersión total en el &ldquo;Fin del Mundo&rdquo;. Una experiencia bilingüe rodeada de los paisajes más sobrecogedores del planeta.
+                  Inmersión total en el &ldquo;Fin del Mundo&rdquo;. Una experiencia bilingüe rodeada de los paisajes más majestuosos del planeta.
                 </p>
                 <a
                   href="https://bit.ly/EnglishandTravel-Ushuaia2027"
@@ -176,14 +177,10 @@ export default function ViajesPage() {
               className="group flex flex-col rounded-3xl overflow-hidden border border-brandSecondary/10 shadow-premium bg-white"
             >
               {/* Imagen en escala de grises hasta hover */}
-              <div className="relative h-72 overflow-hidden shrink-0">
-                <Image
-                  src="/images/REINO UNIDO E IRLANDA 2027.jpeg"
-                  alt="UK & Ireland 2027"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover transition-all duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
-                />
+              <div
+                className="relative h-72 overflow-hidden shrink-0 transition-all duration-700 group-hover:scale-105"
+                style={{ backgroundImage: "url('/images/REINO UNIDO E IRLANDA 2027.jpeg')", backgroundSize: 'cover', backgroundPosition: '40% 50%', backgroundRepeat: 'no-repeat' }}
+              >
                 <span className="absolute top-5 right-5 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white font-black text-[10px] uppercase tracking-widest border border-white/30">
                   Próximamente
                 </span>
@@ -223,7 +220,7 @@ export default function ViajesPage() {
             Transformá tu forma <span className="text-gradient">de ver el mundo</span>
           </h2>
           <p className="text-gray-500 text-lg font-light mb-12 max-w-2xl mx-auto leading-relaxed">
-            Sumate a nuestra próxima English & Travel Experience y viví el inglés en destinos únicos junto a una comunidad apasionada.
+            Sumate a nuestra próxima English & Travel Experience y viví el inglés en destinos únicos junto a una comunidad cultural.
           </p>
           <Link
             href="/contacto"

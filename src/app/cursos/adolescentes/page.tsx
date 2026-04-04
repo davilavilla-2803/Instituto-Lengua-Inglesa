@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
-import { MessageSquare, Brain, Smartphone, Trophy, Laptop, Calendar, ArrowRight, Zap, Target, Rocket } from 'lucide-react';
+import { MessageSquare, Brain, Smartphone, Trophy, Laptop, Calendar, ArrowRight, Zap, Target, Rocket, GraduationCap } from 'lucide-react';
 
 /* ─── Datos ──────────────────────────────────────────────────────────────── */
 
@@ -18,7 +18,7 @@ const highlights = [
   { icon: <MessageSquare size={20} />, text: 'Comunicación como eje central' },
   { icon: <Brain size={20} />, text: 'Pensamiento crítico y expresión personal' },
   { icon: <Smartphone size={20} />, text: 'Contenidos actuales y relevantes' },
-  { icon: <Trophy size={20} />, text: 'Preparación para certificaciones' },
+  { icon: <GraduationCap size={20} />, text: 'Certificación internacional opcional' },
   { icon: <Laptop size={20} />, text: '100% online, sincrónicas vía Zoom' },
   { icon: <Calendar size={20} />, text: 'Modalidad anual: marzo a diciembre' },
 ];

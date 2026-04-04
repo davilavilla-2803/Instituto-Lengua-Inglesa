@@ -58,7 +58,7 @@ export default function CertificacionPage() {
                 Trinity College London
               </h2>
               <p className="text-gray-600 font-light leading-relaxed text-lg">
-                Exámenes 100% orales, enfocados en la comunicación real, la interacción y el uso natural del idioma. Ideales para quienes buscan demostrar fluidez y confianza extrema al hablar.
+                Exámenes 100% orales, enfocados en la comunicación real, la interacción y el uso natural del idioma. Ideales para quienes buscan demostrar fluidez y confianza al hablar.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -88,16 +88,17 @@ export default function CertificacionPage() {
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-brandAccent/10 rounded-full blur-3xl" />
               <div className="w-32 h-32 bg-[#50144a] rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-sm overflow-hidden relative border border-[#50144a]">
-                <Image 
-                  src="/images/TRINITY LOGO NUEVO.png" 
-                  alt="Trinity College London Logo" 
+                <Image
+                  src="/images/TRINITY LOGO NUEVO.png"
+                  alt="Trinity College London Logo"
                   fill
+                  sizes="128px"
                   className="object-contain"
                 />
               </div>
               <h3 className="text-2xl font-bold text-typographyMain mb-4">Trayectoria Global</h3>
               <p className="text-gray-500 font-light leading-relaxed">
-                Una de las instituciones evaluadoras más reconocidas del mundo, con más de 100 años liderando la certificación de idiomas.
+                Referente mundial en evaluación educativa, con décadas de experiencia certificando idiomas bajo los más altos estándares internacionales oficiales.
               </p>
             </motion.div>
           </div>
@@ -116,10 +117,11 @@ export default function CertificacionPage() {
             >
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-brandAccent/20 rounded-full blur-[100px]" />
               <div className="w-32 h-32 bg-white rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm overflow-hidden relative border border-white/10">
-                <Image 
-                  src="/images/CAMBRIDGE LOGO.png" 
-                  alt="Cambridge English Logo" 
+                <Image
+                  src="/images/CAMBRIDGE LOGO.png"
+                  alt="Cambridge English Logo"
                   fill
+                  sizes="128px"
                   className="object-contain p-2"
                 />
               </div>
@@ -147,7 +149,7 @@ export default function CertificacionPage() {
 
               <div className="space-y-4">
                 {[
-                  { level: 'FCE — B2 First', desc: 'First Certificate in English. Nivel intermedio-avanzado, tu primer gran salto global.' },
+                  { level: 'FCE — B2 First', desc: 'First Certificate in English. Nivel intermedio-alto, tu primer gran salto global.' },
                   { level: 'CAE — C1 Advanced', desc: 'Certificate in Advanced English. Para dominar el idioma en contextos profesionales y académicos.' },
                 ].map((item, i) => (
                   <div key={i} className="p-6 rounded-2xl bg-brandPrimary/30 border border-brandSecondary/10 group hover:bg-white hover:shadow-premium transition-all duration-500">

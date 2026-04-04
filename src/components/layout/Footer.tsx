@@ -1,11 +1,15 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { MapPin, Mail, Instagram, ChevronRight } from 'lucide-react';
 import { siteConfig, courses } from '@/lib/config';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Footer() {
+  const [isLogoOpen, setIsLogoOpen] = useState(false);
+
   return (
     <footer className="bg-brandAccentDark text-brandPrimary/80 pt-24 pb-12 relative overflow-hidden">
       {/* Decorative texture or glow */}
@@ -15,23 +19,54 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
 
           {/* About / Brand */}
-          <div className="space-y-8">
-            <Link href="/" className="flex items-center gap-5 group">
-              <div className="relative w-24 h-24 transition-transform duration-500 group-hover:scale-110 shrink-0">
+          <div className="space-y-8 -mt-4">
+            <div className="flex items-center gap-5">
+              <button onClick={() => setIsLogoOpen(true)} className="relative w-12 h-12 shrink-0 hover:scale-110 transition-transform duration-300">
                 <Image
                   src="/images/logoSinFondo.png"
                   alt="ILI Logo"
                   fill
-                  sizes="96px"
+                  sizes="48px"
+                  quality={100}
                   className="object-contain"
                 />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-medium text-white leading-tight font-brand italic whitespace-nowrap">
+              </button>
+              <Link href="/" className="flex flex-col group">
+                <span className="text-sm font-medium text-white leading-tight font-brand italic whitespace-nowrap group-hover:text-brandAccent transition-colors">
                   Instituto Lengua Inglesa
                 </span>
-              </div>
-            </Link>
+              </Link>
+            </div>
+
+            {/* Logo Lightbox */}
+            <AnimatePresence>
+              {isLogoOpen && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setIsLogoOpen(false)}
+                  className="fixed inset-0 z-9999 bg-black/70 backdrop-blur-sm flex items-center justify-center cursor-pointer"
+                >
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.8, opacity: 0 }}
+                    className="relative w-72 h-72 sm:w-96 sm:h-96"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Image
+                      src="/images/logoSinFondo.png"
+                      alt="Instituto Lengua Inglesa Logo"
+                      fill
+                      sizes="384px"
+                      quality={100}
+                      className="object-contain"
+                    />
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
             <p className="text-sm font-light leading-relaxed max-w-xs text-brandPrimary/60">
               Formando hablantes seguros en todo el mundo. Clases interactivas diseñadas para conectar personas a través del lenguaje.
             </p>

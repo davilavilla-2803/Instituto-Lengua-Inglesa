@@ -22,7 +22,7 @@ import {
 
 const benefits = [
   { icon: <Globe size={24} />, title: 'Cultura & Idioma', text: 'Primer instituto que fomenta nuestra cultura a través del inglés con propuestas originales.' },
-  { icon: <Coffee size={24} />, title: 'Experiencias Únicas', text: 'English & Coffee, Tours en BA, Bilingual Gourmet Experience y English & Travel.' },
+  { icon: <Coffee size={24} />, title: 'Experiencias Únicas', text: 'English & Coffee, Tours en BA, Bilingual Gourmet Experiences y English & Travel.' },
   { icon: <Users size={24} />, title: 'Grupos Reducidos', text: 'Clases verdaderamente personalizadas con atención constante a cada alumno.' },
   { icon: <Award size={24} />, title: 'Certificación', text: 'Centro de preparación para Cambridge y Trinity College London.' },
   { icon: <GraduationCap size={24} />, title: 'Staff Calificado', text: 'Docentes apasionados, comprometidos con la excelencia y la innovación.' },
@@ -38,6 +38,7 @@ export default function QuienesSomosPage() {
     <div className="flex flex-col bg-white">
       <PageHero
         label="Nuestra Historia"
+        backgroundWord="Nosotras"
         title="Quiénes Somos"
         phrase="Somos un equipo que cree en el inglés como un puente cultural. Buscamos que cada estudiante descubra su valor personal poniendo el idioma en práctica en contextos reales y globales."
       />

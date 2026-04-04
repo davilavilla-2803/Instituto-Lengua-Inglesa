@@ -21,6 +21,7 @@ const highlights = [
   { icon: <BookOpen size={20} />, text: 'Bibliografía seleccionada por nivel' },
   { icon: <Laptop size={20} />, text: '100% online, sincrónicas vía Zoom' },
   { icon: <Calendar size={20} />, text: 'Modalidad anual: marzo a diciembre' },
+  { icon: <GraduationCap size={20} />, text: 'Certificación internacional opcional' },
 ];
 
 /* ─── Page ───────────────────────────────────────────────────────────────── */
@@ -46,7 +47,7 @@ export default function CursoNinosPage() {
             >
               <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-6">A partir de los 7 años</span>
               <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
-                Una experiencia <span className="text-gradient">divertida y para describir el mundo</span>
+                Una experiencia <span className="text-gradient">divertida y para descubrir el mundo</span>
               </h2>
               <p className="text-gray-500 text-lg font-light leading-relaxed">
                 Ofrecemos cursos diseñados para que aprender desde casa sea un viaje de descubrimiento. Nuestras clases son interactivas, dinámicas y naturales.

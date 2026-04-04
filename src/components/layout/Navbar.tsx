@@ -35,6 +35,7 @@ export default function Navbar() {
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const [isMobileCoursesOpen, setIsMobileCoursesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLogoOpen, setIsLogoOpen] = useState(false);
   const coursesRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
@@ -83,24 +84,54 @@ export default function Navbar() {
         }`}>
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-4 group">
-            <div className="relative w-14 h-14 shrink-0 overflow-visible group-hover:scale-105 transition-all">
-              <Image 
+          <div className="flex items-center gap-4">
+            <button onClick={() => setIsLogoOpen(true)} className="relative w-14 h-14 shrink-0 overflow-visible hover:scale-105 transition-all">
+              <Image
                 src="/images/logoSinFondo.png"
                 alt="Logo"
                 fill
                 sizes="56px"
+                quality={100}
                 className="object-contain"
-                style={{ imageRendering: 'crisp-edges' }}
                 priority
               />
-            </div>
-            <div className="flex flex-col">
+            </button>
+            <Link href="/" className="flex flex-col group">
               <span className="text-[1.3rem] font-medium text-typographyMain leading-none font-brand group-hover:text-brandAccent transition-colors italic whitespace-nowrap">
                 Instituto Lengua Inglesa
               </span>
-            </div>
-          </Link>
+            </Link>
+          </div>
+
+          {/* Logo Lightbox */}
+          <AnimatePresence>
+            {isLogoOpen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsLogoOpen(false)}
+                className="fixed inset-0 z-9999 bg-black/70 backdrop-blur-sm flex items-center justify-center cursor-pointer"
+              >
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.8, opacity: 0 }}
+                  className="relative w-72 h-72 sm:w-96 sm:h-96"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Image
+                    src="/images/logoSinFondo.png"
+                    alt="Instituto Lengua Inglesa Logo"
+                    fill
+                    sizes="384px"
+                    quality={100}
+                    className="object-contain"
+                  />
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-4">

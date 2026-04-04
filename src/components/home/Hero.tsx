@@ -26,10 +26,10 @@ export default function Hero() {
             className="text-center lg:text-left"
           >
             <h1 className="flex flex-col mb-10 text-balance text-center lg:text-left relative items-center lg:items-start group">
-              <span className="font-script text-brandAccent text-6xl sm:text-7xl lg:text-8xl normal-case leading-none z-20 -mb-[0.3em] lg:-mb-[0.4em] drop-shadow-sm whitespace-nowrap">
+              <span className="font-script text-brandAccent text-6xl sm:text-7xl lg:text-8xl normal-case leading-none z-20 -mb-[0.15em] lg:-mb-[0.2em] drop-shadow-sm whitespace-nowrap">
                 Your bilingual
               </span>
-              <span className="font-display-serif text-3xl sm:text-4xl lg:text-6xl font-normal uppercase tracking-tighter text-typographyMain/70 leading-[0.8] inline-block whitespace-nowrap">
+              <span className="font-display-serif text-3xl sm:text-4xl lg:text-6xl font-normal uppercase tracking-wide text-typographyMain/70 leading-[0.9] inline-block whitespace-nowrap">
                 version is here
               </span>
             </h1>

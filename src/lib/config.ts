@@ -23,7 +23,7 @@ export const courses = [
     title: 'Inglés para Adolescentes',
     shortTitle: 'Adolescentes',
     description: 'Clases diseñadas para teenagers con contenido relevante, tecnología y preparación para exámenes internacionales.',
-    ages: '12 a 17 años',
+    ages: 'A partir de 12 años',
     icon: 'Backpack',
   },
   {
@@ -31,7 +31,7 @@ export const courses = [
     title: 'Inglés para Adultos',
     shortTitle: 'Adultos',
     description: 'Cursos flexibles y enfocados en tus objetivos reales. Desarrollá fluidez en comunicación oral y escrita.',
-    ages: '18 años en adelante',
+    ages: 'A partir de 18 años',
     icon: 'User',
   },
   {
@@ -47,7 +47,7 @@ export const courses = [
     title: 'Speaking Courses',
     shortTitle: 'Speaking',
     description: 'Cursos intensivos de conversación para ganar confianza y fluidez oral. Grupos reducidos con dinámica participativa.',
-    ages: 'Nivel intermedio en adelante',
+    ages: 'Nivel preintermedio en adelante',
     icon: 'MessageSquare',
   },
   {

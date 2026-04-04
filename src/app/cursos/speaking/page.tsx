@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
-import { MessageCircle, Ear, Zap, BookOpen, Layers, Target, ArrowRight, Mic, Calendar, Laptop } from 'lucide-react';
+import { MessageCircle, Ear, Zap, BookOpen, Layers, Target, ArrowRight, Mic, Calendar, Laptop, GraduationCap } from 'lucide-react';
 
 /* ─── Datos ──────────────────────────────────────────────────────────────── */
 
@@ -14,6 +14,7 @@ const topics = [
   { icon: <BookOpen size={20} />, text: 'Ampliación de vocabulario' },
   { icon: <Layers size={20} />, text: 'Revisión de gramática en uso' },
   { icon: <Target size={20} />, text: 'Materiales auténticos e interactivos' },
+  { icon: <GraduationCap size={20} />, text: 'Certificación internacional opcional' },
 ];
 
 /* ─── Page ───────────────────────────────────────────────────────────────── */
@@ -38,7 +39,7 @@ export default function CursoSpeakingPage() {
               className="space-y-10"
             >
               <div className="space-y-4">
-                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-2">Desde nivel A2 (pre-intermedio)</span>
+                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-2">Desde nivel A2 (preintermedio)</span>
                 <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
                   Enfocados en <span className="text-gradient">listening y speaking</span>
                 </h2>
@@ -53,7 +54,7 @@ export default function CursoSpeakingPage() {
                   <p className="text-[10px] font-black uppercase tracking-widest text-brandAccent">Requisito</p>
                 </div>
                 <p className="text-sm text-typographyMain/70 leading-relaxed italic">
-                  Disponibles a partir del <strong className="text-typographyMain">nivel A2 (pre-intermedio)</strong>. Usamos materiales auténticos para una comunicación real.
+                  Disponibles a partir del <strong className="text-typographyMain">nivel A2 (preintermedio)</strong>. Usamos materiales auténticos para una comunicación real.
                 </p>
               </div>
             </motion.div>

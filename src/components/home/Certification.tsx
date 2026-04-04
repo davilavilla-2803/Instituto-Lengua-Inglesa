@@ -54,7 +54,7 @@ export default function Certification() {
             </h2>
 
             <p className="text-white/70 text-lg font-light leading-relaxed max-w-md italic">
-              No somos una academia, somos tus{' '}
+              No somos solo un instituto, somos tus{' '}
               <span className="font-bold text-white not-italic">entrenadores estratégicos</span>.
               Te damos la técnica y la confianza para conquistar los exámenes más prestigiosos del mundo.
             </p>
@@ -86,10 +86,11 @@ export default function Certification() {
               >
                 <div className="flex items-start gap-5">
                   <div className={`w-14 h-14 rounded-2xl ${exam.bgColor} flex items-center justify-center shrink-0 group-hover:scale-105 transition-all overflow-hidden relative shadow-sm border border-white/10`}>
-                    <Image 
-                      src={exam.image} 
+                    <Image
+                      src={exam.image}
                       alt={exam.name}
                       fill
+                      sizes="56px"
                       className="object-contain p-2"
                     />
                   </div>

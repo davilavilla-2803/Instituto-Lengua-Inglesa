@@ -23,7 +23,7 @@ export default function CursoCoachingPage() {
       <PageHero
         label="Cursos — Coaching Docente"
         title={<>Coaching para <span className="text-gradient">Profesorado de Inglés</span></>}
-        phrase="Enseñar inglés también es un arte que se perfecciona con dedicación y método. Un espacio de acompañamiento para docentes que quieren seguir creciendo."
+        phrase="Enseñar inglés es una práctica profesional que se perfecciona con dedicación y método. Un espacio de acompañamiento para docentes que quieren seguir creciendo."
       />
 
       {/* 1. SECCIÓN PRINCIPAL */}
