@@ -97,7 +97,7 @@ export default function Navbar() {
               />
             </button>
             <Link href="/" className="flex flex-col group">
-              <span className="text-[1.3rem] font-medium text-typographyMain leading-none font-brand group-hover:text-brandAccent transition-colors italic whitespace-nowrap">
+              <span className="text-[1rem] font-medium text-typographyMain/65 leading-none font-brand group-hover:text-brandAccent transition-colors italic whitespace-nowrap">
                 Instituto Lengua Inglesa
               </span>
             </Link>

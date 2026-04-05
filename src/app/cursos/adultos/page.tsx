@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { motion } from 'framer-motion';
-import { MessageCircle, BookOpen, Users2, Trophy, Laptop, Calendar, ArrowRight, Zap, Target, Rocket, GraduationCap } from 'lucide-react';
+import { MessageCircle, BookOpen, Users2, Laptop, Calendar, ArrowRight, Zap, Target, Rocket, GraduationCap } from 'lucide-react';
 
 /* ─── Datos ──────────────────────────────────────────────────────────────── */
 
@@ -18,7 +18,7 @@ const highlights = [
   { icon: <MessageCircle size={20} />, text: 'Comunicación real como eje central' },
   { icon: <BookOpen size={20} />, text: 'Contenidos actuales y profesionales' },
   { icon: <Users2 size={20} />, text: 'Grupos reducidos y personalizados' },
-  { icon: <Trophy size={20} />, text: 'Certificación internacional opcional' },
+  { icon: <GraduationCap size={20} />, text: 'Certificación internacional opcional' },
   { icon: <Laptop size={20} />, text: '100% online, sincrónicas vía Zoom' },
   { icon: <Calendar size={20} />, text: 'Modalidad anual: marzo a diciembre' },
 ];

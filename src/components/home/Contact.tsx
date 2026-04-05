@@ -194,7 +194,7 @@ export default function Contact() {
 
                   <div className="space-y-2">
                     <label htmlFor="interest" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-typographyMain/50">
-                      <BookOpen size={12} className="text-brandAccent" /> Me interesa el curso de
+                      <BookOpen size={12} className="text-brandAccent" /> Me interesa charlar sobre
                     </label>
                     <select
                       id="interest" name="interest"
@@ -202,6 +202,9 @@ export default function Contact() {
                       className="w-full px-4 py-3.5 rounded-xl border border-brandSecondary/20 bg-brandPrimary/10 text-sm focus:outline-none focus:border-brandAccent focus:ring-2 focus:ring-brandAccent/20 transition-all text-typographyMain font-medium cursor-pointer"
                     >
                       {courseOptions.map((c) => <option key={c}>{c}</option>)}
+                      <option>Experiencias</option>
+                      <option>Viajes</option>
+                      <option>Otros</option>
                     </select>
                   </div>
 

@@ -128,7 +128,7 @@ export default function Testimonials() {
                     {t.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">{t.name}</h4>
+                    <h4 className="text-sm font-normal text-white">{t.name}</h4>
                     {t.role && (
                       <p className="text-[10px] font-accent text-white/70 uppercase tracking-widest mt-0.5">
                         {t.role}

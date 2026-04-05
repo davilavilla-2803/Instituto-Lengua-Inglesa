@@ -126,9 +126,13 @@ export default function QuienesSomosPage() {
                 </div>
               </div>
 
-              <p className="text-center text-gray-500 font-light italic leading-relaxed text-sm max-w-sm mx-auto">
-                "El inglés es la llave para habitar el mundo. Mi compromiso es brindarte un espacio donde el aprendizaje sea dinámico, cultural y genuino, transformando el idioma en una experiencia personal que te abra puertas para siempre."
-              </p>
+              <div className="relative px-8 py-8 rounded-[2rem] bg-brandAccent/8 border-l-4 border-brandAccent max-w-sm mx-auto">
+                <span className="absolute -top-4 left-6 text-5xl text-brandAccent/30 font-serif leading-none select-none">&ldquo;</span>
+                <p className="text-center text-typographyMain/70 font-light italic leading-relaxed text-base">
+                  El inglés es la llave para habitar el mundo. Mi compromiso es brindarte un espacio donde el aprendizaje sea dinámico, cultural y genuino, transformando el idioma en una experiencia personal que te abra puertas para siempre.
+                </p>
+                <p className="text-center text-[10px] font-black uppercase tracking-[0.3em] text-brandAccent mt-4">— Sofía Dávila Villa</p>
+              </div>
 
             </motion.div>
           </div>
@@ -202,15 +206,15 @@ export default function QuienesSomosPage() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-white p-12 rounded-[2.5rem] border border-brandSecondary/10 space-y-8 shadow-premium group hover:-translate-y-1 transition-all duration-500"
               >
-                <div className="w-16 h-16 rounded-2xl bg-brandPrimary/50 flex items-center justify-center text-3xl text-brandAccent group-hover:bg-brandAccent group-hover:text-white transition-all transform group-hover:rotate-6">
-                  {item.icon}
+                <div className="flex items-center gap-4 mb-2">
+                  <div className="w-14 h-14 rounded-2xl bg-brandPrimary/50 flex items-center justify-center text-2xl text-brandAccent shrink-0 group-hover:bg-brandAccent group-hover:text-white transition-all transform group-hover:rotate-6">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-2xl font-normal font-display text-typographyMain">{item.title}</h3>
                 </div>
-                <div className="space-y-4">
-                  <h3 className="text-2xl font-bold font-display text-typographyMain">{item.title}</h3>
-                  <p className="text-gray-500 font-light leading-relaxed">
-                    {item.text}
-                  </p>
-                </div>
+                <p className="text-gray-500 font-light leading-relaxed">
+                  {item.text}
+                </p>
               </motion.div>
             ))}
           </div>

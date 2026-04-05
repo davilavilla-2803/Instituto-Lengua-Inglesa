@@ -87,7 +87,7 @@ export default function Services() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-typographyMain mb-4 group-hover:text-brandAccent transition-colors">
+                    <h3 className="text-xl font-normal text-typographyMain mb-4 group-hover:text-brandAccent transition-colors">
                       {course.title}
                     </h3>
                     

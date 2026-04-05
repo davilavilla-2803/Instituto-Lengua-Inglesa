@@ -55,7 +55,7 @@ export default function CursoBusinessEnglishPage() {
                     {skill.icon}
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-2xl font-bold text-typographyMain">{skill.title}</h3>
+                    <h3 className="text-2xl font-normal text-typographyMain">{skill.title}</h3>
                     <p className="text-gray-500 font-light leading-relaxed">{skill.desc}</p>
                   </div>
                 </div>

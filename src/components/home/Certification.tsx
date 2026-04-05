@@ -96,7 +96,7 @@ export default function Certification() {
                   </div>
                   <div className="space-y-2">
                     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brandPrimary/60 block">{exam.tag}</span>
-                    <h3 className="text-xl font-bold text-white">{exam.name}</h3>
+                    <h3 className="text-xl font-normal text-white">{exam.name}</h3>
                     <p className="text-white/60 text-sm font-light leading-relaxed">{exam.desc}</p>
                   </div>
                 </div>
