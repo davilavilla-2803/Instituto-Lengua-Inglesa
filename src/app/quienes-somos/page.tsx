@@ -117,7 +117,7 @@ export default function QuienesSomosPage() {
                 <div className="absolute inset-0 bg-brandAccent/10 rounded-[4rem] rotate-6" />
                 <div className="absolute inset-0 bg-white rounded-[4rem] overflow-hidden border border-brandSecondary/10 shadow-2xl">
                   <Image
-                    src="/images/SOFIA DAVILA VILLA.jpeg"
+                    src="/images/NUEVA FOTO DE PERFIL PROFESIONAL.jpeg"
                     alt="Sofía Dávila Villa"
                     fill
                     sizes="(max-width: 768px) 100vw, 40vw"

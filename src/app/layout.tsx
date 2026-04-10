@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import MotionProvider from '@/components/providers/MotionProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -72,12 +73,14 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth" data-scroll-behavior="smooth">
       <body className={`${inter.variable} ${imFell.variable} ${scriptFont.variable} ${displayFont.variable} antialiased min-h-screen flex flex-col`}>
-        <Navbar />
-        <main className="grow">
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppButton />
+        <MotionProvider>
+          <Navbar />
+          <main className="grow">
+            {children}
+          </main>
+          <Footer />
+          <WhatsAppButton />
+        </MotionProvider>
       </body>
     </html>
   );

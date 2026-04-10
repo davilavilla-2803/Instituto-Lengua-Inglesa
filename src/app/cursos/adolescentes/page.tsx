@@ -44,7 +44,7 @@ export default function CursoAdolescentesPage() {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-2">A partir de los 13 años</span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-[10px] font-black tracking-[0.4em] uppercase text-brandAccent mb-2">A partir de los 12 años</span>
               <h2 className="text-4xl md:text-5xl font-bold text-typographyMain font-display tracking-tight leading-tight">
                 Un programa para <span className="text-gradient">conectar con ellos</span>
               </h2>

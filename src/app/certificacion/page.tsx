@@ -149,7 +149,7 @@ export default function CertificacionPage() {
 
               <div className="space-y-4">
                 {[
-                  { level: 'FCE — B2 First', desc: 'First Certificate in English. Nivel intermedio-alto, tu primer gran salto global.' },
+                  { level: 'FCE — B2 First', desc: 'First Certificate in English. Nivel intermedio alto, tu primer gran salto global.' },
                   { level: 'CAE — C1 Advanced', desc: 'Certificate in Advanced English. Para dominar el idioma en contextos profesionales y académicos.' },
                 ].map((item, i) => (
                   <div key={i} className="p-6 rounded-2xl bg-brandPrimary/30 border border-brandSecondary/10 group hover:bg-white hover:shadow-premium transition-all duration-500">
