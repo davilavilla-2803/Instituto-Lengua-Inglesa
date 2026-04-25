@@ -106,6 +106,7 @@ export default function ViajesPage() {
                   alt={img.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
+                  priority
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/60 to-transparent flex items-end p-8">

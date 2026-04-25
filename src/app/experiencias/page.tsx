@@ -16,6 +16,7 @@ const experiences = [
     target: 'Adolescentes y adultos',
     image: '/images/ENGLISH AND COFFEE.jpeg',
     imagePosition: 'object-center',
+    priority: true,
     description: 'Una experiencia distinta, relajada y creativa abierta a toda la comunidad. Practicamos speaking y listening sobre temas de interés general en un entorno cálido.',
     detail: 'Grupo reducido para garantizar una producción oral personalizada y fluida.',
   },
@@ -24,6 +25,7 @@ const experiences = [
     title: "The Kids' Creative Club",
     target: 'Niños',
     image: '/images/THE KIDS CREATIVE CLUB.jpeg',
+    priority: true,
     description: 'Propuesta 100% lúdica y espontánea. Los niños desarrollan sus habilidades a través del arte, juegos y una merienda compartida.',
     detail: 'Cupos muy limitados para fomentar la expresión y conexión individual.',
   },
@@ -31,10 +33,11 @@ const experiences = [
     icon: <MapPin size={32} />,
     title: 'The Grand BA Circuit',
     target: 'Adolescentes y adultos',
-    image: '/images/THE GRAND CIRCUIT OF BA.jpeg',
+    image: '/images/TEATRO COLON.jpeg',
     imagePosition: '[object-position:center_35%]',
+    priority: true,
     badgeBottom: true,
-    description: 'Recorrido bilingüe por el Palacio Barolo y Confitería La Ideal. Historia, arquitectura y nuestra Bilingual Gourmet Experience.',
+    description: 'Recorrido bilingüe por el Teatro Colón y Confitería La Ideal. Historia, arquitectura y nuestro English & Coffee Experience.',
     detail: 'Un circuito sofisticado para conectar con los iconos de la ciudad.',
   },
   {
@@ -42,6 +45,7 @@ const experiences = [
     title: 'English Tours in Buenos Aires',
     target: 'Adolescentes y adultos',
     image: '/images/ENGLISH TOURS IN BA.jpeg',
+    priority: true,
     description: 'Inmersión cultural en movimiento. Recorridos guiados por Puerto Madero, San Telmo, La Boca, el Jardín Botánico y museos emblemáticos.',
     detail: 'Cada edición propone una inmersión cultural distinta, donde el idioma se practica en movimiento.',
   },
@@ -138,6 +142,7 @@ export default function ExperienciasPage() {
                       alt={exp.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
+                      priority={exp.priority}
                       className={`relative z-10 ${exp.objectFit || 'object-cover'} ${exp.imagePosition || 'object-center'} transition-transform duration-700 group-hover:scale-105`}
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-brandAccentDark/30 to-transparent z-20" />

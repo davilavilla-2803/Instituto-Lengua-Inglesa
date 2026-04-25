@@ -121,6 +121,7 @@ export default function QuienesSomosPage() {
                     alt="Sofía Dávila Villa"
                     fill
                     sizes="(max-width: 768px) 100vw, 40vw"
+                    priority
                     className="object-cover object-center"
                   />
                 </div>

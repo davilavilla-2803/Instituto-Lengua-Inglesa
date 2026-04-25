@@ -91,6 +91,7 @@ export default function Certification() {
                       alt={exam.name}
                       fill
                       sizes="56px"
+                      priority
                       className="object-contain p-2"
                     />
                   </div>

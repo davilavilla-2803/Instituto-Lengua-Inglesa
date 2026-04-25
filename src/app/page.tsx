@@ -99,6 +99,7 @@ export default function Home() {
                 alt="Experiencias Culturales"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
+                priority
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
@@ -117,6 +118,7 @@ export default function Home() {
                 alt="Viajes Bilingües"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
+                priority
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />

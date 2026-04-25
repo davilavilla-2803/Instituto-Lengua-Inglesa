@@ -93,6 +93,7 @@ export default function CertificacionPage() {
                   alt="Trinity College London Logo"
                   fill
                   sizes="128px"
+                  priority
                   className="object-contain"
                 />
               </div>
@@ -122,6 +123,7 @@ export default function CertificacionPage() {
                   alt="Cambridge English Logo"
                   fill
                   sizes="128px"
+                  priority
                   className="object-contain p-2"
                 />
               </div>
